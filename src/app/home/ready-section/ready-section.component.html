@@ -1,0 +1,190 @@
+<section class="ready-sec section">
+  <div class="container foot-form">
+    <div class="row align-items-center">
+      <div class="col-lg-5">
+        <h2 class="main-sec-head" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          Ready to discuss your toughest
+          <span class="tech-span" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300"
+            >tech challenges?</span
+          >
+        </h2>
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          Fill out the form and get on a call within 24-48 hours with our product and tech expert.
+        </p>
+        <p data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
+          No account managers - <span class="promise">that's a promise.</span>
+        </p>
+      </div>
+
+      <div class="col-lg-7">
+        <form
+          [formGroup]="contactForm"
+          (ngSubmit)="onSubmit(contactForm.value)"
+          class="form-box"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+        >
+          <div class="form-group">
+            <label>name</label>
+            <input type="text" class="form-control" formControlName="name" appLettersOnly />
+            <div
+              class="err-msgs"
+              *ngIf="
+                this.utilsService.checkFormControlValidity(isSubmitClicked, contactForm, 'name')
+              "
+            >
+              <small class="invalid-msgs" *ngIf="contactForm.controls['name']?.errors?.['required']"
+                >Name required.</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Phone number</label>
+            <input
+              type="text"
+              class="form-control"
+              formControlName="number"
+              [maxLength]="10"
+              [minLength]="10"
+              appNumberonly
+            />
+            <div
+              class="err-msgs"
+              *ngIf="
+                this.utilsService.checkFormControlValidity(isSubmitClicked, contactForm, 'number')
+              "
+            >
+              <small
+                class="invalid-msgs"
+                *ngIf="contactForm.controls['number']?.errors?.['required']"
+                >Phone number required.</small
+              >
+              <small
+                class="invalid-msgs"
+                *ngIf="contactForm.controls?.['number']?.errors?.['invalidMobileNumber']"
+              >
+                Please enter a valid Mobile Number.</small
+              >
+              <small
+                class="invalid-msgs"
+                *ngIf="
+                  contactForm.controls?.['number']?.errors?.['minlength'] &&
+                  !contactForm.controls?.['number']?.errors?.['invalidMobileNumber']
+                "
+                >Mobile No. must be 10 digits.</small
+              >
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>email</label>
+            <div class="d-flex">
+              <input type="email" class="form-control email-form-control" formControlName="email" />
+              <button
+                type="button"
+                class="btn otp-btn z-0"
+                [disabled]="
+                  !contactForm.controls['email'].invalid && enableEmailBtn
+                    ? true
+                    : !(!contactForm.controls['email'].invalid || enableEmailBtn)
+                "
+                (click)="showEmailOTPField()"
+              >
+                {{
+                  isShowEmailOtpField === false
+                    ? 'Send
+                OTP'
+                    : 'Resend'
+                }}
+              </button>
+            </div>
+            @if (getEmailOtp) {
+              <div class="text-end">
+                <span style="color: #6b6b6b"
+                  >Resend OTP in
+                  <span style="color: red">{{ emailmin + ':' + emailsec }}</span></span
+                >
+              </div>
+            }
+            <div
+              class="err-msgs"
+              *ngIf="
+                this.utilsService.checkFormControlValidity(isSubmitClicked, contactForm, 'email')
+              "
+            >
+              <small
+                class="invalid-msgs"
+                *ngIf="contactForm.controls['email']?.errors?.['required']"
+                >Valid email is required.</small
+              >
+              <small
+                class="invalid-msgs"
+                *ngIf="contactForm.controls['email']?.errors?.['invalidEmail']"
+                >Please enter a valid Email ID.</small
+              >
+            </div>
+          </div>
+
+          @if (showOtpField) {
+            <div class="form-group">
+              <label>OTP</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="otp"
+                [maxLength]="6"
+                [minLength]="6"
+                pattern="[0-9]*"
+                inputmode="numeric"
+                (input)="otpInput($event)"
+              />
+              <div
+                class="err-msgs"
+                *ngIf="
+                  this.utilsService.checkFormControlValidity(isSubmitClicked, contactForm, 'otp')
+                "
+              >
+                <small
+                  class="invalid-msgs"
+                  *ngIf="contactForm.controls['otp']?.errors?.['required']"
+                >
+                  OTP required.</small
+                >
+              </div>
+            </div>
+          }
+
+          <div class="form-group">
+            <label>About project</label>
+            <textarea
+              class="form-control center-placeholder mb-0"
+              formControlName="message"
+              [maxlength]="300"
+            ></textarea>
+            <div
+              class="err-msgs"
+              *ngIf="
+                this.utilsService.checkFormControlValidity(isSubmitClicked, contactForm, 'message')
+              "
+            >
+              <small
+                class="invalid-msgs"
+                *ngIf="contactForm.controls['message']?.errors?.['required']"
+                >About Project required</small
+              >
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-animate">
+            Send <img src="assets/images/btn-arrow.svg" alt="" class="img-fluid" />
+          </button>
+          <div *ngIf="isSubmitSuccess" class="text-center alert alert-success mt-2" role="alert">
+            We have received your request and will get back to you shortly.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

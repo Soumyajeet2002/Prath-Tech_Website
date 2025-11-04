@@ -1,0 +1,186 @@
+{
+  "info": {
+    "name": "STL Email API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "7f2b6c2a-2d7c-4e47-a2b0-collection-stl-email"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Send Email (JSON)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"to\": \"{{toEmail}}\",\n  \"subject\": \"Test from API\",\n  \"text\": \"Hello from Node Email API\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/send-email",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "send-email"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Contact/Career (form-data)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "name", "value": "John Doe", "type": "text" },
+            { "key": "email", "value": "john@example.com", "type": "text" },
+            { "key": "number", "value": "9999999999", "type": "text" },
+            { "key": "subject", "value": "Contact", "type": "text" },
+            { "key": "message", "value": "Hello from Node API", "type": "text" },
+            { "key": "experience", "value": "", "type": "text" },
+            { "key": "position", "value": "", "type": "text" },
+            { "key": "file-upload", "type": "file", "src": [] }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/contact",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "contact"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// Ensure contact vs career scenario by editing experience/position and attaching a file when needed."
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "Send OTP",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"{{toEmail}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/send-otp",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "send-otp"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Verify OTP",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"{{toEmail}}\",\n  \"otp\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/verify-otp",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "verify-otp"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Contact Form (New)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"John Doe\",\n  \"phone\": \"9999999999\",\n  \"email\": \"{{toEmail}}\",\n  \"aboutProject\": \"I need help with my web development project. Please contact me for more details.\",\n  \"otp\": \"123456\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/contact-form",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "contact-form"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Professional Details",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "fullName", "value": "John Doe", "type": "text" },
+            { "key": "mobileNumber", "value": "9999999999", "type": "text" },
+            { "key": "emailAddress", "value": "{{toEmail}}", "type": "text" },
+            { "key": "role", "value": "Software Engineer", "type": "text" },
+            { "key": "experienceYears", "value": "3", "type": "text" },
+            { "key": "experienceMonths", "value": "6", "type": "text" },
+            { "key": "currentCTC", "value": "8", "type": "text" },
+            { "key": "expectedCTC", "value": "12", "type": "text" },
+            { "key": "noticePeriod", "value": "30", "type": "text" },
+            { "key": "cv", "type": "file", "src": [] }
+          ]
+        },
+        "url": {
+          "raw": "{{baseUrl}}/professional-details",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "professional-details"
+          ]
+        }
+      }
+    }
+  ]
+}
+
+

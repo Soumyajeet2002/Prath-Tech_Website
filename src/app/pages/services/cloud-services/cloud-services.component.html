@@ -1,0 +1,413 @@
+<!-- Cloud-Section -->
+ 
+ <section class="cloud-section">
+  <div class="cloud-content">
+    <h2>
+      Break Free from Frequent <br />
+      <strong>Downtime, Manual maintenance, <br /> and Cost Overruns.</strong>
+    </h2>
+
+    <p class="subtext">
+      Innovate and scale your business leveraging the benefits of the cloud without handling <br />
+      the technical complexities of your cloud infrastructure.
+    </p>
+    <p class="description">
+     PRATH TECHhelps you design, architect, and optimize your cloud infrastructure beyond simple automation.
+    </p>
+
+    <button class="discovery-btn">
+      Access Your Free Discovery Calls <span></span>
+    </button>
+  </div>
+</section>
+
+<!-- Transfrom-section -->
+ <section class="cards-section">
+  <h2>
+    Transform, Innovate,<br />
+    <strong>and Thrive with Cloud Solutions</strong>
+  </h2>
+
+  <div class="card-container">
+    <div class="card" *ngFor="let card of cards" [ngStyle]="{ 'background-image': 'url(' + card.image + ')' }">
+      <div class="card-overlay">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.description }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cloud deployment section -->
+
+
+ <section class="deployment-section">
+  <h2>Cloud Deployments We Handle</h2>
+
+  <div class="deployment-cards">
+    <div class="deployment-card" *ngFor="let cloud of cloudTypes">
+      <img [src]="cloud.image" [alt]="cloud.title" class="card-image" />
+      <div class="card-text">
+        <h3>{{ cloud.title }}</h3>
+        <p>{{ cloud.description }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-buttons">
+    <button class="nav-btn">
+      <span>&larr;</span>
+    </button>
+    <button class="nav-btn">
+      <span>&rarr;</span>
+    </button>
+  </div>
+</section>
+
+<!-- Inevitable Section -->
+ <section class="inevitable-section">
+  <!-- <div class="inevitable-container"> -->
+    <div class="inevitable-left">
+      <h6 class="left-cloud">The Shift to Cloud Is <br /> <strong>Inevitable</strong></h6>
+      <p class="left-subcloud">Is your business ready to scale with the speed of the cloud?</p>
+      <button class="cta-button">
+        Talk to our experts today
+        <span>
+          <img src="assets/images/cloud_images/Arrow 5.svg" alt="arrow"  class="img-shift-cloud"/>
+        </span>
+      </button>
+    </div>
+
+    <div class="inevitable-stats">
+      <div class="stat-card" *ngFor="let stat of stats">
+        <h3>{{ stat.value }}</h3>
+        <p>{{ stat.text }}</p>
+      </div>
+    </div>
+  <!-- </div> -->
+</section>
+
+<!-- //resilience-section -->
+<section class="resilience-section">
+  <div class="inner">
+    <header class="heading">
+      <h2><span class="light">Resilient, Future-</span><strong>Ready Solutions</strong></h2>
+      <p class="lead">
+        As data continues to migrate to the cloud, security concerns are increasingly prominent.
+        Recent statistics reveal that 75% of businesses consider cloud security their top concern.
+      </p>
+      <p class="lead-2">
+        At PRATH TECH, we take resilience seriously. This is how our solutions are designed not just to protect
+        against threats but also to ensure that businesses can recover quickly from unexpected disruptions:
+      </p>
+    </header>
+
+    <div class="cards">
+      <article class="card" *ngFor="let box of solutionBoxes" [ngClass]="box.color">
+        <!-- icon circle -->
+        <!-- <div class="icon-wrap" aria-hidden="true">
+          <div class="icon-circle">
+            <svg viewBox="0 0 24 24" class="icon-svg" role="img" aria-hidden="true">
+              <path fill="currentColor" d="M6 2h7l5 5v13a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"></path>
+              <path fill="#fff" d="M9 9h6v1H9zM9 12h6v1H9zM9 15h4v1H9z"></path>
+            </svg>
+          </div> -->
+        <!-- </div> -->
+
+        <div class="card-inner">
+          <img [src]="box.img">
+          <h3 class="card-title">{{ box.title }}</h3>
+          <p class="card-text">{{ box.subtitle }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+
+<!-- stringnet Section -->
+
+<section class="stringent-process">
+  <div class="container">
+    <header class="heading">
+      <h4 class="subtitle">Stringent Process</h4>
+      <h2 class="title">
+        Maintaining Quality of <strong>Project Delivery</strong>
+      </h2>
+      <p class="description">
+        Our approach prioritizes your business requirements, delivering industry-leading cloud solutions
+        that maximize the ROI of your investment and drive success.
+      </p>
+    </header>
+
+    <div class="process-grid">
+      <div class="process-card" *ngFor="let box of processBoxes">
+        <div class="icon">
+          <ng-container [ngSwitch]="box.iconType">
+            
+            
+          </ng-container>
+        </div>
+        <img [src]="box.img">
+        <h3 class="card-title">{{ box.title }}</h3>
+        <p class="card-text">{{ box.subtitle }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section Engagement -->
+
+<section class="engagement-section">
+  <div class="engagement-header">
+    <h2>Choose From the Engagement Model</h2>
+    <h3>That Fits Your Unique Business Requirements</h3>
+  </div>
+
+  <div class="service-box-container">
+    <div class="service-box">
+      <h4>Consultation Services</h4>
+      <p>
+        Our team takes the time to understand your challenges and objectives, offering personalized
+        insights and strategies that align with your goals. With our support, you'll gain a clear
+        understanding of the best approach for your business.
+      </p>
+    </div>
+
+    <div class="service-box">
+      <h4>Managed Services</h4>
+      <p>
+        With our comprehensive managed services, you can offload your cloud security management
+        to our skilled team. We monitor, manage, and optimize your cloud environment, allowing
+        you to focus on your core business.
+      </p>
+    </div>
+  </div>
+
+  <div class="service-buttons">
+    <button class="service-btn">Explore Our Consultation Services →</button>
+    <button class="service-btn">Explore Our Managed Services →</button>
+  </div>
+</section>
+
+
+
+<!-- Case Studies -->
+
+<section class="case-studies-section">
+  <div class="case-studies-container">
+    <h2 class="case-studies-title">Case Studies</h2>
+    <div class="case-studies-grid">
+      
+      <div class="case-card">
+        <img src="assets/images/cloud_images/Rectangle 83.svg" alt="High Risk Mother and Child Tracking System (e PHC)" />
+        <h3>High Risk Mother and Child Tracking System (e PHC)</h3>
+        <a href="#">Read more >></a>
+      </div>
+
+      <div class="case-card">
+        <img src="assets/images/cloud_images/Rectangle 83 (1).svg" alt="Project Monitoring System, RECPTCL" />
+        <h3>Project Monitoring System, RECPTCL</h3>
+        <a href="#">Read more >></a>
+      </div>
+
+      <div class="case-card">
+        <img src="assets/images/cloud_images/Rectangle 83 (2).svg" alt="Startup Odisha, Govt of Odisha" />
+        <h3>Startup Odisha, Govt of Odisha</h3>
+        <a href="#">Read more >></a>
+      </div>
+
+      <div class="case-card">
+        <img src="assets/images/cloud_images/Rectangle 83 (3).svg" alt="SAMPARK Portal" />
+        <h3>SAMPARK Portal</h3>
+        <a href="#">Read more >></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="technologies-section">
+  <div class="tech-header">
+    <p class="subtitle">Follow the Standard? <span class="highlight">We Raise the Standards!</span></p>
+    <h2>
+     PRATH TECH Leverages 50+ Technologies
+      <span class="bold">to Drive Client Success</span>
+    </h2>
+    <p class="description">
+      We are committed to staying at the forefront of technology. Our experts leverage the latest tools to elevate
+      your business's cloud and DevOps capabilities.
+    </p>
+  </div>
+
+  <div class="tech-categories">
+    Cloud Platforms
+    <div class="category">
+      <h3>Cloud Platforms</h3>
+      <div class="tech-items">
+        <div class="tech-box" *ngFor="let item of cloudPlatforms">
+          <img [src]="item.img" [alt]="item.name" />
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Containerization and Orchestration -->
+    <div class="category">
+      <h3>Containerization and Orchestration</h3>
+      <div class="tech-items">
+        <div class="tech-box" *ngFor="let item of containerization">
+          <img [src]="item.img" [alt]="item.name" />
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Configuration Management -->
+    <div class="category">
+      <h3>Configuration Management</h3>
+      <div class="tech-items">
+        <div class="tech-box" *ngFor="let item of configManagement">
+          <img [src]="item.img" [alt]="item.name" />
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Monitoring and Logging -->
+    <div class="category">
+      <h3>Monitoring and Logging</h3>
+      <div class="tech-items">
+        <div class="tech-box" *ngFor="let item of monitoringLogging">
+          <img [src]="item.img" [alt]="item.name" />
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Collaboration and Communication -->
+    <div class="category">
+      <h3>Collaboration and Communication</h3>
+      <div class="tech-items">
+        <div class="tech-box" *ngFor="let item of collaboration">
+          <img [src]="item.img" [alt]="item.name" />
+          <p>{{ item.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--  -->
+
+<section class="outcomes-section">
+  <div class="outcomes-container">
+    <!-- Left Side Text -->
+    <div class="outcomes-text">
+      <h2>
+        High-Impact<br>
+        Outcomes That Drive<br>
+        Your Business Growth
+      </h2>
+    </div>
+
+    <!-- Right Side Stats -->
+    <div class="outcomes-stats">
+      <div class="stat-item" style="--stat-color: linear-gradient(135deg, #2bb673, #0072bc);">
+        <div class="stat-number">200+</div>
+        <div class="stat-label">Successful Projects</div>
+      </div>
+
+      <div class="stat-item" style="--stat-color: linear-gradient(135deg, #e26a3d, #c94b2b);">
+        <div class="stat-number">50+</div>
+        <div class="stat-label">Clients Served</div>
+      </div>
+
+      <div class="stat-item" style="--stat-color: linear-gradient(135deg, #4aa3f0, #0072bc);">
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years of Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="industries-section">
+  <h2 class="section-title">Industries</h2>
+
+  <div class="industries-container">
+    <div class="industry-card" *ngFor="let industry of industries">
+      <div class="card-bg" [style.backgroundImage]="'url(' + industry.image + ')'">
+        <div class="overlay"></div>
+        <div class="card-content">
+          <h3>{{ industry.title }}</h3>
+          <p>{{ industry.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <div class="nav-buttons">
+    <button class="nav-btn">
+      <span>&larr;</span>
+    </button>
+    <button class="nav-btn">
+      <span>&rarr;</span>
+    </button>
+  </div>
+</section>
+
+<!-- Ready Section -->
+
+
+<section class="ready-sec section">
+  <div class="container foot-form">
+    <div class="row align-items-center">
+      <div class="col-lg-5">
+        <h2 class="main-sec-head">
+          Ready to discuss your toughest <span class="tech-span">tech challenges?</span>
+        </h2>
+        <p>Fill out the form and get on a call within 24-48 hours with our product and tech expert.</p>
+        <p>No account managers - <a href="#" class="promise">that's a promise.</a></p>
+      </div>
+
+      <div class="col-lg-7">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-box">
+          <div class="form-group">
+            <label>Hello, my name is:</label>
+            <input type="text" class="form-control" placeholder="Full name*" formControlName="fullName" />
+            <div *ngIf="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid" class="text-danger">
+              Name is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Here is my email:</label>
+            <input type="email" class="form-control" placeholder="Email address*" formControlName="email" />
+            <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="text-danger">
+              Valid email is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>About project:</label>
+            <textarea class="form-control center-placeholder" placeholder="Your project description*" formControlName="projectDescription"></textarea>
+            <div *ngIf="contactForm.get('projectDescription')?.touched && contactForm.get('projectDescription')?.invalid" class="text-danger">
+              Project description is required.
+            </div>
+          </div>
+
+          <button class="btn btn-animate" type="submit">
+            Send <img src="/assets/images/btn-arrow.svg" alt="" class="img-fluid" />
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+

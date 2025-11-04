@@ -1,0 +1,763 @@
+// @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+
+// @import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
+
+
+
+// ALL NEW SCSS
+
+
+// =================== VARIABLES ===================
+
+
+
+
+$brand-color: #4D1AA8;
+$hover-gradient: linear-gradient(135deg, #0A47B9 0%, #763289 100%);
+$dropdown-hover-bg: #4D1AA8;
+$navbar-bg: #ffffff7d;
+$text-dark: #000000a8;
+$text-muted: #00000066;
+$submenu-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+
+// =================== ANIMATION ===================
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient-89 {
+  0% {
+    background-position: 100% 0%;
+  }
+
+  50% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+@keyframes swingdown {
+  0% {
+    opacity: 0.999;
+    transform: rotateX(90deg);
+  }
+
+  30% {
+    transform: rotateX(-20deg) rotateY(5deg);
+  }
+
+  65% {
+    transform: rotateX(20deg) rotateY(-3deg);
+  }
+
+  100% {
+    transform: rotateX(0);
+  }
+}
+
+// =================== BASE STYLES ===================
+.custom-about-link {
+  color: $brand-color !important;
+}
+
+.container-fluid {
+  padding-right: 0;
+  margin-left: 35px;
+}
+
+.stl-logo {
+  width: 157.99px;
+  height: 64.85px;
+}
+
+.navbar {
+  width: 100%;
+  height: 100px;
+  background-color: $navbar-bg !important;
+  box-shadow: 0 2px 12px #a7a2a236;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  opacity: 0;
+  transform: translateY(50px);
+  animation: slideUp 1s forwards;
+  animation-delay: 0.5s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+// =================== MENU ICON ===================
+.menu-click {
+  height: 100px;
+  width: 105.67px;
+  position: relative;
+  margin-top: -8px;
+  cursor: pointer;
+  background: $hover-gradient;
+
+  span {
+    display: flex;
+    height: 6px;
+    background: #ffffff;
+    border-radius: 10px;
+    position: absolute;
+    transition: all 0.25s ease-in-out;
+    transform: rotate(0deg);
+    transform-origin: center center;
+    left: 50%;
+    translate: -50%;
+  }
+
+  span:nth-child(1) {
+    top: 30px;
+    width: 36.31px;
+    height: 5.24px;
+    background: #ffffff;
+  }
+
+  span:nth-child(2) {
+    top: 40px;
+    width: 27.28px;
+    height: 5.24px;
+    background: #ffffff;
+  }
+
+  span:nth-child(3) {
+    top: 50px;
+    width: 36.06px;
+    height: 5.24px;
+    background: #ffffff;
+  }
+
+  &.open {
+    span:first-child {
+      top: 40px;
+      transform: rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+    }
+
+    span:nth-child(3) {
+      top: 40px;
+      transform: rotate(-45deg);
+    }
+  }
+}
+
+// =================== NAV LINKS ===================
+.navbar-light .navbar-nav .nav-link,
+.nav-link {
+  color: $brand-color !important;
+  font-size: 18px;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  font-family: 'Geist', sans-serif !important;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: $hover-gradient;
+    background-size: 200% auto;
+    transform: translateX(-100%);
+    transition: all 0.5s;
+  }
+
+  &:hover::after {
+    transform: translateX(0%);
+    animation: gradient-89 3s linear infinite;
+  }
+}
+
+// =================== DROPDOWN TOGGLE ===================
+.dropdown-toggle::after {
+  margin-left: 0px !important;
+}
+
+// =================== MULTILEVEL MENU ===================
+.main-menu,
+.main-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-menu>li {
+  position: relative;
+}
+
+.main-menu a {
+  display: block;
+  padding: 13px 20px;
+  text-decoration: none;
+  color: rgba(75, 75, 75, 1);
+  font-weight: 400;
+  background: transparent;
+  // text-shadow: 0 1px 1px rgba(255, 255, 255, .9);
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    text-shadow: none;
+  }
+}
+
+// =================== SUBMENU ===================
+.main-menu li ul {
+  position: absolute;
+  left: 0;
+  width: 320px;
+  opacity: 0;
+  visibility: hidden;
+  transform-origin: 50% 0%;
+  background: #fff;
+  z-index: 999;
+}
+
+.main-menu li:hover ul {
+  opacity: 1;
+  visibility: visible;
+  box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.116);
+  animation: swingdown 1s ease;
+}
+
+.main-menu li li a {
+  padding-left: 15px;
+  font-weight: 400;
+  color: $text-dark;
+  border-top: dotted 1px transparent;
+  border-bottom: dotted 1px transparent;
+
+  &:hover {
+    background: $dropdown-hover-bg;
+    color: white !important;
+  }
+}
+
+.submenu-area li {
+  border-bottom: 1px solid #ccc;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+// =================== DROPDOWN STYLES ===================
+.dropdown i {
+  color: $text-muted;
+}
+
+.dropdown-menu.submenu-area {
+  display: none;
+  flex-direction: column;
+  padding: 0.5rem 0;
+  background: #fff;
+  border-radius: 0.25rem;
+  box-shadow: $submenu-shadow;
+}
+
+.dropdown.show .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  color: #333;
+
+  &:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+  }
+}
+
+// =================== RESPONSIVE ===================
+.main-menu {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 1rem 0;
+  background-color: #fff;
+  box-shadow: $submenu-shadow;
+
+  &.open {
+    display: flex;
+  }
+
+  .nav-link {
+    color: #000;
+    padding: 0.75rem 1.25rem;
+    font-weight: 500;
+
+    &:hover,
+    &.active {
+      color: #007bff;
+    }
+  }
+}
+
+
+
+
+
+.input-search {
+  height: 50px;
+  width: 50px;
+  border-style: none;
+  padding: 10px;
+  font-size: 18px;
+  letter-spacing: 2px;
+  outline: none;
+  border-radius: 25px;
+  transition: all .5s ease-in-out;
+  padding-right: 40px;
+  background: none;
+  color: #000;
+}
+
+.input-search::placeholder {
+  color: rgba(0, 0, 0, 1);
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-weight: 100;
+}
+
+.btn-search {
+  width: 50px;
+  height: 50px;
+  border-style: none;
+  font-size: 20px;
+  font-weight: bold;
+  outline: none;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: 0px;
+  color: #000;
+  background: none;
+  pointer-events: painted;
+}
+
+.btn-search:focus~.input-search {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid #000;
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+.input-search:focus {
+  width: 300px;
+  border-radius: 0px;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, .5);
+  transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+}
+
+
+
+
+
+
+
+
+
+// =================== BREAKPOINT VARIABLES ===================
+$bp-mobile: 700px;
+$bp-tablet: 1000px;
+
+
+// =================== UNIVERSAL: HAMBURGER ALWAYS VISIBLE ===================
+.menu-click {
+  display: flex; // always visible
+  justify-content: center;
+  align-items: center;
+  // margin-left: auto;
+  z-index: 1001;
+  cursor: pointer;
+
+  span {
+    display: block;
+    height: 4px;
+    width: 24px;
+    margin: 4px 0;
+    background: #333; // dark color for visibility 
+    border-radius: 3px;
+    transition: all 0.3s ease;
+  }
+}
+
+
+// =================== MOBILE (Up to 700px) ===================
+
+// FOR MOBILE SCREEN
+@media only screen and (min-width: 300px) and (max-width: 800px) {
+
+  .navbar {
+    padding: 0;
+    height: 80px; // Keep this consistent
+    width: 100vw !important;
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+  }
+
+  .stl-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+  }
+
+  .container-fluid {
+    flex-wrap: wrap;
+    margin-left: 0;
+    padding-right: 0;
+    width: 100vw;
+    box-sizing: border-box;
+  }
+
+  .menu-click {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85px;
+    width: 100px;
+    z-index: 1001;
+    cursor: pointer;
+
+    span {
+      margin-top: 0px;
+      display: block;
+      height: 4px;
+      width: 24px;
+      // margin: 4px 0;
+      background: #333;
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+  }
+
+  .main-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    background: #fff;
+    box-shadow: $submenu-shadow;
+    padding: 1rem 0; // uncommented for consistent padding
+    z-index: 1000;
+    overflow-y: auto; // if content height grows, allow scroll (optional)
+
+    &.open {
+      display: flex;
+    }
+
+    li {
+      width: 100%;
+      text-align: left;
+
+      a {
+        padding: 0.75rem 1.25rem;
+        display: block;
+      }
+    }
+
+    .dropdown-menu.submenu-area {
+      position: relative;
+      width: 100%;
+      box-shadow: none;
+      display: none;
+      padding-left: 1rem;
+    }
+
+    .dropdown.open .dropdown-menu {
+      display: block;
+    }
+
+
+  }
+
+  .search-box {
+    display: flex;
+    flex-direction: row;
+    // width: 100%;
+    padding: 0.75rem 1.25rem;
+
+    .input-search {
+      width: 100%;
+      margin-left: 0.5rem;
+    }
+  }
+
+}
+
+// @media only screen and (min-width: 993px) and (max-width: 1050px) {
+
+//   .navbar {
+//     padding: 0;
+//     height: 80px; // Keep this consistent
+//     width: 100vw !important;
+//     min-width: 0;
+//     box-sizing: border-box;
+//     display: flex;
+//     align-items: center;
+//   }
+
+//   .stl-logo {
+//     height: 60px;
+//     width: auto;
+//     object-fit: contain;
+//     display: flex;
+//     align-items: center;
+//   }
+
+//   .container-fluid {
+//     flex-wrap: wrap;
+//     margin-left: 0;
+//     padding-right: 0;
+//     width: 100vw;
+//     box-sizing: border-box;
+//   }
+
+
+//   .menu-click {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 85px;
+//     width: 100px;
+//     z-index: 1001;
+//     cursor: pointer;
+
+//     span {
+//       margin-top: 0px;
+//       display: block;
+//       height: 4px;
+//       width: 24px;
+//       // margin: 4px 0;
+//       background: #333;
+//       border-radius: 3px;
+//       transition: all 0.3s ease;
+//     }
+//   }
+
+//   .main-menu {
+//     display: none;
+//     flex-direction: column;
+//     width: 100%;
+//     position: absolute;
+//     top: 70px;
+//     left: 0;
+//     background: #fff;
+//     box-shadow: $submenu-shadow;
+//     padding: 1rem 0; // uncommented for consistent padding
+//     z-index: 1000;
+//     overflow-y: auto; // if content height grows, allow scroll (optional)
+
+//     &.open {
+//       display: flex;
+//     }
+
+//     li {
+//       width: 100%;
+//       text-align: left;
+
+//       a {
+//         padding: 0.75rem 1.25rem;
+//         display: block;
+//       }
+//     }
+
+//     .dropdown-menu.submenu-area {
+//       position: relative;
+//       width: 100%;
+//       box-shadow: none;
+//       display: none;
+//       padding-left: 1rem;
+//     }
+
+//     .dropdown.open .dropdown-menu {
+//       display: block;
+//     }
+//   }
+
+//   .search-box {
+//     display: flex;
+//     flex-direction: row;
+//     // width: 100%;
+//     padding: 0.75rem 1.25rem;
+
+//     .input-search {
+//       width: 100%;
+//       margin-left: 0.5rem;
+//     }
+//   }
+// }
+
+// =================== DESKTOP / LARGE (≥1001px) ===================
+// @media only screen and (min-width: 1051px) and (max-width: 1150px) {
+
+//   .navbar {
+//     padding: 0;
+//     height: 80px; // Keep this consistent
+//     width: 100vw !important;
+//     min-width: 0;
+//     box-sizing: border-box;
+//     display: flex;
+//     align-items: center;
+//   }
+
+//   .stl-logo {
+//     height: 60px;
+//     width: auto;
+//     object-fit: contain;
+//     display: flex;
+//     align-items: center;
+//   }
+
+//   .container-fluid {
+//     flex-wrap: wrap;
+//     margin-left: 0;
+//     padding-right: 0;
+//     width: 100vw;
+//     box-sizing: border-box;
+//   }
+
+
+//   .menu-click {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 85px;
+//     width: 100px;
+//     z-index: 1001;
+//     cursor: pointer;
+
+//     span {
+//       margin-top: 0px;
+//       display: block;
+//       height: 4px;
+//       width: 24px;
+//       // margin: 4px 0;
+//       background: #333;
+//       border-radius: 3px;
+//       transition: all 0.3s ease;
+//     }
+//   }
+
+//   .main-menu {
+//     display: none;
+//     flex-direction: column;
+//     width: 100%;
+//     position: absolute;
+//     top: 70px;
+//     left: 0;
+//     background: #fff;
+//     box-shadow: $submenu-shadow;
+//     padding: 1rem 0; // uncommented for consistent padding
+//     z-index: 1000;
+//     overflow-y: auto; // if content height grows, allow scroll (optional)
+
+//     &.open {
+//       display: flex;
+//     }
+
+//     li {
+//       width: 100%;
+//       text-align: left;
+
+//       a {
+//         padding: 0.75rem 1.25rem;
+//         display: block;
+//       }
+//     }
+
+//     .dropdown-menu.submenu-area {
+//       position: relative;
+//       width: 100%;
+//       box-shadow: none;
+//       display: none;
+//       padding-left: 1rem;
+//     }
+
+//     .dropdown.open .dropdown-menu {
+//       display: block;
+//     }
+//   }
+
+//   .search-box {
+//     display: flex;
+//     flex-direction: row;
+//     // width: 100%;
+//     padding: 0.75rem 1.25rem;
+
+//     .input-search {
+//       width: 100%;
+//       margin-left: 0.5rem;
+//     }
+//   }
+// }
+
+@media (min-width: 1001px) {
+
+  .navbar {
+    width: 100%;
+    height: 100px;
+    // padding: 0 40px;
+  }
+
+  .stl-logo {
+    width: 157px;
+    height: auto;
+  }
+
+  // Main menu inline again
+  .main-menu {
+    display: flex !important;
+    flex-direction: row;
+    position: static;
+    background: none;
+    box-shadow: none;
+    width: auto;
+    padding: 0;
+  }
+
+  .dropdown-menu.submenu-area {
+    position: absolute;
+    min-width: 250px;
+    box-shadow: $submenu-shadow;
+  }
+
+  .dropdown:hover>.dropdown-menu {
+    display: block;
+  }
+
+  .search-box {
+    display: flex !important;
+  }
+}

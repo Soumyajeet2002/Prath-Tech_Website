@@ -1,0 +1,99 @@
+<section class="why-choose-sec section">
+  <div class="container choose-section position-relative">
+    <h1 class="pholder text-center w-100">
+      WHY CHOOSE US
+      <h4
+        class="small-head text-center"
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="300"
+      >
+        Why Choose Us
+      </h4>
+    </h1>
+    <!-- <h4
+      class="small-head text-center"
+      data-aos="fade-up"
+      data-aos-duration="1000"
+      data-aos-delay="300"
+    >
+      Why Choose Us
+    </h4> -->
+    <div class="row">
+      <div class="col-lg-12" style="z-index: 1">
+        <!-- <h4
+          class="small-head text-center"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+        >
+          Why Choose Us
+        </h4> -->
+        <h2
+          class="main-sec-head text-center"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+        >
+          Experienced, Curious, Problem Solver
+        </h2>
+        <p
+          class="text-paragraph text-center"
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+        >
+          Ask our clients—they'll tell you our team is a blast. We tell companies to choose PRATH TECH not
+          just for our skills and experience but for the awesome team that brings ideas to life.
+        </p>
+
+        <div class="services-carousel-wrapper">
+          <img
+            class="arrow-btn left desk-control"
+            src="assets/images/arrow left.png"
+            alt="Left"
+            (click)="prevSlide()"
+            [class.disabled]="currentIndex === 0"
+          />
+
+          <div class="services-carousel">
+            <div class="service-card" *ngFor="let item of visibleItems">
+              <div class="icon-circle">
+                <img [src]="item.img" [alt]="item.alt" />
+              </div>
+              <h3>{{ item.title }}</h3>
+              <p>{{ item.description }}</p>
+            </div>
+          </div>
+
+          <img
+            class="arrow-btn right desk-control"
+            src="assets/images/arrow right.png"
+            alt="Right"
+            (click)="nextSlide()"
+            [class.disabled]="currentIndex + cardsPerView >= serviceItems.length"
+          />
+        </div>
+        <div class="service-section-btn mob-control">
+          <!-- Left Arrow -->
+          <button
+            (click)="prevSlide()"
+            [disabled]="currentIndex === 0"
+            class="btn service-btn-left"
+          >
+            <img src="assets/images/service-arrow-left.svg" alt="left arrow" />
+          </button>
+
+          <!-- Right Arrow -->
+          <button
+            (click)="nextSlide()"
+            [disabled]="currentIndex + cardsPerView >= serviceItems.length"
+            class="btn service-btn-right"
+          >
+            <img src="assets/images/service-arrow-right.svg" alt="right arrow" />
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

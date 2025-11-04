@@ -1,0 +1,517 @@
+// the section for data and analytics
+
+
+.data-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to right, #e6f5ff, #ffffff);
+
+  .text-content {
+    flex: 1 1 45%;
+    max-width: 550px;
+
+    h2 {
+      font-size: 2rem;
+      color: #004080;
+      margin-bottom: 1.5rem;
+
+      span {
+        font-weight: 300;
+        color: #4477a0;
+      }
+
+      strong {
+        font-weight: 700;
+        color: #003366;
+      }
+    }
+
+    p {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      background-color: #0077cc;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background-color: #005fa3;
+      }
+    }
+  }
+
+  .image-content {
+    flex: 1 1 45%;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  }
+}
+
+
+
+
+//  the sectio for the data and analytics ends
+
+
+//  the section for the probelms starts
+
+.problems-section {
+  padding: 4rem 2rem;
+  background: #f4fcff;
+  text-align: center;
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 3rem;
+
+    span {
+      color: #666;
+      font-weight: 300;
+    }
+
+    strong {
+      display: block;
+      color: #00509e;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+  }
+
+  .problem-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+
+    .card {
+      // background: linear-gradient(to bottom, #003366cc, #001f4dcc),
+      //   url('card-bg.jpg') no-repeat center/cover;
+      color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      max-width: 320px;
+      flex: 1 1 30%;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(6px);
+
+      h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  .slider-arrows {
+    margin-top: 2rem;
+
+    .arrow {
+      font-size: 1.5rem;
+      border: 1px solid #ff5722;
+      background: none;
+      color: #ff5722;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &.right {
+        background: #ff5722;
+        color: white;
+      }
+    }
+  }
+}
+
+
+// the section for the probelms ends
+
+//  the section for the Data Science Services 
+
+.data-science-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #ffffff;
+
+  h2 {
+    font-size: 2rem;
+    color: #004080;
+    margin-bottom: 2.5rem;
+  }
+
+  .service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+
+    .card {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      max-width: 280px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      text-align: left;
+      overflow: hidden;
+
+      img {
+        width: 100%;
+        height: 160px;
+        object-fit: cover;
+      }
+
+      h3 {
+        font-size: 1rem;
+        color: #0066cc;
+        font-weight: 600;
+        padding: 1rem 1rem 0.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #444;
+        padding: 0 1rem 1rem;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .slider-arrows {
+    margin-top: 2rem;
+
+    .arrow {
+      border: 1px solid #ff5722;
+      background: none;
+      color: #ff5722;
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      cursor: pointer;
+      border-radius: 6px;
+
+      &.right {
+        background: #ff5722;
+        color: #fff;
+      }
+    }
+  }
+}
+
+
+// the section for the Data Science Services ends
+
+//  the sectio for the Insight from data starts
+
+.engagement-section {
+  background: linear-gradient(to right, #041224, #06466e);
+  color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #6dc5ff;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .subheading {
+    font-size: 1rem;
+    color: #cce7ff;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+
+  .engagement-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+
+    .card {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      text-align: left;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+
+      h3 {
+        font-size: 1.3rem;
+        color: #ffffff;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: #dbefff;
+      }
+    }
+  }
+}
+
+
+//  the sectio for the Insight from data ends
+
+// the section for data engineering we offer start
+
+
+
+.data-engineering {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: #f9fbfd;
+
+  h2 {
+    font-size: 2rem;
+    color: #004a97;
+    margin-bottom: 2.5rem;
+  }
+
+  .service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+      max-width: 280px;
+      position: relative;
+      text-align: left;
+
+      .icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: #eee;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -25px;
+        right: 20px;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 0.92rem;
+        color: #333;
+        line-height: 1.5;
+      }
+
+      &.blue h3 {
+        color: #0074d9;
+      }
+
+      &.teal h3 {
+        color: #00a8a8;
+      }
+
+      &.green h3 {
+        color: #2baf2b;
+      }
+
+      &.orange h3 {
+        color: #ff7b00;
+      }
+    }
+  }
+
+  .carousel-controls {
+    margin-top: 2rem;
+
+    button {
+      background: transparent;
+      border: 2px solid #ff7b00;
+      color: #ff7b00;
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1.2rem;
+
+      &:hover {
+        background: #ff7b00;
+        color: #fff;
+      }
+    }
+  }
+}
+
+//  the section for data engineering we offer ends
+
+//  the sectio for the  data analysis starts
+
+.data-analysis {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #f9fafc;
+
+  h2 {
+    font-size: 2rem;
+    color: #004a97;
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+
+  .analysis-cards {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 260px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+
+      .icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 1.2rem;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #e6f0fb;
+
+        img {
+          width: 36px;
+          height: 36px;
+        }
+      }
+
+      h3 {
+        font-size: 1rem;
+        color: #0074d9;
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        font-size: 0.92rem;
+        color: #444;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .carousel-controls {
+    margin-top: 2rem;
+
+    button {
+      background: #0099ff;
+      border: none;
+      color: #fff;
+      padding: 0.6rem 1rem;
+      margin: 0 0.4rem;
+      font-size: 1.2rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+
+      &:hover {
+        background: #007acc;
+      }
+    }
+  }
+}
+
+//  the sectio for the  data analysis ends
+
+
+//  the sectio for why_trust_us starts
+
+.why-trust {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    color: #111;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+
+    img {
+      width: 60px;
+      flex-shrink: 0;
+    }
+
+    .text {
+      h3 {
+        color: #0074d9;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #333;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .trust-item {
+      flex-direction: column;
+      align-items: flex-start;
+
+      img {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}
+
+//  the sectio for why_trust_us ends

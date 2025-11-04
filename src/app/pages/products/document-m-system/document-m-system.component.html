@@ -1,0 +1,207 @@
+<section class="containesection-new">
+  <div class="text-section">
+    <h2>Go Paperless:</h2>
+    <h2>Eliminate Manual<br />Mundane Efforts By 90%</h2>
+    <p>
+      Work faster, work smarter: Digitize, automate, and streamline your document workflow. Securely
+      store, retrieve, share, collaborate, and edit documents— in one platform.
+    </p>
+  </div>
+  <div class="image-section">
+    <img src="assets/images/sakhyam/dmsbg.png" alt="Go Paperless App Screenshot" />
+  </div>
+</section>
+
+<section class="key-features">
+  <div class="features-header">
+    <h2><span>It’s Concerning...</span><strong>But We Can Change That</strong></h2>
+  </div>
+
+  <div class="features-wrapper">
+    <!-- Feature 1 -->
+    <div class="feature">
+      <img src="assets/images/sakhyam/1.png" alt="Registration Icon" />
+      <h3>Online Society Registration:</h3>
+      <p>Simplify registration with IFMS and payment gateway integration.</p>
+    </div>
+
+    <!-- Feature 2 -->
+    <div class="feature">
+      <img src="assets/images/sakhyam/2.png" alt="Monitoring Icon" />
+      <h3>Society Monitoring System:</h3>
+      <p>Real-time tracking of society activities and updates.</p>
+    </div>
+
+    <!-- Feature 3 -->
+    <div class="feature">
+      <img src="assets/images/sakhyam/3.png" alt="Office Icon" />
+      <h3>Office Monitoring Tools:</h3>
+      <p>Digitally supervise officer and employee performance.</p>
+    </div>
+
+    <!-- Feature 4 -->
+    <div class="feature">
+      <img src="assets/images/sakhyam/4.png" alt="Legal Icon" />
+      <h3>Legal Case Management:</h3>
+      <p>Track and manage legal cases effectively.</p>
+    </div>
+
+    <!-- Feature 5 -->
+    <div class="feature">
+      <img src="assets/images/sakhyam/5.png" alt="Inspection Icon" />
+      <h3>Inspection Management:</h3>
+      <p>Streamline inspection processes for efficient management.</p>
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <div class="nav-arrows">
+    <button class="arrow-btn">&larr;</button>
+    <button class="arrow-btn active">&rarr;</button>
+  </div>
+</section>
+
+<!-- the section for Key feature ends  -->
+
+<!-- the sectio for FAQ starts -->
+
+<section class="faq-section">
+  <h2>FAQs</h2>
+
+  <div class="faq">
+    <div class="faq-item open">
+      <button class="faq-question" data-index="0">
+        <span>1. Who can use SAKHYAM?</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          SAKHYAM is designed for state governments, cooperative departments, and society offices
+          and users from other industries looking to digitize their workflows and enhance
+          e-governance. It helps streamline administration, improve operations, and increase
+          transparency.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" data-index="1">
+        <span>2. How does SAKHYAM simplify society management?</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          It automates workflows, centralizes data, and ensures faster approvals, reducing manual
+          effort and errors in society management.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" data-index="2">
+        <span>3. Can SAKHYAM track officer activities?</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Yes, it offers real-time monitoring tools to track officer and employee activities
+          digitally.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" data-index="3">
+        <span>4. Is SAKHYAM customizable?</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          Absolutely! It can be customized to fit the requirements of different departments or
+          societies.
+        </p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" data-index="4">
+        <span>5. What technology powers SAKHYAM?</span>
+      </button>
+      <div class="faq-answer">
+        <p>
+          It is powered by modern web technologies, ensuring scalability, security, and efficiency.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Ready section -->
+<section class="ready-sec section">
+  <div class="container foot-form">
+    <div class="row align-items-center">
+      <div class="col-lg-5">
+        <h2 class="main-sec-head">
+          Ready to discuss your toughest <span class="tech-span">tech challenges?</span>
+        </h2>
+        <p>
+          Fill out the form and get on a call within 24-48 hours with our product and tech expert.
+        </p>
+        <p>No account managers - <a href="#" class="promise">that's a promise.</a></p>
+      </div>
+
+      <div class="col-lg-7">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-box">
+          <div class="form-group">
+            <label>Hello, my name is:</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Full name*"
+              formControlName="fullName"
+            />
+            <div
+              *ngIf="contactForm.get('fullName')?.touched && contactForm.get('fullName')?.invalid"
+              class="text-danger"
+            >
+              Name is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Here is my email:</label>
+            <input
+              type="email"
+              class="form-control"
+              placeholder="Email address*"
+              formControlName="email"
+            />
+            <div
+              *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid"
+              class="text-danger"
+            >
+              Valid email is required.
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>About project:</label>
+            <textarea
+              class="form-control center-placeholder"
+              placeholder="Your project description*"
+              formControlName="projectDescription"
+            ></textarea>
+            <div
+              *ngIf="
+                contactForm.get('projectDescription')?.touched &&
+                contactForm.get('projectDescription')?.invalid
+              "
+              class="text-danger"
+            >
+              Project description is required.
+            </div>
+          </div>
+
+          <button class="btn btn-animate" type="submit">
+            Send <img src="assets/images/btn-arrow.svg" alt="" class="img-fluid" />
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

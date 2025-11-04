@@ -1,0 +1,410 @@
+// // @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap');
+// // @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+img {
+  height: auto;
+  width: auto;
+}
+.indus {
+  padding: 60px 80px 60px 80px;
+  // padding: 150px 0px 60px 0px;
+  padding-bottom: 0px;
+  position: relative;
+}
+// .indus h2 {
+//   z-index: 1 !important;
+// }
+.pholder {
+  //: 'Oswald', sans-serif;
+  font-size: 100px;
+  //   position: absolute;
+  // text-transform: uppercase;
+  color: #f4f2f4;
+  // text-decoration: uppercase;
+  top: 40px !important;
+  z-index: -1 !important;
+}
+
+.small-head {
+  z-index: 5;
+  color: #126dd6;
+  font-size: 40px;
+  //: 'Geist', sans-serif !important;
+  margin-top: -60px;
+}
+.main-sec-head {
+  display: flex;
+  color: #6a28ba;
+  font-size: 70px;
+  //: 'Geist', sans-serif !important;
+  background: #fff;
+  z-index: 1;
+  padding: 0 20px;
+  background: transparent;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+}
+.text-paragraph {
+  //: 'Outfit', sans-serif !important;
+  font-size: 23px;
+  // width: 75%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+.industry-section {
+  position: relative;
+  width: 100%;
+  height: 700px;
+  overflow: hidden;
+  z-index: 0;
+
+  // Default background
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url('../../../../public/assets/images/Education (2).png') center/cover no-repeat;
+    z-index: -2;
+    transition: background-image 0.5s ease-in-out;
+    height: 100%;
+    width: 100%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+  }
+
+  &:has(.education:hover)::before {
+    background-image: url('../../../../public/assets/images/Education (2).png');
+  }
+
+  &:has(.govt:hover)::before {
+    background-image: url('../../../../public/assets/images/Govt Services.png');
+  }
+
+  &:has(.healthcare:hover)::before {
+    background-image: url('../../../../public/assets/images/Healthcare.png');
+  }
+
+  &:has(.energy:hover)::before {
+    background-image: url('../../../../public/assets/images/Energy & Utility.png');
+  }
+}
+
+.content {
+  position: absolute;
+  z-index: 5;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+
+  .subtitle {
+    margin-top: 100px;
+    //: 'Geist', sans-serif;
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: #ff7a33;
+  }
+
+  .title {
+    //: 'Geist', sans-serif;
+    font-size: 75px;
+    font-weight: 500;
+    color: #ffffff;
+  }
+
+  .description {
+    //: 'Outfit', sans-serif;
+    width: 684px;
+    font-size: 23px;
+    font-weight: 400;
+    color: #ffffff;
+  }
+}
+
+.slider {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+
+  &:hover .zone {
+    flex: 1;
+    // filter: blur(2px);
+    transition: all 0.4s ease-in-out;
+  }
+
+  .zone:hover {
+    // filter: blur(0);
+    z-index: 3;
+    cursor: pointer;
+    // flex: 1.5;
+  }
+
+  .zone {
+    flex: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 40px;
+    border-right: 1px solid #fff;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    // filter: blur(2px);
+    cursor: pointer;
+
+    &.active {
+      // filter: blur(0);
+      z-index: 3;
+      // flex: 1.5;
+      transition: all 0.4s ease-in-out;
+
+      &::after {
+        opacity: 1;
+      }
+
+      p,
+      .learn-more {
+        max-height: 500px;
+        opacity: 1;
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      z-index: 1;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    h2,
+    p,
+    .learn-more {
+      position: relative;
+      z-index: 2;
+    }
+
+    h2 {
+      font-size: clamp(32px, 4vw, 40px);
+      font-weight: 600;
+      color: #fff;
+      //: 'Geist', sans-serif;
+      margin-bottom: 10px;
+      transition: all 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    p {
+      //: 'Outfit', sans-serif;
+      font-size: clamp(20px, 3vw, 23px);
+      font-weight: 400;
+      color: #ccc;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: all 1s ease;
+      margin-bottom: 0;
+    }
+
+    .learn-more {
+      overflow: hidden;
+      position: relative;
+    }
+
+    &:hover p,
+    &:hover .learn-more {
+      max-height: 500px;
+      opacity: 1;
+    }
+  }
+}
+
+.learn-more:hover .img-fluid {
+  transform: rotate(13deg);
+  margin-left: 10px;
+  transition: all 0.3s ease-in-out;
+}
+.content {
+  position: absolute;
+  z-index: 5;
+  padding-left: 50px;
+  display: flex;
+  flex-direction: column;
+  // display: none;
+}
+@media only screen and (max-width: 800px) {
+  .main-sec-head {
+    margin: 0px;
+  }
+  .pholder {
+    font-size: 55px;
+  }
+  .small-head {
+    font-size: 34px;
+    padding: 20px 0 0 !important;
+  }
+  .text-paragraph {
+    font-size: 16px;
+  }
+  .main-sec-head {
+    font-size: 22px;
+  }
+  .industry-section {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .content {
+    display: none; // Hide desktop content
+  }
+
+  .slider {
+    display: flex;
+    overflow-x: hidden; // prevent touch sliding
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+  }
+
+  .slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .slider .zone {
+    flex: 0 0 100vw !important;
+    width: 100vw !important;
+    height: 100vh;
+    scroll-snap-align: start;
+    background-size: cover !important;
+    background-position: center !important;
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    filter: none !important;
+    transition: none !important;
+    cursor: default;
+  }
+
+  .slider .zone::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    opacity: 1 !important;
+  }
+
+  .slider .zone h2,
+  .slider .zone p,
+  .slider .zone .learn-more {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    opacity: 1 !important;
+    max-height: none !important;
+  }
+
+  .slider .zone .learn-more {
+    margin-bottom: 280px !important;
+    font-size: 18px;
+  }
+
+  .slider .zone.active {
+    background-size: cover !important;
+    background-position: center !important;
+  }
+
+  .slider .zone.education.active {
+    background-image: url('../../../../public/assets/images/Education (2).png') !important;
+  }
+
+  .slider .zone.govt.active {
+    background-image: url('../../../../public/assets/images/Govt Services.png') !important;
+  }
+
+  .slider .zone.healthcare.active {
+    background-image: url('../../../../public/assets/images/Healthcare.png') !important;
+  }
+
+  .slider .zone.energy.active {
+    background-image: url('../../../../public/assets/images/Energy & Utility.png') !important;
+  }
+
+  // Disable hover blur/effects on mobile
+  .slider:hover .zone,
+  .zone:hover,
+  .zone:hover::after,
+  .zone:hover p,
+  .zone:hover .learn-more {
+    filter: none !important;
+    opacity: 1 !important;
+    max-height: none !important;
+    transition: none !important;
+  }
+
+  // Control buttons container
+  .industry-control-buttons.mob-control {
+    position: absolute;
+    bottom: 30px;
+    left: 5%;
+    display: flex;
+    gap: 10px;
+    z-index: 10;
+
+    .btn {
+      width: 60px;
+      height: 60px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 24px;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+    }
+  }
+  .indus {
+    padding: 0 10px !important;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 992px) {
+  // .slider .zone h2{
+  //   font-size: 34px;
+  // }
+  // .slider .zone p{
+  //   font-size: 19px;
+  // }
+  .main-sec-head {
+    font-size: 62px;
+  }
+}

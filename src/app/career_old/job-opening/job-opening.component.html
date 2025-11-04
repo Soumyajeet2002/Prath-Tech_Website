@@ -1,0 +1,198 @@
+<!-- 
+
+<body>
+
+    <section class="job-opening">
+    <form>
+<div class="explore-header">
+
+
+  <nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li><a href="/">Home</a></li> >
+    <li><a href="/career">Career</a></li> 
+    
+  </ol>
+</nav>
+
+
+  <h2>Explore Openings</h2>
+</div>
+
+<div class="explore-container">
+  <div class="filter-section">
+    <h3>Refine your Search</h3>
+    <input type="text" placeholder="Keyword, Job title, Description" />
+    <div class="filter-category">
+      <p><strong>By Position</strong></p>
+      <button>+ AI/ML Developer (5)</button>
+      <button>+ AI/ML Tech Lead (5)</button>
+    </div>
+  </div>
+
+  <div class="job-list">
+    <h3>Recent Openings</h3>
+    <div class="job-box">
+      <span>Business Manager</span>
+      <span>No. of vacancies - 1</span>
+    </div>
+    <div class="job-box">
+      <span>Java Tech Lead</span>
+      <span>No. of vacancies - 5</span>
+    </div>
+    
+  </div>
+
+  
+</div>
+<div class="see-more-btn">
+    <a routerLink="/career" routerLinkActive="active" class="Job">
+  SEE MORE
+</a>
+
+</div>
+
+
+</form>
+</section>
+
+
+</body>
+
+
+<div class="job-form-container">
+  <h2>Job Application Form</h2>
+
+  <form (ngSubmit)="onSubmit()" #jobForm="ngForm">
+    
+    <div class="form-group">
+      
+      <input type="text" name="name" placeholder="FULL NAME::" [(ngModel)]="formData.name" required />
+    </div>
+
+    
+    <div class="form-group">
+      
+      <input type="email" name="email" placeholder="Email::" [(ngModel)]="formData.email" required />
+    </div>
+
+   
+    <div class="form-group">
+      
+      <input type="tel" name="phone" placeholder="Phone Number::" [(ngModel)]="formData.phone" required />
+    </div>
+
+    
+  <div class="form-group">
+  <label>Position:</label>
+  <select name="position" [(ngModel)]="formData.position" required>
+    <option value="" disabled selected>Select a position</option>
+    <option value="developer">Developer</option>
+    <option value="designer">Designer</option>
+    <option value="project-manager">Project Manager</option>
+    <option value="qa-engineer">QA Engineer</option>
+  </select>
+</div>
+
+
+    
+    <div class="form-group">
+      <label>Upload Resume:</label>
+      <input type="file" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx" />
+    </div>
+
+    
+    <button type="submit" [disabled]="!jobForm.form.valid">Submit</button>
+  </form>
+
+ 
+  <div class="submitted-data" *ngIf="submitted">
+    <h3>Application Details</h3>
+    <p><strong>Name:</strong> {{formData.name}}</p>
+    <p><strong>Email:</strong> {{formData.email}}</p>
+    <p><strong>Phone:</strong> {{formData.phone}}</p>
+    <p><strong>Position:</strong> {{formData.position}}</p>
+    <p><strong>Resume File:</strong> {{resumeFile?.name}}</p>
+  </div>
+</div>
+ -->
+
+<div class="job-application">
+  <h2>
+    Apply for the post: <span class="highlight">{{ jobTitle }}</span>
+  </h2>
+  <p class="note">Fields marked with an asterisk (*) must be filled out before submitting.</p>
+
+  <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()">
+    <!-- Personal Details -->
+    <h3>Personal Details</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input formControlName="fullName" type="text" />
+        <div class="error" *ngIf="isInvalid('fullName')">Full Name is required.</div>
+      </div>
+
+      <div class="form-group">
+        <label>Email Address *</label>
+        <input formControlName="email" type="email" />
+        <div class="error" *ngIf="isInvalid('email')">Valid Email is required.</div>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Mobile Number *</label>
+        <input formControlName="mobile" type="tel" />
+        <div class="error" *ngIf="isInvalid('mobile')">Mobile Number is required.</div>
+      </div>
+    </div>
+
+    <!-- Professional Details -->
+    <h3>Professional Details</h3>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Experience (In Years) *</label>
+        <select formControlName="experienceYears">
+          <option *ngFor="let y of years" [value]="y">{{ y }}</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Experience (In Months) *</label>
+        <select formControlName="experienceMonths">
+          <option *ngFor="let m of months" [value]="m">{{ m }}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Current CTC (In Lakhs) *</label>
+        <input formControlName="currentCtc" type="number" step="0.1" />
+      </div>
+
+      <div class="form-group">
+        <label>Expected CTC (In Lakhs) *</label>
+        <input formControlName="expectedCtc" type="number" step="0.1" />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label>Notice Period (In Days) *</label>
+        <input formControlName="noticePeriod" type="number" />
+      </div>
+
+      <div class="form-group">
+        <label>Upload Your CV (PDF Only) *</label>
+        <input type="file" (change)="onFileChange($event)" accept=".pdf" />
+        <div class="error" *ngIf="fileError">{{ fileError }}</div>
+      </div>
+    </div>
+
+    <button type="submit" class="submit-btn" [disabled]="applicationForm.invalid">
+      Submit Application
+    </button>
+  </form>
+</div>

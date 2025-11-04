@@ -1,0 +1,58 @@
+<!-- Banner section -->
+
+<section class="container-fluid digital-excellence-section">
+  <div class="container digital-excellence-section-continer">
+    <div class="row align-items-center">
+      <!-- Left Content -->
+      <div class="col-lg-6 col-md-12 text-section">
+        <h2>
+          Transforming Ideas <br />
+          <span class="highlight">into Digital Excellence</span>
+        </h2>
+        <p class="subtitle">
+          build a better reputation, and attract more students — while reducing administrative
+          effort and tech fatigue?
+        </p>
+        <p class="small-text">
+          We’ve helped 50+ education organizations get these results — yours could be next.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid service-section">
+  <section class="container service-section-container">
+    <div class="row align-items-center service-text container">
+      <h2 class="service-bg-title">Your Business Goals, Our Solutions to Make Them a Reality</h2>
+      <h3 class="service-bg-subtitle">
+        Efficiently handle your repetitive, time-consuming administrative tasks without over
+        boarding faculty or resources.
+      </h3>
+    </div>
+
+    <div class="d-flex align-items-center service-card-container-wrapper container">
+      <div class="cards-container">
+        <div class="cards-row d-flex scroll-slider" id="cardsRow">
+          <div
+            #serviceCard
+            class="service-card fixed-card-size"
+            [ngClass]="card.cardColorClass"
+            *ngFor="let card of serviceCards"
+          >
+            <img [src]="card.imageSrc" [alt]="card.altText" class="img-fluid-service ser-box-img" />
+            <h4 class="service-title-card" [ngClass]="card.titleColorClass">
+              {{ card.title }}
+            </h4>
+            <p class="service-card-description">
+              {{ card.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="services-button">
+      <div class="service-section-btn mob-control"></div>
+    </div>
+  </section>
+</section>

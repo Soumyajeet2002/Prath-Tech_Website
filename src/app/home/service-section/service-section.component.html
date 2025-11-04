@@ -1,0 +1,98 @@
+<section class="container service-section d-flex">
+  <div class="container-fluid">
+    <!-- <h2 class="service-bg-title">SERVICES</h2> -->
+    <div class="service-wrapper row">
+      <div class="service-row col-md-4">
+        <h2
+          class="service-title d-flex"
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-delay="30"
+        >
+          Explore Our
+        </h2>
+
+        <h2
+          class="service-subtitle d-flex"
+          data-aos="fade-up"
+          data-aos-duration="500"
+          data-aos-delay="30"
+        >
+          Services
+        </h2>
+
+        <div class="service-paragraph">
+          <p
+            class="service-paragraph-para"
+            data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-delay="30"
+          >
+            Whether starting or scaling, our services eliminate
+            <span> every tech barrier and empower your business to</span>
+            <span>succeed digitally.</span>
+          </p>
+          <!-- <p
+            class="service-paragraph-para"
+            data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-delay="30"
+          >
+            every tech barrier and empower your business to
+          </p>
+          <p
+            class="service-paragraph-para"
+            data-aos="fade-up"
+            data-aos-duration="500"
+            data-aos-delay="30"
+          >
+            succeed digitally.
+          </p> -->
+        </div>
+
+        <div class="service-section-btn desk-control">
+          <button (click)="owlCar.prev()" class="btn service-btn-left">
+            <img src="assets/images/service-arrow-left.svg" alt="left arrow" />
+          </button>
+          <button (click)="owlCar.next()" class="btn service-btn-right">
+            <img src="assets/images/service-arrow-right.svg" alt="right arrow" />
+          </button>
+        </div>
+      </div>
+
+      <div class="col-md-8 card-section">
+        <!-- <div class="services-slider-wrapper"> -->
+        <owl-carousel-o [options]="customOptions" #owlCar>
+          <ng-container *ngFor="let service of services; let i = index">
+            <ng-template carouselSlide>
+              <div
+                class="card service-card fixed-card-size"
+                [ngClass]="[
+                  'bg-' + ((i % services.length) + 1),
+                  'color-' + ((i % services.length) + 1),
+                ]"
+              >
+                <img [src]="service.img" [alt]="service.title" class="img-fluid ser-box-img" />
+                <h4 class="service-title-card">
+                  {{ service.title }}
+                </h4>
+                <p class="service-card-description">
+                  {{ service.description }}
+                </p>
+              </div>
+            </ng-template>
+          </ng-container>
+        </owl-carousel-o>
+        <!-- </div> -->
+      </div>
+      <div class="service-section-btn mob-control">
+        <button (click)="owlCar.prev()" class="btn service-btn-left">
+          <img src="assets/images/service-arrow-left.svg" alt="left arrow" />
+        </button>
+        <button (click)="owlCar.next()" class="btn service-btn-right">
+          <img src="assets/images/service-arrow-right.svg" alt="right arrow" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

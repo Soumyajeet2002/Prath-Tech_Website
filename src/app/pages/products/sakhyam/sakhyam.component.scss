@@ -1,0 +1,633 @@
+// the sectio for governance starts
+// @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Outfit:wgh');
+// @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100;900&family=Outfit:wght@100;900&display=swap');
+
+// // @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+.governance-section {
+  // background: linear-gradient(90deg, #f5fcff, #e8f8ff);
+  background-image: url('../../../../../public/assets/images/sakhyam/bg.png');
+  // padding: 6rem 2rem;
+  padding-top: 5rem;
+  // padding-left: 0px;
+  padding-bottom: 6rem;
+  margin: 0;
+  //  text-align: center;
+   background-size: cover; /* width height */
+  background-repeat: no-repeat;
+  background-position: center;
+
+
+  .governance-content {
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    // gap: 2rem;
+    flex-wrap: wrap;
+
+    .governance-text {
+      padding-top: 60px;
+      flex: 1;
+      min-width: 300px;
+
+      h2 {
+        font-family: 'Geist',sans-serif !important;
+        font-size: 61px;
+        font-weight: 250;
+        line-height: 120%;
+
+        span {
+          display: block;
+          font-weight: 600;
+        }
+      }
+
+      p {
+        font-family: "Outfit", sans-serif !important;
+        margin-top: 1rem;
+        font-size: 18px;
+        line-height: 35px;
+        color: #000000;
+        font-style: normal;
+        font-weight: 400;
+      }
+    }
+
+    .governance-image {
+      padding-top: 40px;
+      flex: 1;
+      text-align: center;
+
+      img {
+        max-width: 120%;
+        height: auto;
+        // box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+    }
+  }
+}
+
+/* ✅ Responsive for smaller screens */
+@media (max-width: 768px) {
+  .governance-section .governance-content {
+    flex-direction: column;
+    text-align: center;
+
+    .governance-text {
+      h2 {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+
+
+
+
+// the sectio for the simplify starts
+
+.society-management {
+  padding: 20px;
+  // background: linear-gradient(135deg, #f7fcff, #e8faff);
+  background-image: url('../../../../../public/assets/images/sakhyam/Secondbg.png');
+  // padding: rem 2rem;
+  text-align: center;
+   background-size: cover; /* width height */
+  background-repeat: no-repeat;
+  background-position: center;
+ 
+
+  .cards-wrapper {
+    padding-top: 80px;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .card {
+      padding-top: 100px;
+      padding-left: 40px;
+      padding-bottom: 40px;
+      padding-bottom: 30px;
+      background: #fff;
+      // padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      width: 48%;
+      min-width: 300px;
+      text-align: left;
+
+      h3 {
+        font-family: 'Geist',sans-serif !important;
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        position: relative;
+        font-weight: 600;
+        line-height: 120%;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 90px;
+          height: 3px;
+          background: #0064D6;
+
+          margin-top: 8px;
+        }
+      }
+
+      p {
+        font-family: 'Outfit', sans-serif !important;
+        font-weight: 400;
+        font-size: 15px;
+        color: #000000;
+        margin: 1rem 0;
+      }
+
+      ul {
+        padding-left: 1.2rem;
+        li {
+          margin: 0.5rem 0;
+          font-size: 0.95rem;
+          line-height: 1.4;
+        }
+      }
+    }
+  }
+
+  .nav-arrows {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: left;
+  gap: 3px;
+    padding-left: 150px;
+
+    .arrow-btn {
+      // background: transparent;
+      // border: 2px solid #ff4b2b;
+      // color: #e6715f;
+      // padding: 0.5rem 1rem;
+      // border-radius: 6px;
+      // font-size: 1.2rem;
+      // cursor: pointer;
+      // transition: all 0.3s ease;
+      border-radius: 3px;
+  width: 60px;
+  height: 60px;
+  font-size: 1.4rem;
+  border: 1px solid #F24E1E;
+  background-color: transparent;
+  color: #F24E1E;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+
+      &:hover,
+      &.active {
+        // background: #ff4b2b;
+        // color: #fff;
+         background: transparent;
+        // background: #ff4b2b;
+        color: #fd5d13;
+      }
+    }
+  }
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .society-management .cards-wrapper {
+    flex-direction: column;
+    align-items: center;
+
+    .card {
+      width: 90%;
+    }
+  }
+}
+
+
+// the section for the simplify ends
+
+//  the sectio for the Key features starts 
+
+
+.key-features {
+  background: linear-gradient(135deg, #f8fcff, #eefaff);
+  padding: 5rem 2rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size:cover ;
+ 
+
+  .features-header {
+    h2 {
+      margin-top: 80px;
+      font-family: 'Geist',sans-serif !important;
+      padding-left: 120px;
+       text-align: left;
+      font-size: 40px;
+      font-weight: 250;
+      margin-bottom: 2rem;
+
+      span {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .features-wrapper {
+    padding-left: 50px;
+    display: flex;
+    text-align: left;
+    // justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 70px;
+
+    .feature {
+      flex: 1;
+      min-width: 180px;
+      max-width: 200px;
+      text-align: left;
+
+      img {
+        width: 50px;
+        margin-bottom: 1rem;
+      }
+
+      h3 {
+        font-family: 'Geist',sans-serif !important;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+
+      }
+
+      p {
+        font-family: 'Outfit', sans-serif !important;
+        font-weight: 400;
+        font-size: 0.9rem;
+        color: #000000;
+      }
+    }
+  }
+
+  .nav-arrows {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: left;
+    // gap: 0.4rem;
+    gap: 3px;
+    padding-left: 120px;
+
+    .arrow-btn {
+    border-radius: 3px;
+  width: 60px;
+  height: 60px;
+  font-size: 1.4rem;
+  border: 1px solid #F24E1E;
+  background-color: transparent;
+  color: #F24E1E;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+      &:hover,
+      &.active {
+        background: transparent;
+        // background: #ff4b2b;
+        color: #fd5d13;
+      }
+    }
+  }
+}
+
+/* ✅ Responsive */
+@media (max-width: 900px) {
+  .key-features .features-wrapper {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .key-features .features-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+// the section for the FAQ starts 
+
+.faq-section {
+  // background: #f7f7f7;
+  // background-image: url('/assets/images/sakhyam/faqbg.pg');
+  background: #F5F5F5;
+
+  padding: 8rem 10rem;
+  // width: 800px;
+  // margin: auto;
+  text-align: left;
+  // display: flex;
+   background-size: cover; /* width height */
+  background-repeat: no-repeat;
+  background-position: center;
+
+  h2 {
+    font-family: 'Geist',sans-serif !important;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
+
+  .faq {
+    .faq-item {
+      background: #fff;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+
+      &.open .faq-answer {
+        max-height: 300px;
+        padding: 1rem;
+      }
+
+      .faq-question {
+        font-family: 'Geist',sans-serif !important;
+        width: 100%;
+        background: #fff;
+        border: none;
+        padding: 1.1rem;
+        font-size: 20px;
+        text-align: left;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &:hover {
+          background: #f1f1f1;
+        }
+      }
+
+      .faq-answer {
+        font-family: 'Outfit', sans-serif !important;
+        max-height: 0;
+        // overflow: hidden;
+        padding: 0 1rem;
+        transition: all 0.3s ease;
+        color: #2D2D2D;
+        font-size: 0.95rem;
+      }
+    }
+  }
+}
+//Ready section css
+// .foot-form{
+//   margin-top: 150px;
+// }
+// @import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+// .ready-sec {
+//   background: url('/assets/images/ready-bg.png') no-repeat center center;
+//   background-size: cover;
+//   // padding: 80px 0;
+//   // color: #fff; // Optional: change text color for contrast
+// }
+
+
+// .foot-form{
+//   // margin-top: 150px;
+// }
+// .ready-sec .main-sec-head {
+//   color: #000000;
+//   font-weight: 100;
+//   font-size: 65px;
+//   padding: 0;
+//   background: transparent;
+// }
+
+// .ready-sec .main-sec-head span {
+//   font-weight: 700;
+//   display: block;
+//   font-size: 62px;
+// }
+
+// .ready-sec p {
+//   font-size: 27px;
+//   margin-bottom: 0;
+//   margin-top: 50px;
+// }
+
+// .form-box {
+//   padding: 70px 80px;
+//   border-radius: 20px;
+//   background: #EDEDED;
+//   border: 1px solid #DADADA;
+// }
+
+// .form-box label {
+//   margin-top: 26px;
+//   margin-bottom: 10px;
+//   font-family: "Exo 2", serif;
+//   font-size: 22px;
+//   color: #000000;
+// }
+
+// .form-box .form-control {
+//   background: #F7F7F7;
+//   border: 1px solid #D3D6DA;
+//   height: 65px;
+//   padding: 0 20px;
+//   line-height: 65px;
+//   border-radius: 10px;
+// }
+
+// .form-box textarea.form-control {
+//   height: 144px;
+// }
+
+// .form-box button {
+//   height: 65px;
+//   line-height: 65px;
+//   border-radius: 50px;
+// //   background: linear-gradient(180deg, #076689 0%, #032633 100%);
+// background: linear-gradient(135deg, #0A47B9 0%, #763289 100%);
+//   padding: 0 50px;
+//   color: #fff;
+//   font-size: 23px;
+//   margin-top: 20px;
+//   border: 1px solid #fff;
+// }
+
+// .form-box button:hover {
+//   color: #fff;
+// }
+
+// .form-box button img {
+//   margin-left: 30px;
+//   position: relative;
+//   top: -5px;
+// }
+
+
+
+
+// TRY READY SECTION
+
+.ready-sec{
+  // margin-top: 50px;
+  background-image: url('../../../../../public/assets/images/sakhyam/dmsbglast.png');
+   background-size: 1800px 600px; 
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.col-lg-5{
+  margin-top: 100px;
+}
+.col-lg-7{
+  margin-top: 100px;
+}
+
+a{
+  color:#0074BD !important;
+}
+.img-fluid{
+  margin-top: -10px;
+  width: 25px;
+  height: 15px;
+
+  margin-left: 30px;
+}
+.ready-sec .main-sec-head {
+  color: #000000;
+  font-family: 'Geist', sans-serif !important;
+  font-weight: 100;
+  font-size: 80px;
+  width: 670px;
+  font-style: thin;
+
+  padding: 0;
+  background: transparent;
+}
+
+.ready-sec .main-sec-head span {
+  font-weight: 700;
+  font-size: 80px;
+  display: block;
+}
+
+.ready-sec p {
+font-family: 'Outfit', sans-serif !important;
+  font-size: 30px;
+  margin-bottom: 0;
+  margin-top: 30px;
+font-weight: 400;
+width: 617px;
+}
+
+.form-box {
+  margin-left: 150px;
+  padding: 20px 40px;
+  border-radius: 10px;
+  background: #FFFFFF;
+  // background: #F5F5F5;
+  border: 1px solid #DADADA;
+  height: 520px;
+  width: 700px;
+  border-radius: 20px;
+}
+
+.form-box label {
+  font-family: 'Exo 2', sans-serif !important;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 22px;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+
+}
+
+.form-box .form-control {
+  background: #F7F7F7;
+  border: 1px solid #D3D6DA;
+  width: 600px;
+  height: 65px;
+  padding: 0 20px;
+  line-height: 50px;
+  border-radius: 10px;
+}
+.form-control::placeholder{
+    font-family: 'Exo 2', sans-serif !important;
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 22px;
+  text-transform: capitalize;
+
+}
+
+.form-box textarea.form-control {
+  height: 144px;
+  margin-bottom: 20px;
+}
+
+
+// textarea::placeholder {
+//   margin-top: 50px; 
+
+// }
+
+
+.form-box button {
+  height: 60px;
+  line-height: 60px;
+  border-radius: 40px;
+//   background: linear-gradient(180deg, #076689 0%, #032633 100%);
+background: linear-gradient(135deg, #0A47B9 0%, #763289 100%);
+  padding: 0 30px;
+  color: #fff;
+  font-size: 20px;
+  border: 1px solid #fff;
+}
+
+.form-box button:hover {
+  color: #fff;
+}
+
+// .form-box button img {
+//   margin-left: 20px;
+//   position: relative;
+//   top: -5px;
+// }
+// .ready-sec section{
+//   padding-left: 5px;
+// }
+// .row{
+//   margin: 0;
+//   padding-left: 40px;
+// }
+// .btn{
+//   margin-top: 0.5rem;
+// }

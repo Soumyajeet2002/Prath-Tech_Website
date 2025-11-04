@@ -1,0 +1,159 @@
+<!-- nav bar / header section starts  -->
+<nav class="navbar navbar-light bg-light position-fixed w-100">
+  <div class="container-fluid d-flex mob-nav align-items-center">
+    
+    <!-- Logo -->
+    <a routerLink="/">
+      <img src="assets/images/Logo-stl.svg" class="img-fluid stl-logo ml-5" alt="Logo" />
+    </a>
+
+    <!-- Hamburger menu (mobile only) -->
+    
+
+    <!-- Main Navigation -->
+    <ul class="navbar-nav main-menu ms-auto mob-nav-item" [class.open]="isMenuOpen">
+
+      <!-- About Us -->
+
+       <li class="main-menu-item">
+        <a
+          class="btn btn-drop dropdown-toggle nav-link"
+          routerLink="/home"
+          routerLinkActive="active"
+        >
+          Home
+        </a>
+      </li>
+
+
+      <li class="main-menu-item">
+        <a
+          class="btn btn-drop dropdown-toggle nav-link custom-about-link"
+          routerLink="/about"
+          routerLinkActive="active"
+        >
+          About Us
+        </a>
+      </li>
+
+      <!-- Platform Dropdown -->
+      <!-- <li class="dropdown main-menu-item" *ngIf="products.length" [class.open]="dropdownState.platform">
+        <a
+          class="btn btn-drop dropdown-toggle nav-link"
+          href="#"
+          id="productsDropdown"
+          role="button"
+          (click)="toggleDropdown('platform'); $event.preventDefault()"
+        >
+          Platform <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu submenu-area" [class.show]="dropdownState.platform">
+          <li *ngFor="let product of products">
+            <a class="dropdown-item" [routerLink]="product.link" routerLinkActive="active">
+              {{ product.name }}
+            </a>
+          </li>
+        </ul>
+      </li> -->
+
+      <!-- Industries Dropdown -->
+      <!-- <li class="dropdown main-menu-item" *ngIf="industries.length" [class.open]="dropdownState.industries">
+        <a
+          class="btn btn-drop dropdown-toggle nav-link"
+          href="#"
+          id="industriesDropdown"
+          role="button"
+          (click)="toggleDropdown('industries'); $event.preventDefault()"
+        >
+          Industries <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu submenu-area" [class.show]="dropdownState.industries">
+          <li *ngFor="let industry of industries">
+            <a class="dropdown-item" [routerLink]="industry.link" routerLinkActive="active">
+              {{ industry.name }}
+            </a>
+          </li>
+        </ul>
+      </li> -->
+
+      <!-- Services Dropdown -->
+      <!-- <li class="dropdown main-menu-item" *ngIf="services.length" [class.open]="dropdownState.services">
+        <a
+          class="btn btn-drop dropdown-toggle nav-link"
+          href="#"
+          id="servicesDropdown"
+          role="button"
+          (click)="toggleDropdown('services'); $event.preventDefault()"
+        >
+          Services <i class="fa-solid fa-caret-down"></i>
+        </a>
+        <ul class="dropdown-menu submenu-area" [class.show]="dropdownState.services">
+          <li *ngFor="let service of services">
+            <a class="dropdown-item" [routerLink]="service.link" routerLinkActive="active">
+              {{ service.name }}
+            </a>
+          </li>
+        </ul>
+      </li> -->
+
+
+
+      <!-- new service link -->
+
+      <li class="main-menu-item">
+        <a
+          class="btn btn-drop dropdown-toggle nav-link"
+          routerLink="/services"
+          routerLinkActive="active"
+        >
+          Services
+        </a>
+      </li>
+
+
+      <!-- Career -->
+      <li class="main-menu-item">
+        <a
+          class="btn btn-drop dropdown-toggle nav-link"
+          routerLink="/career"
+          routerLinkActive="active"
+        >
+          Career
+        </a>
+      </li>
+
+      <!-- Connect -->
+      <li class="main-menu-item">
+        <a
+          class="btn btn-drop dropdown-toggle nav-link"
+          routerLink="/contact"
+          routerLinkActive="active"
+        >
+          Contact Us
+        </a>
+      </li>
+    </ul>
+
+    <!-- Search box (optional) -->
+  <div class="search-box d-none d-lg-flex">
+  <button class="btn-search">
+    <i class="fas fa-search"></i>
+  </button>
+  <input type="text" class="input-search" placeholder="Type to Search..." />
+</div>
+
+    <div class="menu-click" (click)="toggleMenu()" [class.open]="isMenuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    
+  </div>
+</nav>
+
+
+
+
+
+
+    <!-- THE HEADER SECTION ENDS HERE -->

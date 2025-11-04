@@ -1,0 +1,470 @@
+<section class="container-fluid digital-excellence-section">
+  <div class="container digital-excellence-section-container">
+    <div class="row align-items-center">
+      <!-- Left Content -->
+      <div class="col-lg-8 col-md-12 text-section">
+        <h2 class="section-title">
+          Success is not given, It’s earned with efforts,
+          <span class="highlight">Begin your journey today.</span>
+        </h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- new Career Section -->
+<section class="container-fluid career-section" id="career-section">
+  <h1 class="pholder">Opportunities</h1>
+  <p class="pholder1">Career</p>
+  <div class="container search-job-career">
+    <div class="search-section"></div>
+    <!-- <div class="dropdowns">
+      <select class="dropdown">
+        <option class="dropdown-option" value="">Select Job Type</option>
+        <option class="dropdown-option" value="full-time">Full Time</option>
+        <option class="dropdown-option" value="part-time">Part Time</option>
+        <option class="dropdown-option" value="contract">Contract</option>
+      </select>
+      <select class="dropdown">
+        <option class="dropdown-option" value="">Select Experience</option>
+        <option class="dropdown-option" value="entry">Entry Level</option>
+        <option class="dropdown-option" value="mid">Mid Level</option>
+        <option class="dropdown-option" value="senior">Senior Level</option>
+      </select>
+      <select class="dropdown">
+        <option class="dropdown-option" value="">Select Industry</option>
+        <option class="dropdown-option" value="tech">Technology</option>
+        <option class="dropdown-option" value="finance">Finance</option>
+        <option class="dropdown-option" value="healthcare">Healthcare</option>
+      </select>
+    </div> -->
+  </div>
+  <section class="container-fluid job-opening" id="career-apply-form">
+    <div class="container job-container">
+      <div class="left left-job-section">
+        <div class="container cards-container">
+          <div
+            class="job-card-new"
+            *ngFor="let job of job_cards; let i = index"
+            (click)="selectJob(i)"
+            [class.active]="selectedJobIndex === i"
+          >
+            <h3 class="job-card-new-title">{{ job.title }}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="right right-job-section job-application">
+        <ng-container *ngIf="!showApplyForm; else applyFormTemplate">
+          <div class="job-information" *ngIf="selectedJobIndex !== null">
+            <!-- <h2 class="highlight">{{ job_cards[selectedJobIndex].title }}</h2> -->
+
+            <p class="job-type">
+              <strong class="job-type-strong">Job Type:</strong>
+              <span class="job-type-type"> {{ job_cards[selectedJobIndex].type }}</span>
+              <strong class="job-title-strong">( {{ job_cards[selectedJobIndex].title }} )</strong>
+              <strong class="job-title-experience"
+                >( {{ job_cards[selectedJobIndex].experience }} )</strong
+              >
+            </p>
+            <!-- <p class="job-type">
+              <strong class="job-type-strong">Experience Required:</strong>
+              {{ job_cards[selectedJobIndex].experience }}
+            </p> -->
+            <p class="job-description">{{ job_cards[selectedJobIndex].description }}</p>
+
+            <h4 class="job-requirements">Key Responsibilities:</h4>
+            <ul class="job-requirements-list">
+              <ng-container *ngFor="let section of job_cards[selectedJobIndex].keyResponsibilities">
+                <!-- If section has points, output title as <li>, then each point as separate <li> -->
+                <ng-container *ngIf="section.points && section.points.length > 0; else titleOnly">
+                  <li class="job-requirements-list-item">
+                    <strong>{{ section.title }}</strong>
+                  </li>
+                  <div class="job-requirements-list-item-li">
+                    <li *ngFor="let point of section.points" class="job-subpoint">{{ point }}</li>
+                  </div>
+                </ng-container>
+
+                <!-- Else just output the title as a single <li> -->
+                <ng-template #titleOnly>
+                  <li class="job-requirements-list-item">{{ section.title }}</li>
+                </ng-template>
+              </ng-container>
+            </ul>
+
+            <!-- <h4 class="job-requirements">Key Responsibilities:</h4>
+<ul class="job-requirements-list">
+  <li
+    *ngFor="let section of job_cards[selectedJobIndex].keyResponsibilities"
+    class="job-requirements-list-item"
+  >
+    {{ section.title }}
+    <ul *ngIf="section.points?.length > 0">
+      <li *ngFor="let point of section.points" class="job-subpoint">
+        {{ point }}
+      </li>
+    </ul>
+  </li>
+</ul> -->
+
+            <div *ngIf="job_cards[selectedJobIndex].requirements?.length">
+              <h4 class="job-requirements">Requirements:</h4>
+              <ul class="job-requirements-list">
+                <li
+                  class="job-requirements-list-item"
+                  *ngFor="let req of job_cards[selectedJobIndex].requirements"
+                >
+                  {{ req }}
+                </li>
+              </ul>
+            </div>
+
+            <div
+              class="job-requirements"
+              *ngIf="job_cards[selectedJobIndex].qualifications?.length"
+            >
+              <h4>Preferred Qualifications:</h4>
+              <ul class="job-requirements-list">
+                <li
+                  class="job-requirements-list-item"
+                  *ngFor="let benefit of job_cards[selectedJobIndex].qualifications"
+                >
+                  {{ benefit }}
+                </li>
+              </ul>
+            </div>
+            <!-- <button class="apply-btn" (click)="openApplyForm($event)">Apply</button> -->
+            <button class="apply-btn" (click)="openApplyForm($event)" [routerLink]="">
+              Apply<img src="assets/images/btn-arrow.svg" alt="arrow" class="banner-arrow" />
+            </button>
+          </div>
+
+          <!-- <div *ngIf="selectedJobIndex === null" class="no-selection-message">
+            <p>Please select a job to see details</p>
+          </div> -->
+        </ng-container>
+
+        <ng-template #applyFormTemplate>
+          <form [formGroup]="applicationForm" (submit)="submitApplication(applicationForm.value)">
+            <div class="job-main-title" *ngIf="selectedJobIndex !== null">
+              {{ job_cards[selectedJobIndex].title }}
+            </div>
+            <!-- Personal Details -->
+            <h3 class="PersonalDetails">Personal Details</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input formControlName="name" type="text" placeholder="Enter your full name" />
+                <div
+                  class="err-msgs"
+                  *ngIf="
+                    this.utilsService.checkFormControlValidity(
+                      isSubmitClicked,
+                      applicationForm,
+                      'name'
+                    )
+                  "
+                >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['name']?.errors?.['required']"
+                    >Name required</small
+                  >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Email Address *</label>
+                <input
+                  formControlName="email"
+                  type="email"
+                  placeholder="Enter your email address"
+                />
+                <div
+                  class="err-msgs"
+                  *ngIf="
+                    this.utilsService.checkFormControlValidity(
+                      isSubmitClicked,
+                      applicationForm,
+                      'email'
+                    )
+                  "
+                >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['email']?.errors?.['required']"
+                    >Email ID required</small
+                  >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['email']?.errors?.['invalidEmail']"
+                    >Please enter a valid Email ID</small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Mobile Number *</label>
+                <input
+                  formControlName="number"
+                  type="text"
+                  maxlength="10"
+                  minlength="10"
+                  placeholder="Enter your mobile number"
+                />
+                <div
+                  class="err-msgs"
+                  *ngIf="
+                    this.utilsService.checkFormControlValidity(
+                      isSubmitClicked,
+                      applicationForm,
+                      'number'
+                    )
+                  "
+                >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['number']?.errors?.['required']"
+                    >Phone number required</small
+                  >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls?.['number']?.errors?.['invalidMobileNumber']"
+                  >
+                    Please enter a valid Mobile Number</small
+                  >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="
+                      applicationForm.controls?.['number']?.errors?.['maxlength'] &&
+                      !applicationForm.controls?.['number']?.errors?.['invalidMobileNumber']
+                    "
+                    >Mobile No. must be 10 digits.</small
+                  >
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Role *</label>
+                <select class="form-select" formControlName="role">
+                  <option value="">select</option>
+                  <option *ngFor="let job of job_cards" [value]="job.title">{{ job.title }}</option>
+                </select>
+                <div
+                  class="err-msgs"
+                  *ngIf="
+                    this.utilsService.checkFormControlValidity(
+                      isSubmitClicked,
+                      applicationForm,
+                      'role'
+                    )
+                  "
+                >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['role']?.errors?.['required']"
+                    >Role required</small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Professional Details -->
+            <h3>Professional Details</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Experience (In Years) *</label>
+                <select class="form-select" formControlName="experienceYears">
+                  <option value="">Select Your Experience (In Years)</option>
+                  <option *ngFor="let y of years" [value]="y">{{ y }}</option>
+                </select>
+                <div
+                  class="err-msgs"
+                  *ngIf="
+                    this.utilsService.checkFormControlValidity(
+                      isSubmitClicked,
+                      applicationForm,
+                      'experienceYears'
+                    )
+                  "
+                >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['experienceYears']?.errors?.['required']"
+                    >Experience in years required</small
+                  >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Experience (In Months) *</label>
+                <select class="form-select" formControlName="experienceMonths">
+                  <option value="">Select Your Experience (In Months)</option>
+                  <option *ngFor="let m of months" [value]="m">{{ m }}</option>
+                </select>
+                <div
+                  class="err-msgs"
+                  *ngIf="
+                    this.utilsService.checkFormControlValidity(
+                      isSubmitClicked,
+                      applicationForm,
+                      'experienceMonths'
+                    )
+                  "
+                >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['experienceMonths']?.errors?.['required']"
+                    >Experience in months required</small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Current CTC (In Lakhs) *</label>
+                <input
+                  formControlName="currentCtc"
+                  type="number"
+                  step="100000"
+                  min="0"
+                  placeholder="Enter Current CTC"
+                />
+                <div
+                  class="err-msgs"
+                  *ngIf="
+                    this.utilsService.checkFormControlValidity(
+                      isSubmitClicked,
+                      applicationForm,
+                      'currentCtc'
+                    )
+                  "
+                >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['currentCtc']?.errors?.['required']"
+                    >Current CTC required</small
+                  >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Expected CTC (In Lakhs) *</label>
+                <input
+                  formControlName="expectedCtc"
+                  type="number"
+                  step="100000"
+                  min="0"
+                  placeholder="Enter Expected CTC"
+                />
+                <div
+                  class="err-msgs"
+                  *ngIf="
+                    this.utilsService.checkFormControlValidity(
+                      isSubmitClicked,
+                      applicationForm,
+                      'expectedCtc'
+                    )
+                  "
+                >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['expectedCtc']?.errors?.['required']"
+                    >Expected CTC required</small
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label>Notice Period (In Days) *</label>
+                <input
+                  formControlName="noticePeriod"
+                  type="number"
+                  min="0"
+                  placeholder="Enter Notice Period"
+                />
+                <div
+                  class="err-msgs"
+                  *ngIf="
+                    this.utilsService.checkFormControlValidity(
+                      isSubmitClicked,
+                      applicationForm,
+                      'noticePeriod'
+                    )
+                  "
+                >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['noticePeriod']?.errors?.['required']"
+                    >Notice Period required</small
+                  >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Upload Your CV (PDF, DOC, DOC) *</label>
+                <input type="file" (change)="onFileChange($event)" accept=".pdf, .doc, .docx" />
+                <div
+                  class="err-msgs"
+                  *ngIf="
+                    this.utilsService.checkFormControlValidity(
+                      isSubmitClicked,
+                      applicationForm,
+                      'cv'
+                    )
+                  "
+                >
+                  <small
+                    class="invalid-msgs"
+                    *ngIf="applicationForm.controls['cv']?.errors?.['required']"
+                    >Notice Period required</small
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="form-row d-flex align-items-end">
+              <div class="d-flex form-group">
+                <label>Captcha *</label>
+                <div class="d-flex align-items-center numbers">
+                  {{ num1 }} + {{ num2 }} =&nbsp;
+                  <input
+                    type="text"
+                    class="form-control captcha-input"
+                    formControlName="captcha"
+                    style="width: 50px"
+                  />&nbsp;&nbsp;
+                  <i
+                    class="bi bi-arrow-clockwise"
+                    style="font-size: 18px; cursor: pointer"
+                    (click)="createRandomNumbers()"
+                  ></i>
+                </div>
+              </div>
+
+              <button class="submit-btn" type="submit">
+                Submit Application<img
+                  src="assets/images/btn-arrow.svg"
+                  alt="arrow"
+                  class="banner-arrow"
+                />
+              </button>
+            </div>
+            <div *ngIf="isSubmitSuccess" class="text-center alert alert-success mt-2" role="alert">
+              {{ successMessage }}.
+            </div>
+
+            <!-- <button class="submit-btn" type="submit">Submit Application</button> -->
+            <!-- <button class="submit-btn" type="submit">
+              Submit Application<img src="assets/images/btn-arrow.svg" alt="arrow" class="banner-arrow" />
+            </button> -->
+            <!-- <button class="cancel-btn" type="button" (click)="closeApplyForm()">Cancel</button> -->
+          </form>
+        </ng-template>
+      </div>
+    </div>
+  </section>
+</section>

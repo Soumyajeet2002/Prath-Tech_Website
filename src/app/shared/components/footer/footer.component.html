@@ -1,0 +1,125 @@
+<!-- This Section Is for the Footer -->
+
+<footer class="section">
+  <div class="container position-relative">
+    <div class="row">
+      <div class="col-lg-5">
+        <img src="assets/images/Logo-stl.svg" alt="Company Logo" class="img-fluid stl-logo " />
+        <h4 clas="footer-title">Prath Technologies Pvt. Ltd.</h4>
+        <ul class="list-unstyled cont-add">
+          <!-- <div class="container location"></div> -->
+          <li class="footer-location mb-3">
+            <i class="fa-solid fa-location-dot mr-3"></i>
+            <div class="location-footer">
+              Plot no 364, 2nd Floor, Janpath, Saheed Nagar, Bhubaneswar, Odisha 751007, India
+            </div>
+          </li>
+          <li class="footer-phone mb-2">
+            <i class="fa-solid fa-phone"></i>
+            <div class="number-footer">+91 674 2973271</div>
+          </li>
+          <li class="footer-email mb-2">
+            <i class="fa-solid fa-envelope mr-3"></i>
+            <a href="mailto:contact@prathtech.com" class="email">contact&#64;prathtech.com</a>
+          </li>
+        </ul>
+
+        <ul class="footer-social list-unstyled d-flex align-items-center justify-content-start">
+          <li *ngFor="let social of socialLinks">
+            <a [routerLink]="social.link" routerLinkActive="active">
+              <i class="icon" [class]="social.icon"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="col-12 d-block d-lg-none mt-5">
+        <div class="accordion" id="footerAccordion">
+          <div class="accordion-item" *ngFor="let section of footerSections; let i = index">
+            <h2 class="accordion-header" [id]="'heading' + i">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                [attr.data-bs-target]="'#collapse' + i"
+                aria-expanded="i === 0 ? 'true' : 'false'"
+                [attr.aria-controls]="'collapse' + i"
+              >
+                {{ section.title }}
+              </button>
+            </h2>
+            <div
+              [id]="'collapse' + i"
+              class="accordion-collapse collapse"
+              [class.show]="i === 0"
+              [attr.aria-labelledby]="'heading' + i"
+              data-bs-parent="#footerAccordion"
+            >
+              <div class="accordion-body">
+                <ul class="q-link list-unstyled">
+                  <li *ngFor="let link of section.links">
+                    <a [routerLink]="link.path" routerLinkActive="active">
+                      {{ link.name }}
+                      <!-- <span *ngIf="link.badge" class="hire">{{ link.badge }}</span> -->
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 mt-5 d-none d-lg-block">
+        <div class="row">
+          <div class="col-lg-4" *ngFor="let section of footerSections">
+            <h4>{{ section.title }}</h4>
+            <ul class="q-link list-unstyled">
+              <li *ngFor="let link of section.links">
+                <a
+                  *ngIf="section.title !== 'Industries'; else disabledLink"
+                  [routerLink]="link.path"
+                  routerLinkActive="active"
+                >
+                  {{ link.name }}
+                  <!-- <span *ngIf="link.badge" class="hire">{{ link.badge }}</span> -->
+                </a>
+                <ng-template #disabledLink>
+                  <a
+                    href=""
+                    class="disabled-link"
+                    (click)="$event.preventDefault()"
+                    style="pointer-events: none"
+                  >
+                    {{ link.name }}
+                  </a>
+                </ng-template>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h1 class="pholder text-start f-text">Contact us</h1>
+  </div>
+
+  <div class="copy-right position-relative w-100 mt-5">
+    <div class="container">
+      <ul class="list-unstyled d-flex flex-column flex-md-row justify-content-md-between mob-ft-ul">
+        <li class="mb-2 mb-md-0">© 2025 Prath Technologies Pvt. Ltd. All Rights Reserved</li>
+        <li
+          class="d-flex flex-md-row align-items-start align-items-md-center justify-content-start ms-auto ft-item"
+        >
+          <a
+            *ngFor="let link of bottomLinks"
+            [routerLink]="link.path"
+            routerLinkActive="active"
+            class="mb-1 mb-md-0"
+            >{{ link.name }}</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
