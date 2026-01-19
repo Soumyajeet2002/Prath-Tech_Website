@@ -32,7 +32,87 @@ $(function() {
     });
   });
 
+}
+
+);
+
+
+// $(function () {
+
+//   let nav = $("#globalStickyNav");
+
+//   nav.hide();
+
+//   ScrollTrigger.create({
+//     start: 50,
+//     onEnter: () => nav.fadeIn(200),
+//     onLeaveBack: () => nav.fadeOut(200)
+//   });
+
+// });
+
+// Jeet Testing Nav-bar sticky hide/show
+
+$(function () {
+
+  const nav = $("#globalStickyNav");
+
+  // Always start hidden (no flash)
+  gsap.set(nav, { autoAlpha: 0, display: "none" });
+
+  ScrollTrigger.create({
+    start: 50,
+    end: "max",
+    onEnter: showNav,
+    onEnterBack: showNav,
+    onLeaveBack: hideNav,
+    onLeave: hideNav
+  });
+
+  function showNav() {
+    if (nav.is(":visible")) return; // prevent double calls
+
+    gsap.to(nav, {
+      autoAlpha: 1,
+      display: "block",
+      duration: 0.2,
+      overwrite: "auto",
+      ease: "power1.out"
+    });
+  }
+
+  function hideNav() {
+    if (!nav.is(":visible")) return;
+
+    gsap.to(nav, {
+      autoAlpha: 0,
+      duration: 0.2,
+      overwrite: "auto",
+      onComplete: () => nav.css("display", "none")
+    });
+  }
+
+  // 🔥 Force recalculation after load
+  ScrollTrigger.refresh();
+
 });
+
+$(function () {
+
+  const nav = $("#mainNav");
+  const navHeight = nav.outerHeight();
+
+  ScrollTrigger.create({
+    start: navHeight,
+    end: "max",
+
+    onEnter: () => nav.addClass("is-sticky"),
+    onEnterBack: () => nav.addClass("is-sticky"),
+    onLeaveBack: () => nav.removeClass("is-sticky")
+  });
+
+});
+
 
 
 
