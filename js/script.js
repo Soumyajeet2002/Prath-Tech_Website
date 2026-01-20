@@ -102,17 +102,31 @@ $(function () {
   const nav = $("#mainNav");
   const navHeight = nav.outerHeight();
 
+  $("<div/>", {
+    class: "nav-spacer",
+    height: navHeight
+  }).insertBefore(nav).hide();
+
   ScrollTrigger.create({
     start: navHeight,
     end: "max",
 
-    onEnter: () => nav.addClass("is-sticky"),
-    onEnterBack: () => nav.addClass("is-sticky"),
-    onLeaveBack: () => nav.removeClass("is-sticky")
+    onEnter: () => {
+      nav.addClass("is-sticky");
+      $(".nav-spacer").show();
+    },
+
+    onEnterBack: () => {
+      nav.addClass("is-sticky");
+      $(".nav-spacer").show();
+    },
+
+    onLeaveBack: () => {
+      nav.removeClass("is-sticky");
+      $(".nav-spacer").hide();
+    }
   });
-
 });
-
 
 
 

@@ -3183,31 +3183,14 @@ button.btn.btn-primary:hover img {
 
 
 /* Inner NAv-bar section  */
-#mainNav {
-    /* position: relative;
-    width: 100%; */
-    background: #ffffff;
-    /* z-index: 10; */
-}
-
-/* Sticky state */
 #mainNav.is-sticky {
-    position: fixed !important;
+    position: fixed;
     top: 0;
     left: 0;
-    /* width: 100vw; */
-
+    width: 100%;
     z-index: 99;
-
-    /* isolation: isolate; */
-    /* transform: none !important; */
-    /* filter: none !important; */
-    /* perspective: none !important; */
-    /* will-change: auto; */
-
-    /* box-shadow: 0 2px 15px rgba(0,0,0,0.2); */
+    background: #fff;
 }
-
 
 /* Trupti Css */
 .career_cards{
