@@ -48,6 +48,43 @@
                      </div>
                   </div>
                </nav>
+
+
+               <!-- Sticky nav-bar test -->
+
+
+               <nav id="globalStickyNav" class="navbar navbar-expand-xl mainmenu sticky">
+               <div class="container">
+
+                  <a class="navbar-brand logodesktop" href="index.html">
+                     <img src="images/logo.png" alt="" height="100">
+                  </a>
+
+                  <button class="navbar-toggler d-xl-none" type="button">
+                     <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse d-none d-xl-block">
+                     <ul class="navbar-nav ms-auto">
+                     <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                     <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                     <li class="nav-item"><a class="nav-link" href="ourservices.html">Our Services</a></li>
+                     <li class="nav-item"><a class="nav-link" href="career.html">Career</a></li>
+                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+                     </ul>
+
+                     <div class="get_started_header ms-3">
+                     <a class="btn" href="contact.html">
+                        Get Started <img src="images/blackarrow.png" alt="">
+                     </a>
+                     </div>
+                  </div>
+
+               </div>
+               </nav>
+
+
+
                <!-- Mobile Fullscreen Menu -->
                <div id="menu" class="d-xl-none">
                   <div class="container-fluid mobilemenuheader">
@@ -71,9 +108,12 @@
                      <a class="btn" href="contact.html">Get Started <img src="images/arrow.png" alt=""></a>
                   </div>
                </div>
+
             </div>
          </div>
       </header>
+
+      <main id="siteRoot">
       <section class="homebanner">
          <div>
             <video width="100%" autoplay muted loop playsinline preload="auto" class="bannervideo">
@@ -199,7 +239,8 @@
             </div>
          </div>
       </section>
-      <section style="margin-top: -150px; position: relative; z-index: 19;">
+      <section style="margin-top: -150px; position: relative; z-index: 0;">
+      <!-- <section style="margin-top: -150px; position: relative; z-index: 19;"> -->
          <div><img src="images/processbg.png" alt="" class="processbackground"></div>
          <div class="services">
             <div class="container mt-5 mb-8">
@@ -311,7 +352,8 @@
          </div>
          </section> -->
       <section class="letstalkSection">
-         <div class="container position-relative" style="z-index: 99;">
+         <div class="container position-relative" style="z-index: 1;">
+         <!-- <div class="container position-relative" style="z-index: 99;"> -->
             <div class="row">
                <h1>We offer many more services to help you grow.</h1>
             </div>
@@ -384,6 +426,7 @@
             </div>
          </div>
       </section>
+      </main>
   <footer>
       <div class="container custom-footer">
         <div class="row">
