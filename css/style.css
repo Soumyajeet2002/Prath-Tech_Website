@@ -3995,3 +3995,14 @@ opacity: 0.4;
 
 
 
+
+
+.details__gallery__big{
+	/* border:1px solid #000; */
+	 box-shadow: 10px 10px 5px #c7c7c741;
+}
+
+.new-text{
+	line-height: 2;
+}
+
