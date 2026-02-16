@@ -21,7 +21,8 @@
   --violet:#6E1299;
   --yellow: #FF912C;
   /* --gradientColor: linear-gradient(90deg, #00229E 0%, #6E1299 47.92%, #FE0094 100%); */
-  --gradientColor: linear-gradient(90deg, #2a4dca 0%, #682d84 47.92%,#515eab 100%);
+  /* --gradientColor: linear-gradient(90deg, #2a4dca 0%, #682d84 47.92%,#515eab 100%); */
+  --gradientColor: linear-gradient(165deg, #515eab 0%,#20295a 100%);
   --gradientColor2:linear-gradient(180deg, rgba(8, 21, 42, 0.00) 0%, #08152A 100%);
   --gradientColor3: linear-gradient(90deg, #0F259E 0%, rgba(255, 255, 255, 0.00) 100%);
   --borderRadius: 8px;
@@ -47,6 +48,22 @@ ul {
   display: inline-block;
 } */
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	letter-spacing: -2px;
+	color: #333;
+	font-family: 'Spartan';
+}
+
+h1 {
+	font-size: 38px;
+	font-weight: 300;
+	letter-spacing: -2.5px;
+}
 
 
 .sp_100 {
@@ -869,7 +886,7 @@ button.default__button {
 }
 .section__title__heading {
   margin-bottom: 30px;
-  max-width: 50%;
+  /* max-width: 50%; */
   margin: 0 auto;
 }
 @media (min-width: 992px) and (max-width: 1365px) {
@@ -889,7 +906,7 @@ button.default__button {
 }
 .section__title__heading h3 {
   color: var(--blackColor);
-  text-align: center;
+  /* text-align: center; */
   font-size: 37px;
   font-weight: 700;
   line-height: 50px;
@@ -7332,7 +7349,8 @@ button.default__button {
   transition: var(--transition);
 }
 .testimonial__3__content.bg__pink {
-  background: var(--pinkcolor);
+  /* background: var(--pinkcolor); */
+  background: #8f9de892;
 }
 .testimonial__3__content.bg__pink p {
   color: var(--blackColor);
@@ -7387,7 +7405,8 @@ button.default__button {
 }
 .testimonial__3__name p {
   margin: 0;
-  color: var(--primaryColor);
+  /* color: var(--primaryColor); */
+  color: #20295a;
 }
 
 .testimonial__slider__padding {
@@ -10402,10 +10421,11 @@ Grid Area
 
 .hover-text{
   text-decoration: none;
-  color: #20295a;
+  color: #0000004e;
 }
 .hover-text:hover{
-	 color: var(--primaryColor);
+	 /* color: var(--primaryColor); */
+	 color: #20295a;
 
 }
 
@@ -10419,5 +10439,5 @@ Grid Area
 
 /*  */
 
-
+/* THis is new change */
 

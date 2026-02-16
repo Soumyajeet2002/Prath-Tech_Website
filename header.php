@@ -1,5 +1,5 @@
 <?php
-$currentPage = basename($_SERVER['PHP_SELF']);
+$currentPage = basename($_SERVER['PHP_SELF'], ".php");
 ?>
 
 
@@ -19,6 +19,8 @@ $currentPage = basename($_SERVER['PHP_SELF']);
    <link rel="stylesheet" href="webFont/stylesheet.css">
    <link rel="stylesheet" href="css/owl.carousel.css" />
    <link href="css/style.css" rel="stylesheet" />
+   <!-- Header Css new  -->
+   <link href="css/header-new.css" rel="stylesheet" />
 
    <!-- our innovation style start  -->
 
@@ -37,7 +39,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
          <div class="row">
             <!-- OG NAV-BAR -->
             <!-- <nav  class="navbar navbar-expand-xl mainmenu">
-                  <a class="navbar-brand logodesktop" href="index.php"><img src="images/logo.png" alt="" height="100"/></a>
+                  <a class="navbar-brand logodesktop" href="index"><img src="images/logo.png" alt="" height="100"/></a>
               
                   <button class="navbar-toggler d-xl-none" type="button" id="hamburger">
                   <span class="navbar-toggler-icon"></span>
@@ -45,15 +47,15 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                 
                   <div class="collapse navbar-collapse d-none d-xl-block">
                      <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index">Home</a></li>
                      
-                        <li class="nav-item"><a class="nav-link active" href="about.php">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices.php">Our Services</a></li>
-                        <li class="nav-item"><a class="nav-link" href="career.php">Career</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ourservices">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="career">Career</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact">Contact Us</a></li>
                      </ul>
                      <div class="get_started_header" style="margin-left: 10px;">
-                        <a class="btn" href="contact.php">Get Started <img src="images/blackarrow.png" alt=""></a>
+                        <a class="btn" href="contact">Get Started <img src="images/blackarrow.png" alt=""></a>
                      </div>
                   </div>
                </nav> -->
@@ -63,7 +65,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
             <!-- <nav id="mainNav" class="navbar navbar-expand-xl mainmenu">
                <div class="container">
 
-                  <a class="navbar-brand logodesktop" href="index.php">
+                  <a class="navbar-brand logodesktop" href="index">
                      <img src="images/logo.png" alt="" height="100">
                   </a>
 
@@ -73,9 +75,9 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
                   <div class="collapse navbar-collapse d-none d-xl-block">
                      <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices.php">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link" href="index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ourservices">Our Services</a></li>
                         <li class="nav-item dropdown">
                            <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
                               data-bs-toggle="dropdown" aria-expanded="false">
@@ -89,12 +91,12 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                               <li><a class="dropdown-item" href="product-5.html">Product 5</a></li>
                            </ul>
                         </li>
-                        <li class="nav-item"><a class="nav-link" href="career.php">Career</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="career">Career</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact">Contact Us</a></li>
                      </ul>
 
                      <div class="get_started_header ms-3">
-                        <a class="btn" href="contact.php">
+                        <a class="btn" href="contact">
                            Get Started <img src="images/blackarrow.png" alt="">
                         </a>
                      </div>
@@ -105,11 +107,11 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
 
 
-
+            <!-- New NAV_BAR SECTION -->
             <nav id="mainNav" class="navbar navbar-expand-xl mainmenu">
                <div class="container">
 
-                  <a class="navbar-brand logodesktop" href="index.php">
+                  <a class="navbar-brand logodesktop" href="index">
                      <img src="images/logo.png" alt="" height="100">
                   </a>
 
@@ -120,79 +122,84 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                   <div class="collapse navbar-collapse d-none d-xl-block">
                      <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
-                           <a class="nav-link <?= ($currentPage == 'index.php') ? 'active' : '' ?>" href="index.php">
+                           <a class="nav-link <?= ($currentPage == 'index') ? 'active' : '' ?>" href="index">
                               Home
                            </a>
                         </li>
 
                         <li class="nav-item">
-                           <a class="nav-link <?= ($currentPage == 'about.php') ? 'active' : '' ?>" href="about.php">
+                           <a class="nav-link <?= ($currentPage == 'about') ? 'active' : '' ?>" href="about">
                               About Us
                            </a>
                         </li>
 
                         <li class="nav-item">
-                           <a class="nav-link <?= ($currentPage == 'ourservices.php') ? 'active' : '' ?>" href="ourservices.php">
+                           <a class="nav-link <?= ($currentPage == 'ourservices') ? 'active' : '' ?>" href="ourservices">
                               Our Services
                            </a>
                         </li>
-
-                        <!-- <li class="nav-item dropdown">
+                        <li class="nav-item dropdown dropdown-mega">
                            <a class="nav-link dropdown-toggle <?= in_array($currentPage, [
-                                                                  'hrms.php',
-                                                                  'sms.php',
-                                                                  'psil-electrical.php',
-                                                                  'sgi.php',
-                                                                  'solutions.php'
+                                                                  'hrms',
+                                                                  'sms-product',
+                                                                  'psil-erp',
+                                                                  'sgi-erp',
+                                                                  'solutions'
                                                                ]) ? 'active' : '' ?>"
-                              href="#" id="productsDropdown"
-                              data-bs-toggle="dropdown" aria-expanded="false">
+                              href="#"
+                              id="megaMenu"
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false">
                               Our Innovations
                            </a>
 
-                           <ul class="dropdown-menu">
+                           <div class="dropdown-menu mega-menu p-4">
+                              <div class="row">
 
-                       
-                              <li class="dropdown-submenu">
-                                 <a class="dropdown-item dropdown-toggle" href="#">Products</a>
-                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="hrms.php">HRMS</a></li>
-                                    <li><a class="dropdown-item" href="sms-product.php">SMS</a></li>
-                                 </ul>
-                              </li>
+                                 <!-- PRODUCTS -->
+                                 <div class="col-md-4">
+                                    <h6 class="mega-title">Products</h6>
+                                    <ul class="list-unstyled">
+                                       <li><a class="dropdown-item" href="hrms">HRMS</a></li>
+                                       <li><a class="dropdown-item" href="sms-product">SMS</a></li>
+                                    </ul>
+                                 </div>
 
-                              <li class="dropdown-submenu">
-                                 <a class="dropdown-item dropdown-toggle" href="#">ERP</a>
-                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="psil-erp.php">PSIL Electrical</a></li>
-                                    <li><a class="dropdown-item" href="sgi-erp.php">SGI</a></li>
-                                 </ul>
-                              </li>
+                                 <!-- ERP -->
+                                 <div class="col-md-4">
+                                    <h6 class="mega-title">ERP</h6>
+                                    <ul class="list-unstyled">
+                                       <li><a class="dropdown-item" href="psil-erp">PSIL Electrical</a></li>
+                                       <li><a class="dropdown-item" href="sgi-erp">SGI</a></li>
+                                    </ul>
+                                 </div>
 
-                              
-                              <li class="dropdown-submenu">
-                                 <a class="dropdown-item dropdown-toggle" href="#">Solutions</a>
-                                 <ul class="dropdown-menu">
-                                    <li>
-                                       <a class="dropdown-item" href="solutions.php">
-                                          As mentioned in the deck
-                                       </a>
-                                    </li>
-                                 </ul>
-                              </li>
+                                 <!-- SOLUTIONS -->
+                                 <div class="col-md-4">
+                                    <h6 class="mega-title">Solutions</h6>
+                                    <ul class="list-unstyled">
+                                       <li>
+                                          <a class="dropdown-item" href="solutions">
+                                             As mentioned in the deck
+                                          </a>
+                                       </li>
+                                    </ul>
+                                 </div>
 
-                           </ul>
-                        </li> -->
+                              </div>
+                           </div>
+                        </li>
 
 
                         <li class="nav-item">
-                           <a class="nav-link <?= ($currentPage == 'career.php') ? 'active' : '' ?>" href="career.php">
+                           <a class="nav-link <?= ($currentPage == 'career') ? 'active' : '' ?>" href="career">
                               Career
                            </a>
                         </li>
 
                         <li class="nav-item">
-                           <a class="nav-link <?= ($currentPage == 'contact.php') ? 'active' : '' ?>" href="contact.php">
+                           <a class="nav-link <?= ($currentPage == 'contact') ? 'active' : '' ?>" href="contact">
                               Contact Us
                            </a>
                         </li>
@@ -200,7 +207,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
 
 
                      <div class="get_started_header ms-3">
-                        <a class="btn" href="contact.php">
+                        <a class="btn" href="contact">
                            Get Started <img src="images/blackarrow.png" alt="">
                         </a>
                      </div>
@@ -223,15 +230,15 @@ $currentPage = basename($_SERVER['PHP_SELF']);
                   </div>
                </div>
                <ul class="list-unstyled mt-5 mobilenav">
-                  <li><a class="nav-link" href="index.php">Home</a></li>
-                  <li><a class="nav-link" href="about.php">About Us</a></li>
-                  <li><a class="nav-link" href="ourservices.php">Our Services</a></li>
-                  <!-- <li><a class="nav-link" href="hrms.php">Our Innovations</a></li> -->
-                  <li><a class="nav-link" href="career.php">Career</a></li>
-                  <li><a class="nav-link" href="contact.php">Contact Us</a></li>
+                  <li><a class="nav-link" href="index">Home</a></li>
+                  <li><a class="nav-link" href="about">About Us</a></li>
+                  <li><a class="nav-link" href="ourservices">Our Services</a></li>
+                  <li><a class="nav-link" href="hrms.php">Our Innovations</a></li>
+                  <li><a class="nav-link" href="career">Career</a></li>
+                  <li><a class="nav-link" href="contact">Contact Us</a></li>
                </ul>
                <div class="get_started_header" style="margin-left: 10px;">
-                  <a class="btn" href="contact.php">Get Started <img src="images/arrow.png" alt=""></a>
+                  <a class="btn" href="contact">Get Started <img src="images/arrow.png" alt=""></a>
                </div>
             </div>
          </div>

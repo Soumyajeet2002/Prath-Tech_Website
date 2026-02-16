@@ -24,13 +24,13 @@
          <div class="footer-middle">
            <h5>Quick links</h5>
            <div class="footer-links">
-             <a href="index.php">Home</a>
-             <a href="about.php">About Us</a>
-             <a href="ourservices.php">Our Services</a>
+             <a href="index">Home</a>
+             <a href="about">About Us</a>
+             <a href="ourservices">Our Services</a>
              <!-- <a href="hrms.php">Our Innovation</a> -->
-             <a href="career.php">Career</a>
-             <a href="contact.php">Contact Us</a>
-             <a href="contact.php">Get Started</a>
+             <a href="career">Career</a>
+             <a href="contact">Contact Us</a>
+             <a href="contact">Get Started</a>
            </div>
          </div>
        </div>
@@ -77,6 +77,7 @@
  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/node-marquee@3.0.6/build/cdn/index.min.js"></script>
  <script src="js/script.js"></script>
+ <script src="js/header-new.js"></script>
  <script>
    AOS.init();
 
@@ -342,6 +343,40 @@
  </script>
 
  <!--Start of Tawk.to Script-->
+ <!--Start of Tawk.to Script-->
+ <script type="text/javascript">
+   var Tawk_API = Tawk_API || {},
+     Tawk_LoadStart = new Date();
+   (function() {
+     var s1 = document.createElement("script"),
+       s0 = document.getElementsByTagName("script")[0];
+     s1.async = true;
+     s1.src = 'https://embed.tawk.to/698ebb5c85e35c1c3911e296/1jhaonor2';
+     s1.charset = 'UTF-8';
+     s1.setAttribute('crossorigin', '*');
+     s0.parentNode.insertBefore(s1, s0);
+   })();
+ </script>
+ <!--End of Tawk.to Script-->
+ <!-- <script type="text/javascript">
+   var Tawk_API = Tawk_API || {},
+     Tawk_LoadStart = new Date();
+   Tawk_API.onChatEnded = function() {
+     Tawk_API.endChat();
+     Tawk_API.clear();
+   };
+
+   (function() {
+     var s1 = document.createElement("script"),
+       s0 = document.getElementsByTagName("script")[0];
+     s1.async = true;
+     s1.src = 'https://embed.tawk.to/697b3d0e28cc321c33ed9fb9/1jg4md0ts';
+     s1.charset = 'UTF-8';
+     s1.setAttribute('crossorigin', '*');
+     s0.parentNode.insertBefore(s1, s0);
+   })();
+ </script> -->
+
  <!-- <script type="text/javascript">
    var Tawk_API = Tawk_API || {},
      Tawk_LoadStart = new Date();
@@ -510,6 +545,30 @@
 
 
  <!-- our innovation page end  -->
+
+
+
+ <!-- THis script for Active NAV_BAR  -->
+ <script>
+   document.addEventListener("DOMContentLoaded", function() {
+     const currentPage = window.location.pathname.split("/").pop().replace(".php", "");
+
+     document.querySelectorAll(".nav-link").forEach(link => {
+       const href = link.getAttribute("href");
+
+       if (href && href === currentPage) {
+         link.classList.add("active");
+
+         // Activate parent dropdown if exists
+         const dropdown = link.closest(".dropdown");
+         if (dropdown) {
+           dropdown.querySelector(".dropdown-toggle").classList.add("active");
+         }
+       }
+     });
+   });
+ </script>
+
  </body>
 
  </html>

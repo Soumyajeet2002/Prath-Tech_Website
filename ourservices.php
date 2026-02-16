@@ -11,7 +11,7 @@
         Talk to our experts today.<img src="images/contact-me-thumb.webp" alt class="contactthumb" />
       </div>
       <div>
-        <a href="contact.php" class="custombutton mt-3">Contact Us Today<img src="images/arrow.png" alt /></a>
+        <a href="contact" class="custombutton mt-3">Contact Us Today<img src="images/arrow.png" alt /></a>
       </div>
     </div>
   </div>

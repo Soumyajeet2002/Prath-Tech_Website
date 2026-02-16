@@ -1,0 +1,100 @@
+/* Header dropdown css Test JEET */
+/* Mega menu container */
+.dropdown-mega .mega-menu {
+   width: 700px;
+   left: 50%;
+   transform: translateX(-50%);
+   border-radius: 8px;
+   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Section titles */
+.mega-title {
+   font-weight: 600;
+   margin-bottom: 10px;
+   color: #333;
+}
+
+/* Links spacing */
+.mega-menu .dropdown-item {
+   padding: 8px 0;
+}
+
+/* Hover effect */
+.mega-menu .dropdown-item:hover {
+   padding-left: 6px;
+   transition: 0.2s;
+}
+
+/* Mobile fix */
+@media (max-width: 991px) {
+   .dropdown-mega .mega-menu {
+      width: 100%;
+      transform: none;
+      left: 0;
+   }
+}
+
+
+
+
+/* Header Hover open  */
+@media (min-width: 992px) {
+   .dropdown-mega:hover .dropdown-menu {
+      display: block;
+   }
+}
+
+
+
+
+/* Header Icon  */
+/* ===== Mega Menu Icons Upgrade ===== */
+
+.mega-links .dropdown-item span{
+
+    font-size: 20px;
+    font-weight: 600;
+}
+
+
+.col-lg-4.col-md-6 .mega-title i{
+    font-size: 20px;                 /* Bigger icon */
+    width: 42px;
+    height: 42px;
+    padding: 5px; 
+    margin-right: 2px;
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    /* background: linear-gradient(135deg, #0d6efd, #4f9cff); */
+    background: linear-gradient(135deg, #0d6efd, #20295a);
+    color: #fff;
+    transition: all 0.8s ease;
+}
+
+
+
+.mega-links .dropdown-item i {
+   font-size: 20px;                 /* Bigger icon */
+   width: 42px;
+   height: 42px;
+   padding: 5px; 
+   margin-right: 2px;
+   /* display: flex; */
+   align-items: center;
+   justify-content: center;
+   border-radius: 12px;
+   /* background: linear-gradient(135deg, #0d6efd, #4f9cff); */
+   background: linear-gradient(135deg, #0d6efd, #20295a);
+   color: #fff;
+   transition: all 0.8s ease;
+}
+
+/* Hover effect */
+.mega-links .dropdown-item:hover i {
+   transform: scale(1.15);
+   background: linear-gradient(135deg, #4f9cff, #0d6efd);
+   box-shadow: 0 8px 20px rgba(13,110,253,0.35);
+}

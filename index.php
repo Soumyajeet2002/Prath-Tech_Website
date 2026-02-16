@@ -9,6 +9,8 @@
    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
       rel="stylesheet">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
    <link rel="stylesheet" href="webFont/stylesheet.css">
    <link rel="stylesheet" href="css/owl.carousel.css" />
@@ -19,6 +21,7 @@
          display: none;
       }
    </style>
+   <link href="css/header-new.css" rel="stylesheet">
 </head>
 
 <body>
@@ -26,7 +29,7 @@
       <div class="container-fluid width80">
          <div class="row">
             <nav class="navbar navbar-expand-xl mainmenu">
-               <a class="navbar-brand logodesktop" href="index.php"><img src="images/logo.png" alt=""
+               <a class="navbar-brand logodesktop" href="index"><img src="images/logo.png" alt=""
                      height="100" /></a>
                <!-- Hamburger Button (Mobile only) -->
                <button class="navbar-toggler d-xl-none" type="button" id="hamburger">
@@ -35,50 +38,91 @@
                <!-- Desktop Menu -->
                <div class="collapse navbar-collapse d-none d-xl-block">
                   <ul class="navbar-nav ms-auto">
-                     <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-                     <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
-                     <li class="nav-item"><a class="nav-link" href="ourservices.php">Our Services</a></li>
+                     <li class="nav-item"><a class="nav-link active" href="index">Home</a></li>
+                     <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
+                     <li class="nav-item"><a class="nav-link" href="ourservices">Our Services</a></li>
                      <!-- <li class="nav-item"><a class="nav-link" href="hrms.php">Our Innovations</a></li> -->
-                     <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                           Our Innovations
-                        </a>
-                        <ul class="dropdown-menu">
+                     <ul class="navbar-nav ms-auto">
 
-                       
-                           <li class="dropdown-submenu">
-                              <a class="dropdown-item dropdown-toggle" href="#">Products</a>
-                              <ul class="dropdown-menu">
-                                 <li><a class="dropdown-item" href="hrms.php">HRMS</a></li>
-                                 <li><a class="dropdown-item" href="sms-product.php">SMS</a></li>
-                              </ul>
-                           </li>
+                        <li class="nav-item dropdown dropdown-mega">
+                           <a class="nav-link dropdown-toggle fw-semibold"
+                              href="#"
+                              id="megaMenu"
+                              role="button"
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false">
+                              Our Innovations
+                           </a>
 
-                          
-                           <li class="dropdown-submenu">
-                              <a class="dropdown-item dropdown-toggle" href="#">ERP</a>
-                              <ul class="dropdown-menu">
-                                 <li><a class="dropdown-item" href="psil-erp.php">PSIL Electrical</a></li>
-                                 <li><a class="dropdown-item" href="sgi-erp.php">SGI</a></li>
-                              </ul>
-                           </li>
+                           <div class="dropdown-menu mega-menu p-4">
+                              <div class="container">
+                                 <div class="row g-4">
 
-                           
-                           <li class="dropdown-submenu">
-                              <a class="dropdown-item dropdown-toggle" href="#">Solutions</a>
-                              <ul class="dropdown-menu">
-                                 <li>
-                                    <a class="dropdown-item" href="solutions.php">
-                                       As mentioned in the deck
-                                    </a>
-                                 </li>
-                              </ul>
-                           </li>
+                                    <!-- PRODUCTS -->
+                                    <div class="col-lg-4 col-md-6">
+                                       <h6 class="mega-title">
+                                          <i class="bi bi-box-seam"></i> <span>Products</span>
+                                       </h6>
+                                       <ul class="list-unstyled mega-links">
+                                          <li>
+                                             <a class="dropdown-item" href="hrms">
+                                                <i class="bi bi-people"></i> <span>HRMS</span>
 
-                        </ul>
+                                             </a>
+                                          </li>
+                                          <li>
+                                             <a class="dropdown-item" href="#">
+                                                <i class="bi bi-building"></i>
+                                                <span>SMS</span>
+                                             </a>
+                                          </li>
+                                       </ul>
+                                    </div>
 
-                     </li> -->
+                                    <!-- ERP -->
+                                    <div class="col-lg-4 col-md-6">
+                                       <h6 class="mega-title">
+                                          <i class="bi bi-diagram-3"></i> ERP
+                                       </h6>
+                                       <ul class="list-unstyled mega-links">
+                                          <li>
+                                             <a class="dropdown-item" href="#">
+                                                <i class="bi bi-lightning"></i>
+                                                <span>PSIL Electrical</span>
+                                             </a>
+                                          </li>
+                                          <li>
+                                             <a class="dropdown-item" href="#">
+                                                <i class="bi bi-building"></i>
+                                                <span>SGI</span>
+                                             </a>
+                                          </li>
+                                       </ul>
+                                    </div>
+
+                                    <!-- SOLUTIONS -->
+                                    <div class="col-lg-4 col-md-6">
+                                       <h6 class="mega-title">
+                                          <i class="bi bi-stars"></i> Solutions
+                                       </h6>
+                                       <ul class="list-unstyled mega-links">
+                                          <li>
+                                             <a class="dropdown-item" href="#">
+                                                <i class="bi bi-file-earmark-text"></i>
+                                                <span>As mentioned in the deck</span>
+                                             </a>
+                                          </li>
+                                       </ul>
+                                    </div>
+
+                                 </div>
+                              </div>
+                           </div>
+                        </li>
+
+                     </ul>
+
+
 
                      <!-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="productsDropdown" role="button"
@@ -90,11 +134,11 @@
                         </ul>
                      </li> -->
 
-                     <li class="nav-item"><a class="nav-link" href="career.php">Career</a></li>
-                     <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
+                     <li class="nav-item"><a class="nav-link" href="career">Career</a></li>
+                     <li class="nav-item"><a class="nav-link" href="contact">Contact Us</a></li>
                   </ul>
                   <div class="get_started_header" style="margin-left: 10px;">
-                     <a class="btn" href="contact.php">Get Started <img src="images/blackarrow.png" alt=""></a>
+                     <a class="btn" href="contact">Get Started <img src="images/blackarrow.png" alt=""></a>
                   </div>
                </div>
             </nav>
@@ -106,7 +150,7 @@
             <nav id="globalStickyNav" class="navbar navbar-expand-xl mainmenu sticky">
                <div class="container">
 
-                  <a class="navbar-brand logodesktop" href="index.php">
+                  <a class="navbar-brand logodesktop" href="index">
                      <img src="images/logo.png" alt="" height="100">
                   </a>
 
@@ -116,54 +160,67 @@
 
                   <div class="collapse navbar-collapse d-none d-xl-block">
                      <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about.php">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices.php">Our Services</a></li>
-                        <!-- <li class="nav-item dropdown">
-                           <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
-                              data-bs-toggle="dropdown" aria-expanded="false">
-                              Our Innovations
-                           </a>
-                           <ul class="dropdown-menu">
+                        <li class="nav-item"><a class="nav-link active" href="index">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ourservices">Our Services</a></li>
+                        <ul class="navbar-nav ms-auto">
 
+                           <li class="nav-item dropdown dropdown-mega">
+                              <a class="nav-link dropdown-toggle"
+                                 href="#"
+                                 id="megaMenu"
+                                 role="button"
+                                 data-bs-toggle="dropdown"
+                                 aria-expanded="false">
+                                 Our Innovations
+                              </a>
 
-                              <li class="dropdown-submenu">
-                                 <a class="dropdown-item dropdown-toggle" href="#">Products</a>
-                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="hrms.php">HRMS</a></li>
-                                    <li><a class="dropdown-item" href="sms-product.php">SMS</a></li>
-                                 </ul>
-                              </li>
+                              <div class="dropdown-menu mega-menu p-4">
+                                 <div class="container">
+                                    <div class="row">
 
+                                       <!-- Products -->
+                                       <div class="col-lg-4 col-md-6 mb-3">
+                                          <h6 class="mega-title">Products</h6>
+                                          <ul class="list-unstyled">
+                                             <li><a class="dropdown-item" href="hrms">HRMS</a></li>
+                                             <li><a class="dropdown-item" href="#">SMS</a></li>
+                                          </ul>
+                                       </div>
 
-                              <li class="dropdown-submenu">
-                                 <a class="dropdown-item dropdown-toggle" href="#">ERP</a>
-                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="psil-erp.php">PSIL Electrical</a></li>
-                                    <li><a class="dropdown-item" href="sgi-erp.php">SGI</a></li>
-                                 </ul>
-                              </li>
+                                       <!-- ERP -->
+                                       <div class="col-lg-4 col-md-6 mb-3">
+                                          <h6 class="mega-title">ERP</h6>
+                                          <ul class="list-unstyled">
+                                             <li><a class="dropdown-item" href="#">PSIL Electrical</a></li>
+                                             <li><a class="dropdown-item" href="#">SGI</a></li>
+                                          </ul>
+                                       </div>
 
+                                       <!-- Solutions -->
+                                       <div class="col-lg-4 col-md-6 mb-3">
+                                          <h6 class="mega-title">Solutions</h6>
+                                          <ul class="list-unstyled">
+                                             <li>
+                                                <a class="dropdown-item" href="#">
+                                                   As mentioned in the deck
+                                                </a>
+                                             </li>
+                                          </ul>
+                                       </div>
 
-                              <li class="dropdown-submenu">
-                                 <a class="dropdown-item dropdown-toggle" href="#">Solutions</a>
-                                 <ul class="dropdown-menu">
-                                    <li>
-                                       <a class="dropdown-item" href="solutions.php">
-                                          As mentioned in the deck
-                                       </a>
-                                    </li>
-                                 </ul>
-                              </li>
+                                    </div>
+                                 </div>
+                              </div>
+                           </li>
 
-                           </ul>
-                        </li> -->
-                        <li class="nav-item"><a class="nav-link" href="career.php">Career</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact.php">Contact Us</a></li>
+                        </ul>
+                        <li class="nav-item"><a class="nav-link" href="career">Career</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact">Contact Us</a></li>
                      </ul>
 
                      <div class="get_started_header ms-3">
-                        <a class="btn" href="contact.php">
+                        <a class="btn" href="contact">
                            Get Started <img src="images/blackarrow.png" alt="">
                         </a>
                      </div>
@@ -173,6 +230,12 @@
             </nav>
 
 
+
+            <!-- New Test Nav-Bar manu -->
+
+
+
+            <!--  -->
 
             <!-- Mobile Fullscreen Menu -->
             <div id="menu" class="d-xl-none">
@@ -187,18 +250,18 @@
                   </div>
                </div>
                <ul class="list-unstyled mt-5 mobilenav">
-                  <li><a class="nav-link" href="index.php">Home</a></li>
-                  <li><a class="nav-link" href="about.php">About Us</a></li>
-                  <li><a class="nav-link" href="ourservices.php">Our Services</a></li>
+                  <li><a class="nav-link" href="index">Home</a></li>
+                  <li><a class="nav-link" href="about">About Us</a></li>
+                  <li><a class="nav-link" href="ourservices">Our Services</a></li>
                   <!-- <li><a class="nav-link" href="hrms.php">Our Innovations</a></li> -->
-                  <!-- <li class="nav-item dropdown">
+                  <li class="nav-item dropdown">
                      <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Our Innovations
                      </a>
                      <ul class="dropdown-menu">
 
-                    
+
                         <li class="dropdown-submenu">
                            <a class="dropdown-item dropdown-toggle" href="#">Products</a>
                            <ul class="dropdown-menu">
@@ -207,7 +270,7 @@
                            </ul>
                         </li>
 
-                      
+
                         <li class="dropdown-submenu">
                            <a class="dropdown-item dropdown-toggle" href="#">ERP</a>
                            <ul class="dropdown-menu">
@@ -216,7 +279,7 @@
                            </ul>
                         </li>
 
-                        
+
                         <li class="dropdown-submenu">
                            <a class="dropdown-item dropdown-toggle" href="#">Solutions</a>
                            <ul class="dropdown-menu">
@@ -230,12 +293,12 @@
 
                      </ul>
 
-                  </li> -->
-                  <li><a class="nav-link" href="career.php">Career</a></li>
-                  <li><a class="nav-link" href="contact.php">Contact Us</a></li>
+                  </li>
+                  <li><a class="nav-link" href="career">Career</a></li>
+                  <li><a class="nav-link" href="contact">Contact Us</a></li>
                </ul>
                <div class="get_started_header" style="margin-left: 10px;">
-                  <a class="btn" href="contact.php">Get Started <img src="images/arrow.png" alt=""></a>
+                  <a class="btn" href="contact">Get Started <img src="images/arrow.png" alt=""></a>
                </div>
             </div>
 
@@ -511,7 +574,7 @@
                <h1>We offer many more services to help you grow.</h1>
             </div>
             <div class="text-center">
-               <a href="ourservices.php" class="custombutton">Explore All Our Services <img src="images/arrow.png"
+               <a href="ourservices" class="custombutton">Explore All Our Services <img src="images/arrow.png"
                      alt=""></a>
             </div>
          </div>

@@ -8,7 +8,7 @@
             <h6 style="letter-spacing: -1.5px;">Shaping ideas into impactful digital solutions.</h6>
             <h1 class="split">Empowering <br> Transformation</h1>
             <div class="bannerbtmtext">Excellence Through Innovation.<img src="images/career-user.webp" alt=""></div>
-            <div><a href="ourservices.php" class="custombutton mt-4">View Our Services <img src="images/arrow.png"
+            <div><a href="ourservices" class="custombutton mt-4">View Our Services <img src="images/arrow.png"
                      alt=""></a></div>
          </div>
       </div>
@@ -51,7 +51,7 @@
 
 
                   <div class="get_started_header">
-                     <a class="btn" href="contact.php">Get Started <img src="images/arrow.png" alt=""></a>
+                     <a class="btn" href="contact">Get Started <img src="images/arrow.png" alt=""></a>
                   </div>
 
                </div>

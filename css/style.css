@@ -1145,7 +1145,7 @@ footer hr {
 }
 
 .career-opening-role span {
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: 500;
 	color: #4d4d4d;
 }
@@ -1167,8 +1167,8 @@ footer hr {
 }
 
 .jobtype {
-	font-size: 14px;
-	font-weight: 600;
+	font-size: 20px;
+	font-weight: 800;
 	color: #818181;
 	font-family: "Plus Jakarta Sans", sans-serif;
 	letter-spacing: -0.2px;
@@ -3943,9 +3943,15 @@ opacity: 0.4;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
+
 .sec-title .flex-content .flex-text {
   max-width: 540px;
   margin-bottom: 0;
+}
+
+.sec-title .flex-content .flex-text.ourproduct-new {
+	margin-top: 50px;
+	max-width: 100% !important;
 }
 
 
@@ -4005,6 +4011,12 @@ opacity: 0.4;
 .new-text{
 	line-height: 2;
 }
+
+
+
+
+/* new header dropdown css */
+
 
 
 
