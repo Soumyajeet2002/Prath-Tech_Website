@@ -138,7 +138,7 @@
 
   /* Glassmorphism */
   /* background: rgba(186, 186, 186, 0.15); */
-  background: #dad1d1;
+  background: #e4f2f7;
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
 
@@ -198,9 +198,57 @@
     background: rgba(255, 255, 255, 0.35);
   }
 }
+/* Arrow indicator */
+/* .has-submenu > a::after {
+  content: "▶";
+  float: right;
+  padding: 2px;
+  font-size: 12px;
+  font-weight: 100px;
+} */
+/* Arrow base */
+/* .has-submenu > a::after {
+  content: "▶";
+  float: right;
+  font-size: 12px;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  opacity: 0.6;
+} */
+
+/* Animate arrow on hover */
+/* .has-submenu > a:hover::after {
+  opacity: 1;
+} */
 
 
 
+/* .submenu {
+  display: none;
+  position: absolute;
+} */
+
+
+
+/* .submenu .submenu {
+  top: 0;
+  left: 100%;
+} */
+
+
+/* .menu-item {
+  position: relative;
+} */
+
+/* .submenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+} */
+/* 
+.submenu .submenu {
+  top: 0;
+  left: 100%;
+} */
 .menu-item.open > .submenu {
   display: block;
 }
@@ -214,8 +262,36 @@
 }
 
 
-/* new style */
 
+
+
+
+
+
+
+
+
+.menu a {
+  display: flex;
+  align-items: center;
+  /* justify-content: space-between; */
+}
+
+.menu a i {
+  transition: transform 0.25s cubic-bezier(.4,0,.2,1);
+}
+
+.menu-item.has-submenu:hover > a .arrow i {
+  transform: rotate(90deg);
+}
+
+.menu a:hover > i:first-child {
+  transform: translateX(6px);
+}
+
+
+
+/*  */
 
 .menu a {
   position: relative;
@@ -304,4 +380,16 @@
 
 .menu a:hover::before {
   width: 100%;
+}
+
+
+
+.menu a.active {
+   color: #2C4DB8 !important;
+   font-weight: 600;
+}
+
+/* Active + Hover → White */
+.menu a.active:hover {
+   color: #ffffff !important;
 }

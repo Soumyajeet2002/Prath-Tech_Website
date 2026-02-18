@@ -20,7 +20,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
    <link rel="stylesheet" href="css/owl.carousel.css" />
    <link href="css/style.css" rel="stylesheet" />
    <!-- Header Css new  -->
-   <link href="css/header-new.css" rel="stylesheet" />
+   <link href="css/body-header-new.css" rel="stylesheet" />
 
    <!-- our innovation style start  -->
 
@@ -30,6 +30,9 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
    <!-- new Link for Icons -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
    <!-- our innovation style end  -->
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
 
 </head>
 
@@ -138,58 +141,118 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                               Our Services
                            </a>
                         </li>
-                        <li class="nav-item dropdown dropdown-mega">
-                           <a class="nav-link dropdown-toggle <?= in_array($currentPage, [
-                                                                  'hrms',
-                                                                  'sms-product',
-                                                                  'psil-erp',
-                                                                  'sgi-erp',
-                                                                  'solutions'
-                                                               ]) ? 'active' : '' ?>"
-                              href="#"
-                              id="megaMenu"
-                              role="button"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false">
-                              Our Innovations
-                           </a>
 
-                           <div class="dropdown-menu mega-menu p-4">
-                              <div class="row">
+
+                        <ul class="menu">
+
+                           <li class="menu-item has-submenu">
+
+                              <a href="#"
+                                 class="<?= in_array($currentPage, [
+                                             'hrms',
+                                             'sms',
+                                             'psil-electrical',
+                                             'sgi',
+                                             'e-hrms',
+                                             'pma',
+                                             'sma',
+                                             'e-office',
+                                             'grievance',
+                                             'e-booking'
+                                          ]) ? 'active' : '' ?>">
+
+                                 <i class="bi bi-lightbulb me-2"></i>
+                                 Our Innovations
+                                 <span class="arrow">
+                                    <i class="bi bi-chevron-down ms-2"></i>
+                                 </span>
+                              </a>
+
+                              <ul class="submenu">
 
                                  <!-- PRODUCTS -->
-                                 <div class="col-md-4">
-                                    <h6 class="mega-title">Products</h6>
-                                    <ul class="list-unstyled">
-                                       <li><a class="dropdown-item" href="hrms">HRMS</a></li>
-                                       <li><a class="dropdown-item" href="sms-product">SMS</a></li>
-                                    </ul>
-                                 </div>
+                                 <li class="menu-item has-submenu">
+                                    <a href="#">
+                                       <i class="bi bi-box-seam me-2"></i>
+                                       Products
+                                       <span class="arrow">
+                                          <i class="bi bi-chevron-right ms-2"></i>
+                                       </span>
+                                    </a>
 
-                                 <!-- ERP -->
-                                 <div class="col-md-4">
-                                    <h6 class="mega-title">ERP</h6>
-                                    <ul class="list-unstyled">
-                                       <li><a class="dropdown-item" href="psil-erp">PSIL Electrical</a></li>
-                                       <li><a class="dropdown-item" href="sgi-erp">SGI</a></li>
-                                    </ul>
-                                 </div>
-
-                                 <!-- SOLUTIONS -->
-                                 <div class="col-md-4">
-                                    <h6 class="mega-title">Solutions</h6>
-                                    <ul class="list-unstyled">
+                                    <ul class="submenu">
                                        <li>
-                                          <a class="dropdown-item" href="solutions">
-                                             As mentioned in the deck
+                                          <a href="hrms"
+                                             class="<?= ($currentPage == 'hrms') ? 'active' : '' ?>">
+                                             <i class="bi bi-arrow-right-short me-2"></i> HRMS
+                                          </a>
+                                       </li>
+
+                                       <li>
+                                          <a href="sms"
+                                             class="<?= ($currentPage == 'sms') ? 'active' : '' ?>">
+                                             <i class="bi bi-arrow-right-short me-2"></i> SMS
                                           </a>
                                        </li>
                                     </ul>
-                                 </div>
+                                 </li>
 
-                              </div>
-                           </div>
-                        </li>
+                                 <!-- ERP -->
+                                 <li class="menu-item has-submenu">
+                                    <a href="#">
+                                       <i class="bi bi-diagram-3 me-2"></i>
+                                       ERP
+                                       <span class="arrow">
+                                          <i class="bi bi-chevron-right ms-2"></i>
+                                       </span>
+                                    </a>
+
+                                    <ul class="submenu">
+                                       <li>
+                                          <a href="psil-electrical"
+                                             class="<?= ($currentPage == 'psil-electrical') ? 'active' : '' ?>">
+                                             <i class="bi bi-arrow-right-short me-2"></i> PSIL Electrical
+                                          </a>
+                                       </li>
+
+                                       <li>
+                                          <a href="sgi"
+                                             class="<?= ($currentPage == 'sgi') ? 'active' : '' ?>">
+                                             <i class="bi bi-arrow-right-short me-2"></i> SGI
+                                          </a>
+                                       </li>
+                                    </ul>
+                                 </li>
+
+                                 <!-- SOLUTIONS -->
+                                 <li class="menu-item has-submenu">
+                                    <a href="#">
+                                       <i class="bi bi-gear me-2"></i>
+                                       Solutions
+                                       <span class="arrow">
+                                          <i class="bi bi-chevron-right ms-2"></i>
+                                       </span>
+                                    </a>
+
+                                    <ul class="submenu">
+                                       <li><a href="e-hrms" class="<?= ($currentPage == 'e-hrms') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
+                                       <li><a href="pma" class="<?= ($currentPage == 'pma') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> PMA</a></li>
+                                       <li><a href="sma" class="<?= ($currentPage == 'sma') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> SMA</a></li>
+                                       <li><a href="e-office" class="<?= ($currentPage == 'e-office') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> E-OFFICE</a></li>
+                                       <li><a href="grievance" class="<?= ($currentPage == 'grievance') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> GRIEVANCE</a></li>
+                                       <li><a href="e-booking" class="<?= ($currentPage == 'e-booking') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> E-BOOKING</a></li>
+                                    </ul>
+                                 </li>
+
+                              </ul>
+
+                           </li>
+
+                        </ul>
+
+
+
+
 
 
                         <li class="nav-item">
