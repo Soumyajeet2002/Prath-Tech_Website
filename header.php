@@ -296,7 +296,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                   <li><a class="nav-link" href="index">Home</a></li>
                   <li><a class="nav-link" href="about">About Us</a></li>
                   <li><a class="nav-link" href="ourservices">Our Services</a></li>
-                  <li><a class="nav-link" href="hrms.php">Our Innovations</a></li>
+
                   <li><a class="nav-link" href="career">Career</a></li>
                   <li><a class="nav-link" href="contact">Contact Us</a></li>
                </ul>

@@ -305,3 +305,26 @@
 .menu a:hover::before {
   width: 100%;
 }
+
+
+
+
+/* For mobile menu */
+
+/* Mobile only */
+/* =============================
+   DESKTOP (hover dropdown)
+============================= */
+/* Desktop multi-level */
+@media (min-width: 992px) {
+   .dropdown-submenu {
+      position: relative;
+   }
+
+   .dropdown-submenu > .dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: -1px;
+   }
+}
+

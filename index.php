@@ -300,46 +300,86 @@
                         <li class="nav-item"><a class="nav-link" href="ourservices">Our Services</a></li>
 
                         <ul class="menu">
-
                            <li class="menu-item has-submenu">
-                              <a href="#">Our Innovations</a>
+                              <a href="#">
+                                 Our Innovations
+                                 <i class="bi bi-chevron-down ms-2"></i>
+                              </a>
 
                               <ul class="submenu">
 
                                  <!-- Products -->
                                  <li class="menu-item has-submenu">
-                                    <a href="#">Products</a>
+                                    <a href="#">
+                                       <i class="bi bi-box-seam me-2"></i>
+                                       Products
+                                       <span class="arrow">
+                                          <i class="bi bi-chevron-right ms-2"></i>
+                                       </span>
+
+                                    </a>
                                     <ul class="submenu">
-                                       <li><a href="hrms">HRMS</a></li>
-                                       <li><a href="#">SMS</a></li>
+                                       <li>
+                                          <a href="hrms">
+                                             <i class="bi bi-arrow-right-short me-2"></i> HRMS
+                                          </a>
+                                       </li>
+                                       <li>
+                                          <a href="#">
+                                             <i class="bi bi-arrow-right-short me-2"></i> SMS
+                                          </a>
+                                       </li>
                                     </ul>
                                  </li>
 
                                  <!-- ERP -->
                                  <li class="menu-item has-submenu">
-                                    <a href="#">ERP</a>
+                                    <a href="#">
+                                       <i class="bi bi-diagram-3 me-2"></i>
+                                       ERP
+                                       <span class="arrow">
+                                          <i class="bi bi-chevron-right ms-2"></i>
+                                       </span>
+
+                                    </a>
                                     <ul class="submenu">
-                                       <li><a href="#">PSIL Electrical</a></li>
-                                       <li><a href="#">SGI</a></li>
+                                       <li>
+                                          <a href="#">
+                                             <i class="bi bi-arrow-right-short me-2"></i> PSIL Electrical
+                                          </a>
+                                       </li>
+                                       <li>
+                                          <a href="#">
+                                             <i class="bi bi-arrow-right-short me-2"></i> SGI
+                                          </a>
+                                       </li>
                                     </ul>
                                  </li>
 
                                  <!-- Solutions -->
                                  <li class="menu-item has-submenu">
-                                    <a href="#">Solutions</a>
+                                    <a href="#">
+                                       <i class="bi bi-gear me-2"></i>
+                                       Solutions
+                                       <span class="arrow">
+                                          <i class="bi bi-chevron-right ms-2"></i>
+                                       </span>
+
+                                    </a>
                                     <ul class="submenu">
-                                       <li><a href="#">E-HRMS</a></li>
-                                       <li><a href="#">PMA</a></li>
-                                       <li><a href="#">SMA</a></li>
-                                       <li><a href="#">E-OFFICE</a></li>
-                                       <li><a href="#">GRIEVANCE</a></li>
-                                       <li><a href="#">E-BOOKING</a></li>
+                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
+                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> PMA</a></li>
+                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> SMA</a></li>
+                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> E-OFFICE</a></li>
+                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> GRIEVANCE</a></li>
+                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> E-BOOKING</a></li>
                                     </ul>
                                  </li>
 
                               </ul>
-                           </li>
 
+
+                           </li>
                         </ul>
 
 
@@ -383,45 +423,71 @@
                   <li><a class="nav-link" href="ourservices">Our Services</a></li>
                   <!-- <li><a class="nav-link" href="hrms.php">Our Innovations</a></li> -->
                   <li class="nav-item dropdown">
-                     <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+
+                     <a class="nav-link dropdown-toggle"
+                        href="#"
+                        role="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false">
                         Our Innovations
                      </a>
+
                      <ul class="dropdown-menu">
 
-
+                        <!-- Products -->
                         <li class="dropdown-submenu">
-                           <a class="dropdown-item dropdown-toggle" href="#">Products</a>
-                           <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="hrms.php">HRMS</a></li>
-                              <li><a class="dropdown-item" href="sms-product.php">SMS</a></li>
-                           </ul>
-                        </li>
-
-
-                        <li class="dropdown-submenu">
-                           <a class="dropdown-item dropdown-toggle" href="#">ERP</a>
-                           <ul class="dropdown-menu">
-                              <li><a class="dropdown-item" href="psil-erp.php">PSIL Electrical</a></li>
-                              <li><a class="dropdown-item" href="sgi-erp.php">SGI</a></li>
-                           </ul>
-                        </li>
-
-
-                        <li class="dropdown-submenu">
-                           <a class="dropdown-item dropdown-toggle" href="#">Solutions</a>
+                           <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                              <i class="bi bi-box-seam me-2"></i> Products
+                           </a>
                            <ul class="dropdown-menu">
                               <li>
-                                 <a class="dropdown-item" href="solutions.php">
-                                    As mentioned in the deck
+                                 <a class="dropdown-item" href="hrms">
+                                    <i class="bi bi-arrow-right-short me-2"></i> HRMS
                                  </a>
                               </li>
+                              <li>
+                                 <a class="dropdown-item" href="#">
+                                    <i class="bi bi-arrow-right-short me-2"></i> SMS
+                                 </a>
+                              </li>
+                           </ul>
+                        </li>
+
+                        <!-- ERP -->
+                        <li class="dropdown-submenu">
+                           <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                              <i class="bi bi-diagram-3 me-2"></i> ERP
+                           </a>
+                           <ul class="dropdown-menu">
+                              <li>
+                                 <a class="dropdown-item" href="#">PSIL Electrical</a>
+                              </li>
+                              <li>
+                                 <a class="dropdown-item" href="#">SGI</a>
+                              </li>
+                           </ul>
+                        </li>
+
+                        <!-- Solutions -->
+                        <li class="dropdown-submenu">
+                           <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                              <i class="bi bi-gear me-2"></i> Solutions
+                           </a>
+                           <ul class="dropdown-menu">
+                              <li><a class="dropdown-item" href="#">E-HRMS</a></li>
+                              <li><a class="dropdown-item" href="#">PMA</a></li>
+                              <li><a class="dropdown-item" href="#">SMA</a></li>
+                              <li><a class="dropdown-item" href="#">E-OFFICE</a></li>
+                              <li><a class="dropdown-item" href="#">GRIEVANCE</a></li>
+                              <li><a class="dropdown-item" href="#">E-BOOKING</a></li>
                            </ul>
                         </li>
 
                      </ul>
 
                   </li>
+
+
                   <li><a class="nav-link" href="career">Career</a></li>
                   <li><a class="nav-link" href="contact">Contact Us</a></li>
                </ul>
@@ -784,3 +850,7 @@
 
    </main>
    <?php include 'footer.php'; ?>
+
+
+   <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+   <script src="https://files.bpcontent.cloud/2026/02/18/07/20260218071820-CTHM6Q0D.js" defer></script>
