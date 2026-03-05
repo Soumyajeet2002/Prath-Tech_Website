@@ -37,6 +37,11 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
 
 
+   <!-- Slick slider -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+
+
 </head>
 
 <body>
@@ -146,7 +151,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                         </li>
 
 
-                        <ul class="menu">
+                        <!-- <ul class="menu">
 
                            <li class="menu-item has-submenu">
 
@@ -173,7 +178,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
 
                               <ul class="submenu">
 
-                                 <!-- PRODUCTS -->
+                                
                                  <li class="menu-item has-submenu">
                                     <a href="#">
                                        <i class="bi bi-box-seam me-2"></i>
@@ -200,7 +205,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                                     </ul>
                                  </li>
 
-                                 <!-- ERP -->
+                                 
                                  <li class="menu-item has-submenu">
                                     <a href="#">
                                        <i class="bi bi-diagram-3 me-2"></i>
@@ -227,7 +232,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                                     </ul>
                                  </li>
 
-                                 <!-- SOLUTIONS -->
+                                 
                                  <li class="menu-item has-submenu">
                                     <a href="#">
                                        <i class="bi bi-gear me-2"></i>
@@ -251,7 +256,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
 
                            </li>
 
-                        </ul>
+                        </ul> -->
 
 
 

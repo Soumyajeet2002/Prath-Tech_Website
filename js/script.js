@@ -130,9 +130,25 @@ $(function () {
 
 
 
+$(function () {
 
+  function loadCaptcha() {
+    $.ajax({
+      url: "generate_captcha",
+      type: "GET",
+      dataType: "json",
+      success: function (res) {
+        $("#captchaCode").text(res.captcha);
+      }
+    });
+  }
 
+  // Load captcha when page loads
+  loadCaptcha();
 
+  // Refresh captcha on button click
+  $("#refreshCaptcha").click(function () {
+    loadCaptcha();
+  });
 
-
-
+});

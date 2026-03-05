@@ -76,8 +76,8 @@
  <!--  <script  src="./script.js"></script> -->
  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
  <script src="https://cdn.jsdelivr.net/npm/node-marquee@3.0.6/build/cdn/index.min.js"></script>
- <script src="js/script.js"></script>
- <script src="js/header-new.js"></script>
+ <script src="./js/script.js"></script>
+ <script src="./js/header-new.js"></script>
  <script>
    AOS.init();
 
@@ -345,7 +345,7 @@
  <!--Start of Tawk.to Script-->
  <!--Start of Tawk.to Script-->
 
- <script type="text/javascript">
+ <!-- <script type="text/javascript">
    var Tawk_API = Tawk_API || {},
      Tawk_LoadStart = new Date();
    (function() {
@@ -357,7 +357,7 @@
      s1.setAttribute('crossorigin', '*');
      s0.parentNode.insertBefore(s1, s0);
    })();
- </script>
+ </script> -->
 
  <!--End of Tawk.to Script-->
  <!-- <script type="text/javascript">
@@ -570,6 +570,9 @@
      });
    });
  </script>
+
+
+ <!-- Slick SLider -->
 
  </body>
 

@@ -178,8 +178,9 @@
             </div>
            </div>
         </div> -->
-    <hr>
-    <div class="row careerbox">
+    <!-- <hr> -->
+    <!-- HR  -->
+    <!-- <div class="row careerbox">
       <div class="col-lg-4">
         <div class="career-opening-title">
           <h4>HR Manager</h4>
@@ -198,7 +199,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <hr>
     <div class="row careerbox">
       <div class="col-lg-4">
@@ -241,8 +242,8 @@
         </div>
       </div>
     </div>
-    <hr>
-    <div class="row careerbox">
+    <!-- <hr> -->
+    <!-- <div class="row careerbox">
       <div class="col-lg-4">
         <div class="career-opening-title">
           <h4>QA Technical Lead</h4>
@@ -261,7 +262,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <hr>
 
     <!-- New opening -->
@@ -286,6 +287,29 @@
       </div>
     </div>
 
+    <!-- QA - Automation Testing 05-03-2026-->
+    <hr>
+    <div class="row careerbox">
+      <div class="col-lg-4">
+        <div class="career-opening-title">
+          <h4>QA - Automation Testing</h4>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="career-opening-role">
+          <span>2</span>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="jobtype"> 4-5 years</span>
+          <div class="career-opening-btn">
+            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#QA-Automation-Testing">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
   </div>
 </section>
@@ -298,7 +322,7 @@
 
 
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
       <div class="modal-header">
@@ -411,13 +435,12 @@
         </div>
       </div>
       <div class="modal-footer">
-        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
         <a href="https://hrms.prathtech.com/job_application/new?job_title=HR-OPN-2026-0010" target="_blank"
           class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="modal fade" id="DevOpsEngineer" tabindex="-1" aria-labelledby="DevOpsEngineer" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
@@ -668,7 +691,7 @@
     </div>
   </div>
 </div>
-<div class="modal fade" id="QA-Technical-Lead" tabindex="-1" aria-labelledby="QA-Technical-Lead" aria-hidden="true">
+<!-- <div class="modal fade" id="QA-Technical-Lead" tabindex="-1" aria-labelledby="QA-Technical-Lead" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
       <div class="modal-header">
@@ -752,22 +775,6 @@
                           <li>Leadership and mentoring skills.</li>
                         </ul>
                       </li>
-
-                      <!-- <li><strong>Office Administration Support</strong>
-    <ul>
-      <li>Oversee office administration tasks including vendor coordination, asset tracking, and stationery management.</li>
-      <li>Support daily workplace operational needs for smooth functioning.</li>
-      <li>Handle basic expense tracking and assist with procurement activities.</li>
-    </ul>
-  </li>
-
-  <li><strong>Support to Management</strong>
-    <ul>
-      <li>Provide weekly HR operational reports to management.</li>
-      <li>Assist leadership with HR strategy implementation, process improvements, and new initiatives.</li>
-      <li>Maintain professionalism and confidentiality at all times.</li>
-    </ul>
-  </li> -->
                     </ul>
 
                   </td>
@@ -786,13 +793,13 @@
         </div>
       </div>
       <div class="modal-footer">
-        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
+
         <a href="https://hrms.prathtech.com/job_application/new?job_title=HR-OPN-2026-0004" target="_blank"
           class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="modal fade" id="Zendesk-Administrator" tabindex="-1" aria-labelledby="Zendesk-Administrator" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
@@ -916,6 +923,153 @@
   </div>
 </div>
 
+<!-- new opening QA-Automation-Testing -->
+<div class="modal fade" id="QA-Automation-Testing" tabindex="-1" aria-labelledby="QA-Automation-Testing" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="QA-Automation-Testing">QA Automation Testing</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body applydetails">
+        <div class="container-fluid">
+          <div class="row mt-3">
+            <div class="col-md-7" style="background: #fff; padding: 25px;">
+              <table class="table table-bordered">
+                <tr>
+                  <th>Job Summary</th>
+                  <td>We are looking for an experienced QA Engineer to manage and improve our software quality processes. The role involves planning and executing test strategies, managing test cases in Zephyr, validating APIs and system integrations, and collaborating closely with development, DevOps, and product teams to ensure reliable product releases.
+                  </td>
+                </tr>
+                <tr>
+                  <th>No. of Vacancy</th>
+                  <td>02</td>
+                </tr>
+                <tr>
+                  <th>Experience Type</th>
+                  <td>Experienced</td>
+                </tr>
+                <tr>
+                  <th>Minimum Experience</th>
+                  <td> 4-5 years</td>
+                </tr>
+                <tr>
+                  <th>Location</th>
+                  <td>Bhubaneswar, Odisha</td>
+                </tr>
+
+                <tr>
+                  <th>Required Skills & Qualification</th>
+                  <td>Hands-on experience with Jira and Zephyr.<br>Experience with API testing tools such as Postman or REST clients. <br>Good communication and problem-solving skills.<br>Basic knowledge of SQL for data validation.
+                  </td>
+
+                </tr>
+                <tr>
+                  <th>Technical Skills</th>
+                  <td>
+                    <ul>
+                      <li>Strong experience in manual and API testing.</li>
+                      <li>Hands-on with Zephyr and Jira.</li>
+                      <li>API testing tools (Postman, REST clients).</li>
+                      <li>SQL for data validation.</li>
+                      <li>Understanding of backend workflows.</li>
+                      <li>Exposure to automation testing frameworks (preferred).</li>
+                    </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Roles and Responsibilities</th>
+                  <td>
+                    <ul>
+                      <li><strong>Key Responsibilities</strong>
+                        <ul>
+                          <li><strong>Automation Testing JD.</strong></li>
+                          <li>Define and drive the overall QA strategy.</li>
+                          <li>Plan, execute, and track testing across releases.</li>
+                          <li>Create and manage test cases in Zephyr.</li>
+                          <li>Ensure coverage across backend APIs, UI, and system integrations.</li>
+                          <li>Coordinate daily with development, DevOps, and product teams.</li>
+                          <li>Track QA metrics and publish status reports.</li>
+                          <li>Mentor and lead QA engineers.</li>
+                          <li>Drive continuous improvement in QA processes.</li>
+                        </ul>
+                      </li>
+                      <li><strong>Good to Have</strong>
+                        <ul>
+                          <li>Experience with logistics, warehouse, or manufacturing domains.</li>
+                          <li>Understanding of event-driven systems.</li>
+                          <li>Performance or reliability testing exposure.</li>
+                          <li>CI/CD pipeline awareness.</li>
+                        </ul>
+                      </li>
+                      <li><strong>Soft Skills</strong>
+                        <ul>
+                          <li>Strong accountability and ownership.</li>
+                          <li>Excellent communication and reporting.</li>
+                          <li>Ability to work under tight deadlines.</li>
+                          <li>Leadership and mentoring skills.</li>
+                        </ul>
+                      </li>
+                    </ul>
+
+                  </td>
+                </tr>
+
+              </table>
+            </div>
+
+
+            <div class="col-md-5">
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
+        <a href="https://hrms.prathtech.com/job_application/new?job_title=HR-OPN-2026-0012" target="_blank"
+          class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 <?php include 'footer.php'; ?>
+
+<script>
+  $(document).ready(function() {
+    $('.career-carousel').slick({
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 500,
+      infinite: true,
+      arrows: true,
+      dots: false,
+      responsive: [{
+          breakpoint: 992,
+          settings: {
+            slidesToShow: 3
+          }
+        },
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1
+          }
+        }
+      ]
+    });
+  });
+</script>

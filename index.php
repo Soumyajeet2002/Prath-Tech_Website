@@ -47,7 +47,7 @@
                      <li class="nav-item"><a class="nav-link active" href="index"> <i class="bi bi-house-door me-2 nav-icon"></i> Home</a></li>
                      <li class="nav-item"><a class="nav-link" href="about"><i class="bi bi-people me-2 nav-icon"></i> About Us</a></li>
                      <li class="nav-item"><a class="nav-link" href="ourservices"> <i class="bi bi-gear me-2 nav-icon"></i> Our Services</a></li>
-                     <ul class="menu">
+                     <!-- <ul class="menu">
                         <li class="menu-item has-submenu">
                            <a href="#">
                               <i class="bi bi-lightbulb me-2 nav-icon"></i>
@@ -57,7 +57,7 @@
 
                            <ul class="submenu">
 
-                              <!-- Products -->
+                            
                               <li class="menu-item has-submenu">
                                  <a href="#" class="new-li">
                                     <i class="bi bi-box-seam me-2"></i>
@@ -81,7 +81,7 @@
                                  </ul>
                               </li>
 
-                              <!-- ERP -->
+                            
                               <li class="menu-item has-submenu">
                                  <a href="#" class="new-li">
                                     <i class="bi bi-diagram-3 me-2"></i>
@@ -105,7 +105,7 @@
                                  </ul>
                               </li>
 
-                              <!-- Solutions -->
+                             
                               <li class="menu-item has-submenu">
                                  <a href="#" class="new-li">
                                     <i class="bi bi-gear me-2"></i>
@@ -129,7 +129,7 @@
 
 
                         </li>
-                     </ul>
+                     </ul> -->
                      <li class="nav-item"><a class="nav-link" href="career"><i class="bi bi-briefcase me-2 nav-icon"></i>Career</a></li>
                      <li class="nav-item"><a class="nav-link" href="contact"><i class="bi bi-envelope me-2 nav-icon"></i>Contact Us</a></li>
                   </ul>
@@ -157,11 +157,11 @@
 
                   <div class="collapse navbar-collapse d-none d-xl-block">
                      <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="index">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices">Our Services</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="index"> <i class="bi bi-house-door me-2 nav-icon"></i>Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="about"><i class="bi bi-people me-2 nav-icon"></i>About Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="ourservices"><i class="bi bi-gear me-2 nav-icon"></i>Our Services</a></li>
 
-                        <ul class="menu">
+                        <!-- <ul class="menu">
                            <li class="menu-item has-submenu">
                               <a href="#">
                                  Our Innovations
@@ -170,7 +170,7 @@
 
                               <ul class="submenu">
 
-                                 <!-- Products -->
+                                
                                  <li class="menu-item has-submenu">
                                     <a href="#">
                                        <i class="bi bi-box-seam me-2"></i>
@@ -194,7 +194,7 @@
                                     </ul>
                                  </li>
 
-                                 <!-- ERP -->
+                                 
                                  <li class="menu-item has-submenu">
                                     <a href="#">
                                        <i class="bi bi-diagram-3 me-2"></i>
@@ -218,7 +218,7 @@
                                     </ul>
                                  </li>
 
-                                 <!-- Solutions -->
+                                 
                                  <li class="menu-item has-submenu">
                                     <a href="#">
                                        <i class="bi bi-gear me-2"></i>
@@ -242,11 +242,11 @@
 
 
                            </li>
-                        </ul>
+                        </ul> -->
 
 
-                        <li class="nav-item"><a class="nav-link" href="career">Career</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact">Contact Us</a></li>
+                        <li class="nav-item"><a class="nav-link" href="career"><i class="bi bi-briefcase me-2 nav-icon"></i>Career</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact"><i class="bi bi-envelope me-2 nav-icon"></i>Contact Us</a></li>
                      </ul>
 
                      <div class="get_started_header ms-3">
@@ -284,7 +284,7 @@
                   <li><a class="nav-link" href="about">About Us</a></li>
                   <li><a class="nav-link" href="ourservices">Our Services</a></li>
                   <!-- <li><a class="nav-link" href="hrms.php">Our Innovations</a></li> -->
-                  <li class="nav-item dropdown">
+                  <!-- <li class="nav-item dropdown">
 
                      <a class="nav-link dropdown-toggle"
                         href="#"
@@ -296,7 +296,7 @@
 
                      <ul class="dropdown-menu">
 
-                        <!-- Products -->
+                       
                         <li class="dropdown-submenu">
                            <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">
                               <i class="bi bi-box-seam me-2"></i> Products
@@ -315,7 +315,7 @@
                            </ul>
                         </li>
 
-                        <!-- ERP -->
+                        
                         <li class="dropdown-submenu">
                            <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">
                               <i class="bi bi-diagram-3 me-2"></i> ERP
@@ -330,7 +330,7 @@
                            </ul>
                         </li>
 
-                        <!-- Solutions -->
+                        
                         <li class="dropdown-submenu">
                            <a class="dropdown-item dropdown-toggle" href="#" data-bs-toggle="dropdown">
                               <i class="bi bi-gear me-2"></i> Solutions
@@ -347,7 +347,7 @@
 
                      </ul>
 
-                  </li>
+                  </li> -->
 
 
                   <li><a class="nav-link" href="career">Career</a></li>
