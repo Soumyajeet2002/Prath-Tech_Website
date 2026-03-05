@@ -62,11 +62,11 @@ $(function () {
 
   ScrollTrigger.create({
     start: 50,
-    end: "max",
+    // end: "max",
     onEnter: showNav,
     onEnterBack: showNav,
     onLeaveBack: hideNav,
-    onLeave: hideNav
+    // onLeave: hideNav
   });
 
   function showNav() {

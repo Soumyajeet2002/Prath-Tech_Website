@@ -11,8 +11,10 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
    <meta charset="utf-8" />
    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
    <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
 
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
@@ -26,6 +28,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
 
    <link href="css/custom-css.css" rel="stylesheet" />
    <link href="css/swiper-bundle.min.css" rel="stylesheet" />
+   <link href="css/responsive.css" rel="stylesheet" />
 
    <!-- new Link for Icons -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -126,19 +129,19 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                      <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                            <a class="nav-link <?= ($currentPage == 'index') ? 'active' : '' ?>" href="index">
-                              Home
+                              <i class="bi bi-house-door me-2"></i> Home
                            </a>
                         </li>
 
                         <li class="nav-item">
                            <a class="nav-link <?= ($currentPage == 'about') ? 'active' : '' ?>" href="about">
-                              About Us
+                              <i class="bi bi-people me-2"></i> About Us
                            </a>
                         </li>
 
                         <li class="nav-item">
                            <a class="nav-link <?= ($currentPage == 'ourservices') ? 'active' : '' ?>" href="ourservices">
-                              Our Services
+                              <i class="bi bi-gear me-2"></i>Our Services
                            </a>
                         </li>
 
@@ -257,13 +260,13 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
 
                         <li class="nav-item">
                            <a class="nav-link <?= ($currentPage == 'career') ? 'active' : '' ?>" href="career">
-                              Career
+                              <i class="bi bi-briefcase me-2"></i> Career
                            </a>
                         </li>
 
                         <li class="nav-item">
                            <a class="nav-link <?= ($currentPage == 'contact') ? 'active' : '' ?>" href="contact">
-                              Contact Us
+                              <i class="bi bi-envelope me-2"></i> Contact Us
                            </a>
                         </li>
                      </ul>

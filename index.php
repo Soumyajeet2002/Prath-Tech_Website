@@ -6,8 +6,10 @@
    <meta charset="utf-8" />
    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
    <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-      rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -16,6 +18,8 @@
    <link rel="stylesheet" href="css/owl.carousel.css" />
    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
    <link href="css/style.css" rel="stylesheet" />
+   <link href="css/responsive.css" rel="stylesheet" />
+
 
    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
    <style>
@@ -40,139 +44,13 @@
                <!-- Desktop Menu -->
                <div class="collapse navbar-collapse d-none d-xl-block">
                   <ul class="navbar-nav ms-auto">
-                     <li class="nav-item"><a class="nav-link active" href="index">Home</a></li>
-                     <li class="nav-item"><a class="nav-link" href="about">About Us</a></li>
-                     <li class="nav-item"><a class="nav-link" href="ourservices">Our Services</a></li>
-                     <!-- <li class="nav-item"><a class="nav-link" href="hrms.php">Our Innovations</a></li> -->
-                     <!-- <ul class="navbar-nav ms-auto">
-
-                        <li class="nav-item dropdown dropdown-mega">
-                           <a class="nav-link dropdown-toggle fw-semibold"
-                              href="#"
-                              id="megaMenu"
-                              role="button"
-                              data-bs-toggle="dropdown"
-                              aria-expanded="false">
-                              Our Innovations
-                           </a>
-
-                           <div class="dropdown-menu mega-menu p-4">
-                              <div class="container">
-                                 <div class="row g-4">
-
-                                  
-                                    <div class="col-lg-6 col-md-6">
-                                       <h6 class="mega-title main-title-dropdown">
-                                          <i class="bi bi-box-seam"></i> <span class="icon-space">Products</span>
-                                       </h6>
-                                       <ul class="list-unstyled mega-links">
-                                          <li>
-                                             <a class="dropdown-item" href="hrms">
-                                                <i class="bi bi-people"></i> <span>HRMS</span>
-
-                                             </a>
-                                          </li>
-                                          <li>
-                                             <a class="dropdown-item" href="#">
-                                                <i class="bi bi-building"></i>
-                                                <span>SMS</span>
-                                             </a>
-                                          </li>
-                                       </ul>
-                                    </div>
-
-                                    
-                                    <div class="col-lg-6 col-md-6">
-                                       <h6 class="mega-title main-title-dropdown">
-                                          <i class="bi bi-diagram-3"></i> <span class="icon-space">ERP</span>
-                                       </h6>
-                                       <ul class="list-unstyled mega-links">
-                                          <li>
-                                             <a class="dropdown-item" href="#">
-                                                <i class="bi bi-lightning"></i>
-                                                <span>PSIL Electrical</span>
-                                             </a>
-                                          </li>
-                                          <li>
-                                             <a class="dropdown-item" href="#">
-                                                <i class="bi bi-building"></i>
-                                                <span>SGI</span>
-                                             </a>
-                                          </li>
-                                       </ul>
-                                    </div>
-
-                                    
-                                    <div class="col-lg-12 col-md-6">
-                                       <h6 class="mega-title main-title-dropdown">
-                                          <i class="bi bi-stars"></i>
-                                          <span class="icon-space">Solutions</span>
-                                       </h6>
-                                       <ul class="list-unstyled mega-links row">
-                                          <li class="col-lg-4 col-md-6">
-                                             <a class="dropdown-item" href="#">
-                                                <i class="bi bi-file-earmark-text"></i>
-                                                <span> E- HRMS </span>
-                                             </a>
-                                          </li>
-                                          <li class="col-lg-4 col-md-6">
-                                             <a class=" dropdown-item" href="#">
-                                                <i class="bi bi-file-earmark-text"></i>
-                                                <span> PMA </span>
-                                             </a>
-                                          </li>
-                                          <li class="col-lg-4 col-md-6">
-                                             <a class="dropdown-item" href="#">
-                                                <i class="bi bi-file-earmark-text"></i>
-                                                <span> SMA </span>
-                                             </a>
-                                          </li>
-                                          <li class="col-lg-4 col-md-6">
-                                             <a class="dropdown-item" href="#">
-                                                <i class="bi bi-file-earmark-text"></i>
-                                                <span> SMA </span>
-                                             </a>
-                                          </li>
-                                          <li class="col-lg-4 col-md-6">
-                                             <a class="dropdown-item" href="#">
-                                                <i class="bi bi-file-earmark-text"></i>
-                                                <span> E-OFFICE </span>
-                                             </a>
-                                          </li>
-                                          <li class="col-lg-4 col-md-6">
-                                             <a class="dropdown-item" href="#">
-                                                <i class="bi bi-file-earmark-text"></i>
-                                                <span> GRIEVANCE </span>
-                                             </a>
-                                          </li>
-                                          <li class="col-lg-4 col-md-6">
-                                             <a class="dropdown-item" href="#">
-                                                <i class="bi bi-file-earmark-text"></i>
-                                                <span> E-BOOKING </span>
-
-                                             </a>
-                                          </li>
-                                          <li class="col-lg-4 col-md-6">
-                                             <a class="dropdown-item" href="#">
-                                                <i class="bi bi-file-earmark-text"></i>
-                                                <span> E-BOOKING </span>
-                                             </a>
-                                          </li>
-                                       </ul>
-                                    </div>
-
-                                 </div>
-                              </div>
-                           </div>
-                        </li>
-
-                     </ul> -->
-
-
+                     <li class="nav-item"><a class="nav-link active" href="index"> <i class="bi bi-house-door me-2 nav-icon"></i> Home</a></li>
+                     <li class="nav-item"><a class="nav-link" href="about"><i class="bi bi-people me-2 nav-icon"></i> About Us</a></li>
+                     <li class="nav-item"><a class="nav-link" href="ourservices"> <i class="bi bi-gear me-2 nav-icon"></i> Our Services</a></li>
                      <ul class="menu">
                         <li class="menu-item has-submenu">
                            <a href="#">
-                              <i class="bi bi-lightbulb me-2"></i>
+                              <i class="bi bi-lightbulb me-2 nav-icon"></i>
                               Our Innovations
                               <i class="bi bi-chevron-down ms-2"></i>
                            </a>
@@ -181,7 +59,7 @@
 
                               <!-- Products -->
                               <li class="menu-item has-submenu">
-                                 <a href="#">
+                                 <a href="#" class="new-li">
                                     <i class="bi bi-box-seam me-2"></i>
                                     Products
                                     <span class="arrow">
@@ -205,7 +83,7 @@
 
                               <!-- ERP -->
                               <li class="menu-item has-submenu">
-                                 <a href="#">
+                                 <a href="#" class="new-li">
                                     <i class="bi bi-diagram-3 me-2"></i>
                                     ERP
                                     <span class="arrow">
@@ -229,7 +107,7 @@
 
                               <!-- Solutions -->
                               <li class="menu-item has-submenu">
-                                 <a href="#">
+                                 <a href="#" class="new-li">
                                     <i class="bi bi-gear me-2"></i>
                                     Solutions
                                     <span class="arrow">
@@ -252,24 +130,8 @@
 
                         </li>
                      </ul>
-
-
-
-
-
-
-                     <!-- <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="productsDropdown" role="button"
-                           data-bs-toggle="dropdown" aria-expanded="false">
-                           Our Innovations
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="productsDropdown">
-                           <li><a class="dropdown-item" href="hrms.php">HRMS Software</a></li>
-                        </ul>
-                     </li> -->
-
-                     <li class="nav-item"><a class="nav-link" href="career">Career</a></li>
-                     <li class="nav-item"><a class="nav-link" href="contact">Contact Us</a></li>
+                     <li class="nav-item"><a class="nav-link" href="career"><i class="bi bi-briefcase me-2 nav-icon"></i>Career</a></li>
+                     <li class="nav-item"><a class="nav-link" href="contact"><i class="bi bi-envelope me-2 nav-icon"></i>Contact Us</a></li>
                   </ul>
                   <div class="get_started_header" style="margin-left: 10px;">
                      <a class="btn" href="contact">Get Started <img src="images/blackarrow.png" alt=""></a>
@@ -510,19 +372,23 @@
          <div class="bannercontent">
             <div class="container-fluid width80">
                <div class="row">
-                  <h6>We Create</h6>
+                  <!-- <h6>We Create</h6> -->
+                  <h6>Future-Ready Innovation.</h6>
                   <div class="banner-h1-text desktop-home-hero-heading">
                      <h1>
                         Digital Solutions
                         <span>Digital Solutions</span>
                         <span>Digital Solutions</span>
-                        <span>Let's Create Together</span>
+                        <!-- <span>Let's Create Together</span> -->
+                        <!-- <span>Let's Build Something Great</span> -->
+                        <span>Built to Scale. Built to Perform.</span>
                      </h1>
                   </div>
                   <div class="mobile-home-hero-heading">
                      <h1>Digital Solutions</h1>
                   </div>
-                  <div class=" homebannertext">Aligned Seamlessly With Your Vision</div>
+                  <!-- <div class=" homebannertext">Aligned Seamlessly With Your Vision</div> -->
+                  <div class=" homebannertext">Turning Ideas Into Impact.</div>
                </div>
             </div>
          </div>
@@ -533,7 +399,9 @@
          <div class="container aboutContainer">
             <div class="row">
                <div class="col-xl-3 col-lg-12 col-md-12 col-sm-12">
-                  <div class="subheading">Who We Are</div>
+                  <div class="subheading">
+                     Who We Are
+                  </div>
                </div>
                <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12">
                   <div class="abouttexttop">
@@ -578,8 +446,11 @@
                   delivery, and delivers measurable business results.</h1>
             </div>
          </div>
-         <div class="container-fluid approachContainer">
-            <div class="d-flex gap-5 processcontentBox">
+
+         <!-- here container-fluid replaced by container-->
+         <div class="container approachContainer">
+            <!-- <div class="d-flex gap-5 processcontentBox"> -->
+            <div class="d-flex gap-5 ">
                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
                   <div class="position-relative d-inline-block">
                      <div class="step-number">01</div>
@@ -838,8 +709,9 @@
                      </div>
                   </div>
                </div>
-               <div class="col-xl-5 col-md-12">
-                  <div class="parlgrmbtm"></div>
+               <div class="col-xl-5 col-md-12 why_choose_us">
+                  <!-- The Code  parlgrmbtm this commented by trupti for tablet-->
+                  <!-- <div class="parlgrmbtm"></div> -->
                   <img src="images/whyus.jpg" alt="" class="mt-10 whyusimg">
                   <img src="images/tabwhyus.jpg" alt="" class="mt-10 tabwhyusimg">
                </div>
@@ -852,5 +724,5 @@
    <?php include 'footer.php'; ?>
 
 
-   <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-   <script src="https://files.bpcontent.cloud/2026/02/18/07/20260218071820-CTHM6Q0D.js" defer></script>
+   <!-- <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+   <script src="https://files.bpcontent.cloud/2026/02/18/07/20260218071820-CTHM6Q0D.js" defer></script> -->

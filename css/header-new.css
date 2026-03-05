@@ -111,7 +111,8 @@
 
 .menu, .submenu {
   list-style: none;
-  padding: 0 15px !important;
+  /* padding: 0 15px !important; */
+  padding: 0 0px !important;
 }
 
 /* Main menu */
@@ -120,7 +121,8 @@
 }
 
 .menu > li > a {
-  padding: 8px !important;
+  /* padding: 8px !important; */
+  padding: 8px 5px !important;
    color: #2b2b2b;
    font-weight: 600;
    font-size: 14px;
@@ -221,11 +223,16 @@
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px;
+  /* justify-content: space-between; */
+  /* padding: 10px 14px; */
+  padding: 10px 10px;
   text-decoration: none;
   transition: color 0.3s ease;
   overflow: hidden;
+}
+
+a.new-li{
+  justify-content: space-between;
 }
 
 
@@ -328,3 +335,85 @@
    }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Text-animation */
+
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Base state */
+.nav-link.active {
+    /* color: #0d6efd; */
+}
+
+.nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+     background: linear-gradient(90deg, #20295a, #6610f2);
+    background-size: 200% 100%;
+    animation: sweep 6s linear infinite;
+}
+
+@keyframes sweep {
+    0% { background-position: 200% center; }
+    100% { background-position: 0% center; }
+}
+
+
+
+
+/* .nav-link {
+    transition: all 0.3s ease;
+}
+
+.nav-link.active {
+    color: #0d6efd;
+    animation: textWave 2s ease-in-out infinite;
+}
+
+@keyframes textWave {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+} */
+
+
+
+
+  .nav-link {
+    transition: all 0.3s ease;
+}
+
+  .nav-link.active {
+    background: linear-gradient(90deg, #20295a, #6610f2);
+    background-size: 200% auto;
+    animation: gradientMove 6s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 200% center; }
+    100% { background-position: 0% center; }
+}

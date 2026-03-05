@@ -64,7 +64,9 @@
       <div class="container">
          <div class="row">
             <div class="col-md-12">
-               <h3>Our Certifications</h3>
+               <div class="subheading">
+                  Our Certifications
+               </div>
             </div>
             <div class="col-lg-12 mt-4">
                <p>
@@ -121,7 +123,9 @@
    <section class="mt-8 mb-8">
       <div class="container technologystackContainer">
          <div class="row">
-            <h3 class="mb-5">Our Technology Stack</h3>
+            <h3 class="mb-5">
+               <div class="subheading">Our Technology Stack</div>
+            </h3>
             <div class="col">
                <img src="images/Java_logo_icon.png" alt="javalogo">
             </div>

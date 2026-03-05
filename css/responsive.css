@@ -1,0 +1,24 @@
+.processbackground{
+    width: 100% !important;
+}
+.whyusimg{
+    width: 100% !important;
+}
+/* #mainNav.is-sticky{
+    z-index: 9999 !important;
+} */
+ 
+
+#globalStickyNav{
+       z-index: auto!important; 
+}
+#globalStickyNav{
+    z-index: 9999;
+}
+
+
+@media (max-width: 1240px) {
+    i.bi.bi.me-2.nav-icon{
+    display: none;
+}
+}

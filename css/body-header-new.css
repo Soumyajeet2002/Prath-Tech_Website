@@ -393,3 +393,73 @@
 .menu a.active:hover {
    color: #ffffff !important;
 }
+
+
+
+
+
+
+/* Text animation  */
+
+
+/* 
+#mainNav .navbar-nav .nav-link {
+    position: relative;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+
+#mainNav .navbar-nav .nav-link.active {
+    animation: textWave 2s ease-in-out infinite;
+}
+
+
+#mainNav .navbar-nav .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #0d6efd, transparent);
+    background-size: 200% 100%;
+    animation: sweep 2s linear infinite;
+}
+
+
+@keyframes textWave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@keyframes sweep {
+    0% { background-position: -100% 0; }
+    100% { background-position: 100% 0; }
+} */
+
+
+/* COLOR CHNAGING LINKS */
+
+#mainNav .navbar-nav .nav-link {
+    transition: all 0.3s ease;
+}
+
+#mainNav .navbar-nav .nav-link.active {
+    background: linear-gradient(90deg, #20295a, #6610f2);
+    background-size: 200% auto;
+    animation: gradientMove 6s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 200% center; }
+    100% { background-position: 0% center; }
+}
+
+
+
+
+
+

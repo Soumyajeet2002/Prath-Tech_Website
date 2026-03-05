@@ -610,8 +610,8 @@
             </li>
           </ul>
 
-          <div class="mt-5">
-            <img src="images/grafana-implementation.jpg" alt class="img-fluid" />
+          <div class="mt-5 Grafana_img">
+            <img src="images/grafana-implementation.jpg" alt class="img-fluid  " />
           </div>
         </div>
       </div>
@@ -1163,9 +1163,9 @@
               Equip teams with interactive tools that foster a culture of
               data-driven innovation
             </li>
-          </ul>
+          </ul> 
           <div class="mt-5">
-            <img src="images/grafana-implementation.jpg" alt class="img-fluid" />
+            <img src="images/grafana-implementation.jpg" alt class="img-fluid " />
           </div>
         </div>
       </div>
