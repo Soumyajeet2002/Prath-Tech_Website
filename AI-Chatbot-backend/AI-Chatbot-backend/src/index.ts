@@ -29,6 +29,11 @@ const startServer = async (): Promise<void> => {
       console.log(`   POST http://localhost:${PORT}/api/bookings`);
       console.log(`   POST http://localhost:${PORT}/api/support/tickets`);
       console.log("");
+
+      // 
+           console.log(
+        `   GET  http://localhost:${PORT}/api/chat/history/:sessionId`,
+      );
     });
   } catch (err) {
     console.error("❌ Failed to start server:", err);
