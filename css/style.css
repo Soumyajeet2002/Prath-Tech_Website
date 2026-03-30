@@ -294,6 +294,7 @@ h1 {
 
 .processcontentBox {
   width: 90%;
+  display: flex !important;
 }
 
 .approachContainer {
@@ -305,6 +306,7 @@ h1 {
   /* z-index: 29; */
   z-index: 2;
   padding: 50px;
+  display: flex !important;
 }
 
 .ourapproachSection .subheading {
@@ -391,7 +393,7 @@ h4.process-title:after {
   }
 
   .step-label {
-    left: 50%;
+    left: -23%;
     transform: translateX(-50%) rotate(0);
     top: 10px;
   }
@@ -2305,7 +2307,7 @@ button.btn.btn-primary:hover img {
   }
 
   .approachContainer {
-    margin-left: 0;
+    /* margin-left: 0; */
   }
 
   .processcontentBox {
@@ -2558,7 +2560,8 @@ button.btn.btn-primary:hover img {
   }
 
   .approachContainer {
-    margin-left: 0;
+    /* margin-left: 0; */
+    /* margin: 0 !important; */
   }
 
   .processcontentBox {
@@ -2743,13 +2746,19 @@ button.btn.btn-primary:hover img {
   }
 
   .approachContainer {
-    margin-left: auto;
+    /* margin-left: auto; */
     width: 90%;
+    /* display: block !important; */
+    /* margin: 0 !important; */
+    align-items: center !important;
+    display: flex !important;
+    align-items: center;
   }
 
   .processcontentBox {
     width: 70%;
-    margin: auto;
+    /* margin: auto; */
+    margin: 0 !important;
   }
 
   .process-desc {
@@ -3033,7 +3042,7 @@ button.btn.btn-primary:hover img {
   .benefit-box {
     border: #ddd 1px solid;
     min-width: 185px;
-    margin: 15px;
+    /* margin: 15px; */
   }
 
   .benefit-box:nth-child(2n) {
@@ -4059,15 +4068,61 @@ button.btn.btn-primary:hover img {
   width: 100% !important;
 }
 
-.why_choose_us{
-	display: flex;
-	align-items: center;
+.why_choose_us {
+  display: flex;
+  align-items: center;
 }
-
 
 /* animation text , span F1 car */
 
-
 /* CSS fro career page  */
 
+.new-badge {
+  background-color: #39406c;
+  color: #fff;
+  font-size: 10px;
+  padding: 4px 8px;
+  margin-left: 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  animation: neonGlow 1.2s infinite alternate;
+  letter-spacing: 2px;
+}
+
+@keyframes neonGlow {
+  from {
+    box-shadow: 0 0 5px #39406c;
+  }
+  to {
+    box-shadow: 
+      0 0 10px #39406c,
+      0 0 20px #39406c,
+      0 0 30px #39406c;
+  }
+}
+
+
+.footer-bottom-row{
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+.footer-bottom-small-device{
+  /* display: none !important; */
+
+}
+
+@media (max-width: 767px) {
+    .custom-footer-row{
+      padding: 0 !important;
+      width: 100% !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .custom-footer-bottom {
+        padding: 0 !important;
+    }
+}
 

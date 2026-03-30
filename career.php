@@ -1,4 +1,5 @@
 <?php include 'header.php'; ?>
+<?php include './config/db.php'; ?>
 
 <section class="innerBanner">
 
@@ -72,6 +73,8 @@
     <div class="item"><img src="images/career-slide-5.webp"></div>
   </div>
 </div>
+
+
 
 
 
@@ -201,18 +204,19 @@
       </div>
     </div> -->
     <hr>
+    <!-- DevOps Engineer -->
     <div class="row careerbox">
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-3">
         <div class="career-opening-title">
           <h4>DevOps Engineer</h4>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-3">
         <div class="career-opening-role">
           <span>2 </span>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-6">
         <div class="d-flex justify-content-between align-items-center">
           <span class="jobtype">4–6 years</span>
           <div class="career-opening-btn">
@@ -221,19 +225,20 @@
         </div>
       </div>
     </div>
+    <!-- Java Technical Lead -->
     <hr>
     <div class="row careerbox">
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-3">
         <div class="career-opening-title">
           <h4>Java Technical Lead</h4>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-3">
         <div class="career-opening-role">
           <span>1</span>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-6">
         <div class="d-flex justify-content-between align-items-center">
           <span class="jobtype">5–8 years </span>
           <div class="career-opening-btn">
@@ -263,44 +268,24 @@
         </div>
       </div>
     </div> -->
-    <hr>
 
-    <!-- New opening -->
-    <div class="row careerbox">
-      <div class="col-lg-4">
-        <div class="career-opening-title">
-          <h4>Zendesk Administrator / Zendesk Support Specialist</h4>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="career-opening-role">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype">1–3 years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#Zendesk-Administrator">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
+
 
     <!-- QA - Automation Testing 05-03-2026-->
     <hr>
     <div class="row careerbox">
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-3">
         <div class="career-opening-title">
           <h4>QA - Automation Testing</h4>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-3">
         <div class="career-opening-role">
           <span>2</span>
         </div>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-4 col-md-6">
         <div class="d-flex justify-content-between align-items-center">
           <span class="jobtype"> 4-5 years</span>
           <div class="career-opening-btn">
@@ -310,13 +295,55 @@
       </div>
     </div>
 
+    <!--NEW QA Engineer -->
+    <hr>
+    <div class="row careerbox">
+      <div class="col-lg-4 col-md-3">
+        <div class="career-opening-title">
+          <h4>QA Engineer</h4>
+          <span class="new-badge">NEW</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-3">
+        <div class="career-opening-role">
+          <span>2</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="jobtype"> 2–5 years</span>
+          <div class="career-opening-btn">
+            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#QA-Engineer">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+    <!-- Zendesk Administrator -->
+    <div class="row careerbox">
+      <div class="col-lg-4 col-md-4">
+        <div class="career-opening-title">
+          <h4>Zendesk Administrator / Zendesk Support Specialist</h4>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-2">
+        <div class="career-opening-role">
+          <span>2</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="jobtype">1–3 years</span>
+          <div class="career-opening-btn">
+            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#Zendesk-Administrator">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 </section>
-
-
-
-
 
 
 
@@ -923,7 +950,7 @@
   </div>
 </div>
 
-<!-- new opening QA-Automation-Testing -->
+<!-- QA-Automation-Testing -->
 <div class="modal fade" id="QA-Automation-Testing" tabindex="-1" aria-labelledby="QA-Automation-Testing" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
@@ -1031,6 +1058,127 @@
       <div class="modal-footer">
         <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
         <a href="https://hrms.prathtech.com/job_application/new?job_title=HR-OPN-2026-0012" target="_blank"
+          class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NEW QA Engineer JOB POSTING -->
+<div class="modal fade" id="QA-Engineer" tabindex="-1" aria-labelledby="QA-Engineer" aria-hidden="true">
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="QA-Engineer">QA Engineer</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body applydetails">
+        <div class="container-fluid">
+          <div class="row mt-3">
+            <div class="col-md-7" style="background: #fff; padding: 25px;">
+              <table class="table table-bordered">
+                <tr>
+                  <th>Job Summary</th>
+                  <td>We are looking for a detail-oriented and proactive QA Engineer to ensure the quality and reliability of our client applications. The candidate will be responsible for designing and executing test cases, identifying defects, and collaborating with cross-functional teams to deliver high-quality software.</td>
+                </tr>
+                <tr>
+                  <th>No. of Vacancy</th>
+                  <td>02</td>
+                </tr>
+                <tr>
+                  <th>Experience Type</th>
+                  <td>Experienced</td>
+                </tr>
+                <tr>
+                  <th>Minimum Experience</th>
+                  <td> 2–5 years</td>
+                </tr>
+                <tr>
+                  <th>Location</th>
+                  <td>Bhubaneswar, Odisha</td>
+                </tr>
+
+                <tr>
+                  <th>Required Skills</th>
+                  <td>
+                    <ul>
+                      <li>Strong understanding of Software Testing Life Cycle (STLC).</li>
+                      <li>Experience in manual testing and test case design.</li>
+                      <li>Hands-on experience in API testing.</li>
+                      <li>Basic knowledge of automation tools (Playwright / Selenium / Cypress).</li>
+                      <li>Familiarity with bug tracking tools (Jira, Azure DevOps, etc.).</li>
+                      <li>Understanding of Agile/Scrum methodology.</li>
+                      <li>Good analytical and problem-solving skills.</li>
+                    </ul>
+                  </td>
+
+                </tr>
+                <tr>
+                  <th>Preferred Skills</th>
+                  <td>
+                    <ul>
+                      <li>Experience in performance testing (JMeter / Gatling).</li>
+                      <li>Knowledge of CI/CD pipelines (Jenkins, GitHub Actions).</li>
+                      <li>Basic knowledge of programming/scripting (JavaScript, Java, Python).</li>
+                      <li>Experience with monitoring tools (Grafana, Prometheus).</li>
+                    </ul>
+                    </li>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Roles and Responsibilities</th>
+                  <td>
+                    <ul>
+                      <li><strong>Key Responsibilities</strong>
+                        <ul>
+                          <!-- <li><strong>Automation Testing JD.</strong></li> -->
+                          <li>Analyze requirements and create test plans, test cases, and test scenarios.</li>
+                          <li>Perform manual (functional, regression, integration).</li>
+                          <li>Execute API testing using tools like Postman / REST Assured.</li>
+                          <li>Identify, log, and track defects using tools like Jira.</li>
+                          <li>Perform regression testing for new releases.</li>
+                          <li>Collaborate with developers, product managers, and DevOps teams.</li>
+                          <li>Ensure adherence to quality standards and best practices.</li>
+                          <li>Prepare test reports and documentation.</li>
+                        </ul>
+                      </li>
+                      <hr>
+                      <li><strong>Nice to Have</strong>
+                        <ul>
+                          <li>Experience in test automation framework design.</li>
+                          <li>Exposure to cloud platforms (AWS).</li>
+                          <li>Understanding of microservices architecture.</li>
+                        </ul>
+                      </li>
+                      <hr>
+                      <li><strong>Soft Skills</strong>
+                        <ul>
+                          <li>Strong communication skills.</li>
+                          <li>Attention to detail.</li>
+                          <li>Team collaboration.</li>
+                          <li>Ability to work in a fast-paced environment.</li>
+                        </ul>
+                      </li>
+                    </ul>
+
+                  </td>
+                </tr>
+
+              </table>
+            </div>
+
+
+            <div class="col-md-5">
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
+        <a href="https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./qa-engineer" target="_blank"
           class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
       </div>
     </div>

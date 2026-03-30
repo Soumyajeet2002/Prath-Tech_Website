@@ -449,8 +449,8 @@
 
          <!-- here container-fluid replaced by container-->
          <div class="container approachContainer">
-            <!-- <div class="d-flex gap-5 processcontentBox"> -->
-            <div class="d-flex gap-5 ">
+            <div class="gap-5 processcontentBox">
+            <!-- <div class="d-flex gap-5 "> -->
                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
                   <div class="position-relative d-inline-block">
                      <div class="step-number">01</div>

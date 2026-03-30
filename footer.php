@@ -1,8 +1,8 @@
  <footer>
-   <div class="container custom-footer">
-     <div class="row">
+   <div class="container custom-footer footer-bottom-small-device">
+     <div class="row custom-footer-row">
        <!-- Left -->
-       <div class="col-xl-6 col-md-12">
+       <div class="col-xl-6 col-md-12 custom-footer-left">
          <div class="footer-left">
            <h1>
              Whether you need a robust enterprise application or a complete
@@ -20,7 +20,7 @@
        </div>
 
        <!-- Middle -->
-       <div class="col-xl-3 col-md-6">
+       <div class="col-xl-3 col-md-6 custom-quick-links">
          <div class="footer-middle">
            <h5>Quick links</h5>
            <div class="footer-links">
@@ -51,7 +51,7 @@
    </div>
 
    <div class="container custom-footer-bottom">
-     <div class="row">
+     <div class="row footer-bottom-row">
        <hr />
        <div class="col-lg-6 col-md-12 mb-2 footercopyright">
          © 2026 PrathTech. All Rights Reserved
