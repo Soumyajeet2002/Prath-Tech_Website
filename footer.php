@@ -39,8 +39,8 @@
        <div class="col-xl-3 col-md-6">
          <div class="footer-right">
            <h5>Contact</h5>
-           <p class="mb-3">sales@prathtech.com</p>
-           <p class="mb-3">+91 7008412478</p>
+           <p class="mb-3">markets@prathtech.com</p>
+           <p class="mb-3">+91 9777555017</p>
            <p>
              A/22, 1st Floor, Falcon House, Cuttack Road, Bhubaneswar,
              Odisha, India - 751006

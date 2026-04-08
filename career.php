@@ -1,5 +1,5 @@
 <?php include 'header.php'; ?>
-<?php include './config/db.php'; ?>
+<!-- <?php include './config/db.php'; ?> -->
 
 <section class="innerBanner">
 
@@ -246,7 +246,7 @@
     <div class="row careerbox">
       <div class="col-lg-4 col-md-3">
         <div class="career-opening-title">
-          <h4>DevSecOps + Cybersecurity Engineer</h4>
+          <h4>DevSecOps & Cybersecurity Engineer</h4>
           <span class="new-badge">NEW</span>
         </div>
       </div>
@@ -262,7 +262,7 @@
       </div>
       <div class="col-lg-4 col-md-6">
         <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype"> 2–5 years</span>
+          <span class="jobtype"> 3-7 years</span>
           <div class="career-opening-btn">
             <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#DevSecOps-Engineer">View Details</a>
           </div>
@@ -1241,7 +1241,7 @@
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title" id="DevSecOps-Engineer">DEVSECOPS</h1>
+        <h1 class="modal-title" id="DevSecOps-Engineer"> DevSecOps & Cybersecurity Engineer</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body applydetails">
@@ -1251,7 +1251,9 @@
               <table class="table table-bordered">
                 <tr>
                   <th>Job Summary</th>
-                  <td>We are looking for a detail-oriented and proactive QA Engineer to ensure the quality and reliability of our client applications. The candidate will be responsible for designing and executing test cases, identifying defects, and collaborating with cross-functional teams to deliver high-quality software.</td>
+                  <td>We are looking for a security-focused DevSecOps & Cybersecurity Engineer to embed security across the software development lifecycle and ensure robust protection of applications, infrastructure, and cloud environments. The candidate will be responsible for implementing security best practices, automating security checks, and proactively identifying and mitigating vulnerabilities.
+
+                  </td>
                 </tr>
                 <tr>
                   <th>No. of Vacancy</th>
@@ -1263,7 +1265,7 @@
                 </tr>
                 <tr>
                   <th>Minimum Experience</th>
-                  <td> 2–5 years</td>
+                  <td> 3-7 years</td>
                 </tr>
                 <tr>
                   <th>Location</th>
@@ -1274,13 +1276,16 @@
                   <th>Required Skills</th>
                   <td>
                     <ul>
-                      <li>Strong understanding of Software Testing Life Cycle (STLC).</li>
-                      <li>Experience in manual testing and test case design.</li>
-                      <li>Hands-on experience in API testing.</li>
-                      <li>Basic knowledge of automation tools (Playwright / Selenium / Cypress).</li>
-                      <li>Familiarity with bug tracking tools (Jira, Azure DevOps, etc.).</li>
-                      <li>Understanding of Agile/Scrum methodology.</li>
-                      <li>Good analytical and problem-solving skills.</li>
+                      <li>Strong understanding of Secure SDLC and DevSecOps practices.</li>
+                      <li>Experience with application security tools (SAST, DAST, SCA).</li>
+                      <li>Hands-on experience with CI/CD security integration.</li>
+                      <li>Knowledge of container and Kubernetes security.</li>
+                      <li>Experience in cloud security (AWS/Azure/GCP).</li>
+                      <li>Familiarity with IAM, RBAC, and secrets management.</li>
+                      <li>Understanding of network security concepts (WAF, IDS/IPS, VPN).</li>
+                      <li>Experience in vulnerability management and remediation.</li>
+                      <li>Knowledge of security monitoring and logging tools.</li>
+                      <li>Strong analytical and problem-solving skills.</li>
                     </ul>
                   </td>
 
@@ -1289,10 +1294,22 @@
                   <th>Preferred Skills</th>
                   <td>
                     <ul>
-                      <li>Experience in performance testing (JMeter / Gatling).</li>
-                      <li>Knowledge of CI/CD pipelines (Jenkins, GitHub Actions).</li>
-                      <li>Basic knowledge of programming/scripting (JavaScript, Java, Python).</li>
-                      <li>Experience with monitoring tools (Grafana, Prometheus).</li>
+                      <li>Experience with tools like SonarQube, OWASP ZAP, Snyk.</li>
+                      <li>Familiarity with container security tools (Trivy, Clair, Falco).</li>
+                      <li>Experience with Infrastructure as Code security (Terraform, Checkov, tfsec).</li>
+                      <li>Knowledge of CSPM tools (AWS Security Hub, Prisma Cloud).</li>
+                      <li>Experience with monitoring tools (Prometheus, Grafana, ELK Stack).</li>
+                      <li>Understanding of API security (OAuth2, JWT, API gateways).</li>
+                    </ul>
+                    </li>
+                  </td>
+                </tr>
+                 <tr>
+                  <th>Qualifications</th>
+                  <td>
+                    <ul>
+                      <li>Bachelor’s degree in Computer Science, IT, or related field.</li>
+                      <li>3–7 years of experience in DevSecOps / Cybersecurity.</li>
                     </ul>
                     </li>
                   </td>
@@ -1304,31 +1321,35 @@
                       <li><strong>Key Responsibilities</strong>
                         <ul>
                           <!-- <li><strong>Automation Testing JD.</strong></li> -->
-                          <li>Analyze requirements and create test plans, test cases, and test scenarios.</li>
-                          <li>Perform manual (functional, regression, integration).</li>
-                          <li>Execute API testing using tools like Postman / REST Assured.</li>
-                          <li>Identify, log, and track defects using tools like Jira.</li>
-                          <li>Perform regression testing for new releases.</li>
-                          <li>Collaborate with developers, product managers, and DevOps teams.</li>
-                          <li>Ensure adherence to quality standards and best practices.</li>
-                          <li>Prepare test reports and documentation.</li>
+                          <li>Implement security across the SDLC (DevSecOps practices).</li>
+                          <li>Perform threat modeling and enforce secure coding standards.</li>
+                          <li>Integrate security tools into CI/CD pipelines.</li>
+                          <li>Conduct application security testing (SAST, DAST, SCA).</li>
+                          <li>Identify, track, and remediate vulnerabilities.</li>
+                          <li>Secure cloud, containers, and Kubernetes environments.</li>
+                          <li>Manage IAM, secrets, and access controls.</li>
+                          <li>Monitor systems and respond to security incidents.</li>
+                          <li>Perform vulnerability assessments and penetration testing.</li>
+                          <li>Ensure compliance with security standards and policies.</li>
                         </ul>
                       </li>
                       <hr>
                       <li><strong>Nice to Have</strong>
                         <ul>
-                          <li>Experience in test automation framework design.</li>
-                          <li>Exposure to cloud platforms (AWS).</li>
-                          <li>Understanding of microservices architecture.</li>
+                          <li>Experience with Zero Trust architecture implementation.</li>
+                          <li>Exposure to compliance frameworks (ISO 27001, SOC 2, PCI-DSS).</li>
+                          <li>Knowledge of penetration testing methodologies.</li>
+                          <li>Experience with EDR/XDR tools (CrowdStrike, Defender).</li>
+                          <li>Understanding of microservices and distributed systems.</li>
                         </ul>
                       </li>
                       <hr>
                       <li><strong>Soft Skills</strong>
                         <ul>
-                          <li>Strong communication skills.</li>
-                          <li>Attention to detail.</li>
-                          <li>Team collaboration.</li>
-                          <li>Ability to work in a fast-paced environment.</li>
+                          <li>Strong communication and stakeholder management skills.</li>
+                          <li>Attention to detail and security mindset.</li>
+                          <li>Team collaboration and cross-functional coordination.</li>
+                          <li>Ability to work in a fast-paced, high-impact environment .</li>
                         </ul>
                       </li>
                     </ul>
