@@ -35,7 +35,7 @@
       <div class="container-fluid width80">
          <div class="row">
             <nav class="navbar navbar-expand-xl mainmenu">
-               <a class="navbar-brand logodesktop" href="index"><img src="images/logo.png" alt=""
+               <a class="navbar-brand logodesktop" href="index"><img src="images/logo.svg" alt=""
                      height="100" /></a>
                <!-- Hamburger Button (Mobile only) -->
                <button class="navbar-toggler d-xl-none" type="button" id="hamburger">
@@ -148,7 +148,7 @@
                <div class="container">
 
                   <a class="navbar-brand logodesktop" href="index">
-                     <img src="images/logo.png" alt="" height="100">
+                     <img src="images/logo.svg" alt="" height="100">
                   </a>
 
                   <button class="navbar-toggler d-xl-none" type="button">
@@ -272,7 +272,7 @@
                <div class="container-fluid mobilemenuheader">
                   <div class="row">
                      <div class="mobilelogo">
-                        <a href="#"><img src="images/logo.png" alt="" height="80" /></a>
+                        <a href="#"><img src="images/logo.svg" alt="" height="80" /></a>
                      </div>
                      <div>
                         <span class="menu-close"><img src="images/mobile-menu-close.png" alt="" /></span>

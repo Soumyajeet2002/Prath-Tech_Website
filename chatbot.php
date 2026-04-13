@@ -66,7 +66,7 @@ $bot_avatar = 'https://api.dicebear.com/7.x/bottts/svg?seed=WybbleAI&baseColor=1
         <div class="widget-header">
             <div class="bot-info">
                 <div class="avatar">
-                    <img src="<?= htmlspecialchars($bot_avatar) ?>" alt="PrathTech Bot">
+                    <img src="<?= htmlspecialchars($bot_avatar) ?>" alt="PrathTech AI Assistant">
                 </div>
                 <div>
                     <div class="bot-name">PrathTech</div>

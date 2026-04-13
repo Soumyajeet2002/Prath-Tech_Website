@@ -313,7 +313,7 @@ async function sendMessage(content, displayLabel) {
       body: response.body,
       followUp: response.followUp,
       timestamp: new Date(),
-      model: "PrathTech Bot",
+      model: "PrathTech AI Assistant",
       options: response.options,
       features: response.features,
     };
@@ -601,7 +601,7 @@ async function renderSlots(metadata) {
     role: "assistant",
     content: "Loading available slots...",
     timestamp: new Date(),
-    model: "PrathTech Bot",
+    model: "PrathTech AI Assistant",
   };
   addMessage(loadMsg);
   const loadRow = chatMessages.querySelector(`[data-msg-id="${loadMsg.id}"]`);
@@ -750,7 +750,7 @@ function showSuccessInChat(text) {
     role: "assistant",
     content: text,
     timestamp: new Date(),
-    model: "PrathTech Bot",
+    model: "PrathTech AI Assistant",
   };
   state.messages.push(msg);
   const row = document.createElement("div");
@@ -823,7 +823,7 @@ async function init() {
       body: data.body,
       followUp: data.followUp,
       timestamp: new Date(),
-      model: "PrathTech Bot",
+      model: "PrathTech AI Assistant",
       options: data.options,
       features: data.features,
     };
@@ -836,7 +836,7 @@ async function init() {
       content:
         "Welcome to PrathTech! Our AI assistant is currently unavailable. Please try again later.",
       timestamp: new Date(),
-      model: "PrathTech Bot",
+      model: "PrathTech AI Assistant",
     };
     addMessage(fallback);
   }

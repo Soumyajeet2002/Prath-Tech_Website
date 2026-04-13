@@ -60,7 +60,9 @@ h1 {
 }
 
 .subheading {
-  color: #21295a;
+  /* color: #21295a; */
+  color: rgb(32, 41, 90);
+
   font-size: 25px;
   font-weight: 800;
   font-family: "Plus Jakarta Sans", sans-serif;
@@ -182,7 +184,8 @@ h1 {
   text-align: center;
   font-size: 50px;
   letter-spacing: 0;
-  color: #20295a;
+  /* color: #20295a; */
+  color: rgb(32, 41, 90);
   font-weight: 300;
 }
 
@@ -191,7 +194,8 @@ h1 {
   letter-spacing: 0;
   font-weight: 300;
   position: relative;
-  color: #20295a;
+  /* color: #20295a; */
+  color: rgb(32, 41, 90);
   margin-left: 200px;
   margin-top: 10px;
 }
@@ -311,7 +315,8 @@ h1 {
 
 .ourapproachSection .subheading {
   /* color: #99d6f6; */
-  color: #99d6f6;
+  /* color: #99d6f6; */
+  color: #1e86bf;
   font-weight: 600;
   letter-spacing: 0.1px;
 }
@@ -1071,7 +1076,9 @@ footer hr {
 }
 
 .custombutton {
-  background: #39406c;
+  /* background: #39406c;
+   */
+  background: rgb(32, 41, 90);
   color: #fff;
   padding: 20px 24px 14px 24px;
   text-decoration: none;
@@ -1176,7 +1183,6 @@ footer hr {
   font-weight: 500;
   color: #4d4d4d;
 }
-
 
 .apply-btn {
   background: #39406c;
@@ -1780,7 +1786,9 @@ footer hr {
   position: absolute;
   top: -1px;
   left: 0;
-  color: #292a59;
+  /* color: #292a59; */
+  /* New colour added by trupti */
+  color: rgb(32, 41, 90);
   transition: 0.5s;
   clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
   overflow: hidden;
@@ -4101,35 +4109,31 @@ button.btn.btn-primary:hover img {
     box-shadow: 0 0 5px #39406c;
   }
   to {
-    box-shadow: 
+    box-shadow:
       0 0 10px #39406c,
       0 0 20px #39406c,
       0 0 30px #39406c;
   }
 }
 
-
-.footer-bottom-row{
+.footer-bottom-row {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-
-.footer-bottom-small-device{
+.footer-bottom-small-device {
   /* display: none !important; */
-
 }
 
 @media (max-width: 767px) {
-    .custom-footer-row{
-      padding: 0 !important;
-      width: 100% !important;
-    }
+  .custom-footer-row {
+    padding: 0 !important;
+    width: 100% !important;
+  }
 }
 
 @media (max-width: 767px) {
-    .custom-footer-bottom {
-        padding: 0 !important;
-    }
+  .custom-footer-bottom {
+    padding: 0 !important;
+  }
 }
-

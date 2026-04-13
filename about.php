@@ -131,11 +131,11 @@
             </div>
 
             <div class="col">
-               <img src="images/python_logo.png" alt="pythonlogo">
+               <img src="images/python_logo.svg" alt="pythonlogo">
             </div>
 
             <div class="col">
-               <img src="images/dotnet_logo.png" alt="dotnetlogo">
+               <img src="images/dotnet_logo.svg" alt="dotnetlogo">
             </div>
 
             <div class="col">
