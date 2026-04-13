@@ -4,7 +4,7 @@
   "description": "Prath Technologies Website Chatbot Backend API",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "dev": "nodemon src/server.ts",
     "build": "tsc",
     "start": "node dist/index.js",
     "db:migrate": "node -r ts-node/register src/config/migrate.ts",
@@ -30,11 +30,16 @@
     "@types/nodemailer": "^6.4.15",
     "@types/pg": "^8.11.6",
     "@types/uuid": "^10.0.0",
-    "nodemon": "^3.1.4",
+    "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
   },
-  "keywords": ["chatbot", "prath-tech", "express", "postgresql"],
+  "keywords": [
+    "chatbot",
+    "prath-tech",
+    "express",
+    "postgresql"
+  ],
   "author": "Prath Technologies",
   "license": "ISC"
 }

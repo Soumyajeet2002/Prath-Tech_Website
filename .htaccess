@@ -1,21 +1,10 @@
 Options -Indexes -MultiViews
 RewriteEngine On
 
-# --------------------------------------------------
-# Redirect .php → clean URL
-# --------------------------------------------------
-RewriteCond %{THE_REQUEST} \s/+(.*)\.php[\s?] [NC]
-RewriteRule ^ %1 [R=301,L]
-
-# --------------------------------------------------
 # Load PHP files internally
-# --------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.+)$ $1.php [L]
 
-# --------------------------------------------------
-# Home page
-# --------------------------------------------------
 DirectoryIndex index.php

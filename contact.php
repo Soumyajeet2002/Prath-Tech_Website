@@ -144,6 +144,32 @@
                </form>
             </div>
          </div>
+
+
+         <!-- Response Modal -->
+         <div class="modal fade" id="responseModal" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+               <div class="modal-content">
+
+                  <div class="modal-header">
+                     <h5 class="modal-title" id="modalTitle">Status</h5>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                  </div>
+
+                  <div class="modal-body">
+                     <p id="modalMessage"></p>
+                  </div>
+
+                  <div class="modal-footer">
+                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                  </div>
+
+               </div>
+            </div>
+         </div>
+
+
+
       </div>
    </div>
 </section>
@@ -192,5 +218,55 @@
       </div>
    </div>
 </section>
+
+<script>
+   document.getElementById("contactForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const form = this;
+      const formData = new FormData(form);
+
+      document.getElementById("formLoader").style.display = "block";
+
+      // fetch("mail", {
+      fetch("mail.php", {
+            method: "POST",
+            body: formData
+         })
+         .then(res => res.json())
+         .then(data => {
+            document.getElementById("formLoader").style.display = "none";
+
+            let title = "";
+            let message = data.message;
+
+            if (data.status === "success") {
+               title = "Success ✅";
+               form.reset();
+            } else if (data.status === "invalid_captcha") {
+               title = "Captcha Error ❌";
+            } else {
+               title = "Error ❌";
+            }
+
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalMessage").innerText = message;
+
+            let modal = new bootstrap.Modal(document.getElementById('responseModal'));
+            modal.show();
+         })
+         .catch(err => {
+            document.getElementById("formLoader").style.display = "none";
+
+            document.getElementById("modalTitle").innerText = "Error ❌";
+            document.getElementById("modalMessage").innerText = "Something went wrong. Please try again.";
+
+            let modal = new bootstrap.Modal(document.getElementById('responseModal'));
+            modal.show();
+
+            console.error(err);
+         });
+   });
+</script>
 
 <?php include 'footer.php'; ?>

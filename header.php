@@ -22,7 +22,11 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
    <link rel="stylesheet" href="css/owl.carousel.css" />
    <link href="css/style.css" rel="stylesheet" />
    <!-- Header Css new  -->
+
    <link href="css/body-header-new.css" rel="stylesheet" />
+
+   <!-- chat-bot style -->
+   <link href="css/chatbot-style.css" rel="stylesheet" />
 
    <!-- our innovation style start  -->
 

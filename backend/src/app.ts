@@ -21,9 +21,16 @@ app.use(helmet());
 // ── CORS ───────────────────────────────────────────────────────────
 const allowedOrigins = [
   process.env.FRONTEND_URL || 'http://localhost:3000',
+  'http://localhost',
   'http://localhost:3000',
   'http://localhost:3001',
+  'http://localhost:8080',
 ];
+
+app.use(cors({
+  origin: true,
+  credentials: true
+}));
 
 app.use(cors({
   origin: (origin, callback) => {
