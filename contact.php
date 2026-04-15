@@ -132,7 +132,9 @@
                      </div>
 
                      <div class="col-12">
-                        <button type="submit" class="btn btn-submit">Send Message</button>
+                        <!-- <button type="submit" class="btn btn-submit">Send Message</button> -->
+                         <div><a href="#contactfrm" class="custombutton mt-3">Send Message<img src="images/arrow.png" alt=""></a>
+         </div>
                      </div>
 
                      <div id="formLoader" class="loader-container" style="display:none;">

@@ -211,6 +211,435 @@
 
     <!-- NEW POSTING HERE -->
 
+
+    <!-- Presentation & Graphic Designer 15-04-2026 -->
+    <hr>
+    <div class="row careerbox">
+      <div class="col-lg-4 col-md-3">
+        <div class="career-opening-title">
+          <h4>Presentation & Graphic Designer</h4>
+          <span class="new-badge">NEW</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3">
+        <div class="career-opening-role">
+          <span>2</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="career-opening-date">
+          <span>15-04-2026</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="jobtype"> 2–3 years</span>
+          <div class="career-opening-btn">
+            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#Presentation-Graphic-Designer">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW Presentation & Graphic Designer Modal -->
+    <div class="modal fade" id="Presentation-Graphic-Designer" tabindex="-1" aria-labelledby="Presentation-Graphic-Designer" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title" id="Presentation-Graphic-Designer"> Presentation & Graphic Designer</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body applydetails">
+            <div class="container-fluid">
+              <div class="row mt-3">
+                <div class="col-md-7" style="background: #fff; padding: 25px;">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th>Job Summary</th>
+                      <td>Creative Presentation & Graphic Designer with 2–3 years of experience in designing impactful presentations, marketing materials, and multimedia content. Skilled in transforming complex information into engaging visuals aligned with brand guidelines. Proficient in tools like PowerPoint, Google Slides, and Adobe/Figma, with strong design fundamentals. Able to manage tight deadlines while ensuring high-quality and consistent output.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>No. of Vacancy</th>
+                      <td>02</td>
+                    </tr>
+                    <tr>
+                      <th>Experience Type</th>
+                      <td>Experienced</td>
+                    </tr>
+                    <tr>
+                      <th>Minimum Experience</th>
+                      <td> 2-3 years</td>
+                    </tr>
+                    <tr>
+                      <th>Location</th>
+                      <td>Bhubaneswar, Odisha</td>
+                    </tr>
+                    <tr>
+                      <th>Preferred & Required Skills</th>
+                      <td>
+                        <ul>
+                          <li>Proficiency in PowerPoint and Google Slides for creating impactful presentations.</li>
+                          <li>Experience with design tools such as Adobe Illustrator, Photoshop, or Figma.</li>
+                          <li>Strong ability to create infographics, visual assets, and branded templates.</li>
+                          <li>Experience in designing marketing materials like brochures, banners, and social media creatives.</li>
+                          <li>Understanding of multimedia content creation including basic video graphics and layouts.</li>
+                          <li>Ability to translate complex information into clear, engaging visual stories.</li>
+                          <li>Ability to work in a fast-paced environment with tight deadlines.</li>
+                          <li>Good understanding of layout, typography, and visual storytelling.</li>
+                        </ul>
+                        </li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Qualifications</th>
+                      <td>
+                        <ul>
+                          <li>2–3 years of experience in presentation/graphic design.</li>
+                          <li>Strong proficiency in Google Workspace and MS Office.</li>
+                          <li>Working knowledge of Adobe Creative Suite (Illustrator/Photoshop) or Figma.</li>
+                        </ul>
+                        </li>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Roles and Responsibilities</th>
+                      <td>
+                        <ul>
+                          <li><strong>Role & Responsibilities</strong>
+                            <ul>
+                              <!-- <li><strong>Automation Testing JD.</strong></li> -->
+                              <li>Design and enhance PowerPoint/Google Slides presentations for proposals, client meetings, and executive reviews.</li>
+                              <li>Create templates, slide libraries, and visual assets aligned with brand guidelines.</li>
+                              <li>Convert complex content into infographics, charts, and visual stories.</li>
+                              <li>Format and design documents (Word, Google Docs, reports, brochures, banners, posters).</li>
+                              <li>Develop graphics for multiple channels, including social media posts, website banners,brochures, infographics, presentations, email campaigns, and trade show materials </li>
+                              <li>Transform complex product and technical information into clear, visually engaging graphics.</li>
+                              <li>Create layouts, illustrations, and motion graphics to enhance video content or digital campaigns.</li>
+                              <li>Develop engaging social media creatives in collaboration with the content team.</li>
+                              <li>Craft platform-specific content tailored for professional (LinkedIn), real-time (X), and community-driven (Reddit) audiences.</li>
+                              <li>Work on multimedia content including video creatives, reels covers, and visual assets.</li>
+                              <li>Stay updated with the latest trends, tools, and technologies in video editing and multimedia design.</li>
+                              <li>Ensure consistency, quality, and timely delivery across all design outputs.</li>
+                            </ul>
+                          </li>
+                        </ul>
+
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th>Additional Requirement</th>
+                      <td>
+                        <ul>
+                          <li>Ability to support and coordinate basic event design and setup requirements when needed.</li>
+                        </ul>
+                        </li>
+                      </td>
+                    </tr>
+
+                  </table>
+                </div>
+
+
+                <div class="col-md-5">
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
+            <a href="https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./presentation-&-graphic-designer" target="_blank"
+              class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HR Intern 15-04-2026 -->
+    <hr>
+    <div class="row careerbox">
+      <div class="col-lg-4 col-md-3">
+        <div class="career-opening-title">
+          <h4>HR Intern</h4>
+          <span class="new-badge">NEW</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3">
+        <div class="career-opening-role">
+          <span>2</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="career-opening-date">
+          <span>15-04-2026</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="jobtype"> Intern </span>
+          <div class="career-opening-btn">
+            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#HR-Intern">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW HR Intern Modal-->
+    <div class="modal fade" id="HR-Intern" tabindex="-1" aria-labelledby="HR-Intern" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title" id="HR-Intern">HR Intern</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body applydetails">
+            <div class="container-fluid">
+              <div class="row mt-3">
+                <div class="col-md-7" style="background: #fff; padding: 25px;">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th>Job Summary</th>
+                      <td>
+                        We are looking for an enthusiastic HR Trainee to join our Human Resources team. The candidate will assist in various HR functions, including recruitment, onboarding, employee engagement, documentation, and day-to-day HR operations. This is an excellent opportunity to gain practical exposure to end-to-end HR processes in a dynamic and fast-paced environment.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>No. of Vacancy</th>
+                      <td>02</td>
+                    </tr>
+                    <tr>
+                      <th>Experience Type</th>
+                      <td>Experienced</td>
+                    </tr>
+                    <tr>
+                      <th>Minimum Experience</th>
+                      <td> Intern </td>
+                    </tr>
+                    <tr>
+                      <th>Location</th>
+                      <td>Bhubaneswar, Odisha</td>
+                    </tr>
+                    <tr>
+                      <th>Responsibilities</th>
+                      <td>
+                        <ul>
+                          <li>Support the HR team in day-to-day operations and administrative tasks.</li>
+                          <li>Assist in sourcing, screening, and scheduling interviews for potential candidates.</li>
+                          <li>Coordinate onboarding and induction processes for new hires.</li>
+                          <li>Maintain and update employee records, HR databases, and documentation.</li>
+                          <li>Support in drafting HR letters and reports.</li>
+                          <li>Help organize employee engagement initiatives and internal events.</li>
+                          <li>Assist with attendance tracking as required.</li>
+                          <li>Maintain confidentiality of employee information and HR data.</li>
+                          <li>Provide support in policy implementation and compliance-related activities.</li>
+                        </ul>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th>Required Skills & Qualifications</th>
+                      <td>
+                        <ul>
+                          <li>Bachelor’s degree in Human Resources, Business Administration, or a related field (MBA/PGDM in HR preferred).</li>
+                          <li>Strong communication and interpersonal skills.</li>
+                          <li>Proficiency in MS Office (Word, Excel, PowerPoint).</li>
+                          <li>Excellent organizational and multitasking abilities.</li>
+                          <li>Eagerness to learn and take initiative in assigned projects.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+
+                <div class="col-md-5">
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
+            <a href="https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./hr-intern" target="_blank"
+              class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Accounts Executive/Accounts Trainee 15-04-2026 -->
+    <hr>
+    <div class="row careerbox">
+      <div class="col-lg-4 col-md-3">
+        <div class="career-opening-title">
+          <h4>Accounts Executive/Accounts Trainee</h4>
+          <span class="new-badge">NEW</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3">
+        <div class="career-opening-role">
+          <span>2</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-6">
+        <div class="career-opening-date">
+          <span>15-04-2026</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="jobtype"> 2–3 years</span>
+          <div class="career-opening-btn">
+            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#Accounts-Executive">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW Accounts-Executive Modal-->
+    <div class="modal fade" id="Accounts-Executive" tabindex="-1" aria-labelledby="Accounts-Executive" aria-hidden="true">
+      <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title" id="Accounts-Executive">Accounts Executive/Accounts Trainee</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body applydetails">
+            <div class="container-fluid">
+              <div class="row mt-3">
+                <div class="col-md-7" style="background: #fff; padding: 25px;">
+                  <table class="table table-bordered">
+                    <tr>
+                      <th>Job Summary</th>
+                      <td>
+                        Detail-oriented accounting professional with 2–3 years of experience in managing financial records, reconciliations, and reporting. Responsible for supporting day-to-day accounting operations, including journal entries, payroll, and closing activities. Proficient in Tally and MS Excel, with a strong understanding of accounting principles and standards. Able to work collaboratively while maintaining accuracy and confidentiality in a multi-client environment.
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>No. of Vacancy</th>
+                      <td>02</td>
+                    </tr>
+                    <tr>
+                      <th>Experience Type</th>
+                      <td>Experienced</td>
+                    </tr>
+                    <tr>
+                      <th>Minimum Experience</th>
+                      <td> 2-3 years</td>
+                    </tr>
+                    <tr>
+                      <th>Location</th>
+                      <td>Bhubaneswar, Odisha</td>
+                    </tr>
+                    <tr>
+                      <th>Preferred & Required Skills</th>
+                      <td>
+                        <ul>
+                          <li>Basic knowledge of Tally and general accounting principles.</li>
+                          <li>Understanding of accounting standards and practices.</li>
+                          <li>Proficiency in MS Excel and overall computer literacy.</li>
+                          <li>Ability to analyze financial data and perform reconciliations.</li>
+                          <li>Attention to detail and accuracy in financial record-keeping.</li>
+                          <li>Good command of the English language (written & verbal).</li>
+                          <li>Ability to maintain confidentiality of sensitive financial information.</li>
+                          <li>Ability to work collaboratively in a team environment.</li>
+                        </ul>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <th>Qualifications</th>
+                      <td>
+                        <ul>
+                          <li>2–3 years of experience in accounting or finance roles.</li>
+                          <li>B.Com / M.Com background (mandatory).</li>
+                          <li>Familiarity with accounting software such as Tally.</li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th>Roles and Responsibilities</th>
+                      <td>
+                        <ul>
+                          <li><strong>Role & Responsibilities</strong>
+                            <ul>
+                              <li>Handle day-to-day accounting activities including journal entries and ledger management</li>
+                              <li>Analyze daily banking transactions and perform reconciliations</li>
+                              <li>Assist in monthly and yearly closing processes and finalization of accounts</li>
+                              <li>Prepare depreciation and amortization schedules</li>
+                              <li>Perform payroll reconciliation and related accounting entries</li>
+                              <li>Prepare monthly MIS reports and analysis in Excel</li>
+                              <li>Maintain accurate financial records while ensuring confidentiality of sensitive information</li>
+                              <li>Support senior accountants in various accounting projects</li>
+                              <li>Work as part of a team to deliver accounting services for multiple clients</li>
+                              <li>Use and adapt to multiple accounting software tools</li>
+                            </ul>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+
+
+                <div class="col-md-5">
+
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="modal-footer">
+            <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
+            <a href="https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./accounts-executive/accounts-trainee" target="_blank"
+              class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!--NEW DevSecOps Engineer -->
+    <hr>
+    <div class="row careerbox">
+      <div class="col-lg-4 col-md-3">
+        <div class="career-opening-title">
+          <h4>DevSecOps & Cybersecurity Engineer</h4>
+          <span class="new-badge">NEW</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3">
+        <div class="career-opening-role">
+          <span>2</span>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3">
+        <div class="career-opening-date">
+          <span>02-04-2026</span>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="d-flex justify-content-between align-items-center">
+          <span class="jobtype"> 3-7 years</span>
+          <div class="career-opening-btn">
+            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#DevSecOps-Engineer">View Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--NEW QA Engineer -->
     <!-- NEW CHANGES TO QA -->
     <hr>
@@ -241,34 +670,7 @@
       </div>
     </div>
 
-    <!--NEW DevSecOps Engineer -->
-    <hr>
-    <div class="row careerbox">
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-title">
-          <h4>DevSecOps & Cybersecurity Engineer</h4>
-          <span class="new-badge">NEW</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <div class="career-opening-role">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <div class="career-opening-date">
-          <span>02-04-2026</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype"> 3-7 years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#DevSecOps-Engineer">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
 
 
@@ -317,29 +719,6 @@
         </div>
       </div>
     </div>
-
-
-    <!-- <hr> -->
-    <!-- <div class="row careerbox">
-      <div class="col-lg-4">
-        <div class="career-opening-title">
-          <h4>QA Technical Lead</h4>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="career-opening-role">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype">5–8 years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#QA-Technical-Lead">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
 
 
 
@@ -999,7 +1378,6 @@
     </div>
   </div>
 </div>
-
 <!-- QA-Automation-Testing -->
 <div class="modal fade" id="QA-Automation-Testing" tabindex="-1" aria-labelledby="QA-Automation-Testing" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
@@ -1113,8 +1491,7 @@
     </div>
   </div>
 </div>
-
-<!-- NEW QA Engineer JOB POSTING -->
+<!-- QA Engineer JOB POSTING -->
 <div class="modal fade" id="QA-Engineer" tabindex="-1" aria-labelledby="QA-Engineer" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
@@ -1234,9 +1611,7 @@
     </div>
   </div>
 </div>
-
-
-<!--NEW DevSecOps Engineer -->
+<!--DevSecOps Engineer -->
 <div class="modal fade" id="DevSecOps-Engineer" tabindex="-1" aria-labelledby="DevSecOps-Engineer" aria-hidden="true">
   <div class="modal-dialog modal-fullscreen">
     <div class="modal-content">
@@ -1304,7 +1679,7 @@
                     </li>
                   </td>
                 </tr>
-                 <tr>
+                <tr>
                   <th>Qualifications</th>
                   <td>
                     <ul>
@@ -1377,6 +1752,7 @@
     </div>
   </div>
 </div>
+
 
 
 
