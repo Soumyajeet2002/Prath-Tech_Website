@@ -1,13 +1,30 @@
- <footer>
+ <?php
+  // $api_url = $_ENV['PRATHTECH_API_URL'] ?? 'http://localhost:5000';
+  // $api_url = $_ENV['PRATHTECH_API_URL'] ?? 'http://192.168.0.24:5000';
+  $api_url = $_ENV['PRATHTECH_API_URL'] ?? "/api";
+
+  // $bot_avatar = 'https://gov.silicontechlab.com/prathtech_website/images/logo.svg';
+  // $bot_avatar = './images/logo.svg';
+  $bot_avatar = './images/white-logo-PTPL.svg';
+  ?>
+
+ <footer id="main-footer">
+   <div class="footer-bounce-wrapper">
+     <svg id="wave-svg" class="footer-bounce-svg"
+       xmlns="http://www.w3.org/2000/svg"
+       viewBox="0 0 1440 90" preserveAspectRatio="none">
+       <path id="bouncy-path" d="" fill="#f5f5f5" />
+     </svg>
+   </div>
    <div class="container custom-footer footer-bottom-small-device">
      <div class="row custom-footer-row">
        <!-- Left -->
        <div class="col-xl-6 col-md-12 custom-footer-left">
          <div class="footer-left">
-           <h1>
+           <h2>
              Whether you need a robust enterprise application or a complete
              IT infrastructure overhaul,
-           </h1>
+           </h2>
            <h5>we’re here to make it happen.</h5>
            <div class="footer-socials">
              <!-- <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -62,7 +79,276 @@
        </div>
      </div>
    </div>
+
  </footer>
+
+
+ <style>
+   .footer-bounce-wrapper {
+     position: relative;
+     width: 100%;
+     line-height: 0;
+     overflow: hidden;
+   }
+
+   .footer-bounce-svg {
+     display: block;
+     width: 100%;
+     height: 90px;
+     /* ← updated from 70 to 90 */
+   }
+ </style>
+
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+ <!-- Working Bounce footer animation -->
+ <script>
+   gsap.registerPlugin(ScrollTrigger);
+
+   const H = 90; // wave height — match your SVG viewBox and CSS height
+   const pathEl = document.getElementById('bouncy-path');
+
+   const FLAT = `M0,0 C360,0 1080,0 1440,0 L1440,0 L0,0 Z`;
+   const ENTRY = `M0,${H*.7} C300,${H*1.2} 900,${H*.1} 1440,${H*.75} L1440,0 L0,0 Z`;
+
+   // Scroll DOWN → U shape (middle dips down)
+   function uShape(depth) {
+     const d = Math.min(depth, H * 1.1);
+     return `M0,${d*.15} C360,${d*1.3} 1080,${d*1.3} 1440,${d*.15} L1440,0 L0,0 Z`;
+   }
+
+   // Scroll UP → arch shape (middle lifts up)
+   function archShape(depth) {
+     const d = Math.min(depth, H * 1.0);
+     return `M0,${d*.85} C360,${-d*.5} 1080,${-d*.5} 1440,${d*.85} L1440,0 L0,0 Z`;
+   }
+
+   gsap.set(pathEl, {
+     attr: {
+       d: FLAT
+     }
+   });
+
+   let lastY = window.scrollY;
+   let ticking = false;
+   let idleTimer = null;
+   let entered = false;
+
+   function animateTo(shape, dur, amp, wob) {
+     gsap.to(pathEl, {
+       duration: dur,
+       attr: {
+         d: shape
+       },
+       ease: `elastic.out(${amp}, ${wob})`,
+       overwrite: true
+     });
+   }
+
+   window.addEventListener('scroll', () => {
+     if (!ticking) {
+       requestAnimationFrame(() => {
+         const delta = window.scrollY - lastY;
+         lastY = window.scrollY;
+         const speed = Math.abs(delta);
+         const power = Math.min(speed, 35);
+         const depth = 18 + power * 1.8; // wave depth grows with scroll speed
+
+         if (speed > 1.5) {
+           if (delta > 0) {
+             animateTo(uShape(depth), 0.85, 1.1, 0.6); // scrolling down → U
+           } else {
+             animateTo(archShape(depth), 0.85, 1.1, 0.6); // scrolling up → arch
+           }
+         }
+
+         // Snap back to flat after scroll stops
+         clearTimeout(idleTimer);
+         idleTimer = setTimeout(() => {
+           animateTo(FLAT, 2.4, 1.3, 0.5);
+         }, 220);
+
+         ticking = false;
+       });
+       ticking = true;
+     }
+   }, {
+     passive: true
+   });
+
+   // Big elastic bounce when footer first enters viewport
+   ScrollTrigger.create({
+     trigger: '#main-footer',
+     start: 'top bottom',
+     once: true,
+     onEnter: (self) => {
+       if (entered) return;
+       entered = true;
+       const v = Math.min(Math.abs(self.getVelocity()), 8000);
+       const amp = 1.3 + v / 6000;
+       const wob = Math.max(0.4, 0.7 - v / 16000);
+       gsap.fromTo(pathEl, {
+         attr: {
+           d: ENTRY
+         }
+       }, {
+         duration: 2.8,
+         attr: {
+           d: FLAT
+         },
+         ease: `elastic.out(${amp}, ${wob})`,
+         overwrite: true
+       });
+     }
+   });
+ </script>
+
+
+ <!-- Footer chat-bot -->
+ <link href="css/chatbot-style.css" rel="stylesheet" />
+
+
+ <body>
+   <!-- CHATBOT FLOATING BUTTON 
+   -->
+   <button id="chatbot-btn" aria-label="Open chat">
+     <span class="ping"></span>
+     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"
+       fill="none" stroke="currentColor" stroke-width="2"
+       stroke-linecap="round" stroke-linejoin="round">
+       <path d="M12 8V4H8" />
+       <rect width="16" height="12" x="4" y="8" rx="2" />
+       <path d="M2 14h2" />
+       <path d="M20 14h2" />
+       <path d="M15 13v2" />
+       <path d="M9 13v2" />
+       <path d="m7 22 5-4 5 4" />
+     </svg>
+   </button>
+
+   <!-- CHAT WIDGET -->
+   <div id="chat-widget" role="dialog" aria-label="PrathTech chat assistant">
+
+     <!-- Header -->
+     <div class="widget-header">
+       <div class="bot-info">
+         <div class="avatar">
+           <img src="<?= htmlspecialchars($bot_avatar) ?>" alt="PrathTech AI Assistant" class="header-footer-logo-chatbot">
+         </div>
+         <div>
+           <div class="bot-name">PrathTech</div>
+           <div class="bot-sub">AI Assistant</div>
+         </div>
+       </div>
+       <div class="header-actions">
+         <!-- <button id="download-brooser-btn" title="Download chat" aria-label="Download chat history">
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+             <polyline points="7 10 12 15 17 10" />
+             <line x1="12" y1="15" x2="12" y2="3" />
+           </svg>
+         </button> -->
+         <!-- Download -->
+         <button id="download-chat-btn" title="Download chat" aria-label="Download chat history">
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+             <polyline points="7 10 12 15 17 10" />
+             <line x1="12" y1="15" x2="12" y2="3" />
+           </svg>
+         </button>
+         <!-- Close -->
+         <button id="close-chat-btn" title="Close chat" aria-label="Close chat">
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+             <line x1="18" y1="6" x2="6" y2="18" />
+             <line x1="6" y1="6" x2="18" y2="18" />
+           </svg>
+         </button>
+       </div>
+     </div>
+
+     <!-- Messages -->
+     <div id="chat-messages" aria-live="polite" aria-label="Chat messages">
+
+       <!-- Typing indicator (hidden by default) -->
+       <div id="typing-indicator">
+         <div class="typing-avatar">
+           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="white" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+             <rect width="18" height="10" x="3" y="11" rx="2" />
+             <circle cx="12" cy="5" r="2" />
+             <path d="M12 7v4" />
+             <line x1="8" y1="16" x2="8" y2="16" />
+             <line x1="16" y1="16" x2="16" y2="16" />
+           </svg>
+         </div>
+         <div class="typing-dots">
+           <span></span><span></span><span></span>
+         </div>
+       </div>
+
+     </div>
+
+     <!-- Input -->
+     <div class="widget-input">
+       <div class="input-row">
+         <textarea
+           id="chat-input"
+           placeholder="Type your message..."
+           rows="1"
+           aria-label="Type a message"></textarea>
+         <button id="send-btn" disabled aria-label="Send message">
+           <!-- Send icon -->
+           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2"
+             stroke-linecap="round" stroke-linejoin="round">
+             <line x1="22" y1="2" x2="11" y2="13" />
+             <polygon points="22 2 15 22 11 13 2 9 22 2" />
+           </svg>
+         </button>
+       </div>
+     </div>
+
+   </div>
+
+   <!-- Tawk.to Code -->
+
+   <script type="text/javascript">
+     var Tawk_API = Tawk_API || {},
+       Tawk_LoadStart = new Date();
+     Tawk_API.onBeforeLoad = function() {
+       Tawk_API.hideWidget();
+     };
+     Tawk_API.onLoad = function() {
+       Tawk_API.hideWidget();
+     };
+     (function() {
+       var s1 = document.createElement("script"),
+         s0 = document.getElementsByTagName("script")[0];
+       s1.async = true;
+       s1.src = 'https://embed.tawk.to/69e2066834365c1c31441f94/1jmdei2tp';
+       s1.charset = 'UTF-8';
+       s1.setAttribute('crossorigin', '*');
+       s0.parentNode.insertBefore(s1, s0);
+
+     })();
+   </script>
+
+
+
+
+   <!-- Chatbot JS -->
+   <script src="js/chatbot.js"></script>
+
+   <!-- Footer chat-bot ends -->
+ </body>
 
 
  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -78,6 +364,7 @@
  <script src="https://cdn.jsdelivr.net/npm/node-marquee@3.0.6/build/cdn/index.min.js"></script>
  <script src="./js/script.js"></script>
  <script src="./js/header-new.js"></script>
+ <!-- <script src="./js/chatbot.js"></script> -->
  <script>
    AOS.init();
 
@@ -573,7 +860,3 @@
 
 
  <!-- Slick SLider -->
-
- </body>
-
- </html>

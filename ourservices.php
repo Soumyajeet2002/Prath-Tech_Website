@@ -2,16 +2,16 @@
 <section class="innerBanner">
   <div class="container-fluid width80">
     <div class="row">
-      <h6 style="letter-spacing: -1.5px">Driving Business Success with</h6>
+      <h6>Driving Business Success with</h6>
       <h1>
         Intelligent <br />
         IT Solutions
       </h1>
       <div class="bannerbtmtext">
-        Talk to our experts today.<img src="images/contact-me-thumb.webp" alt class="contactthumb" />
+        Talk to our experts today.<img src="images/contact-me-thumb.webp" alt="prathtech" class="contactthumb" />
       </div>
       <div>
-        <a href="contact" class="custombutton mt-3">Contact Us Today<img src="images/arrow.png" alt /></a>
+        <a href="contact" class="custombutton mt-3">Contact Us Today<img src="images/arrow.png" alt="prathtech" /></a>
       </div>
     </div>
   </div>
@@ -68,7 +68,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/enterprise-application.jpg" alt class="img-fluid" />
+            <img src="images/enterprise-application.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/software-developement.jpg" alt class="img-fluid" />
+            <img src="images/software-developement.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -165,7 +165,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/web-application-developement.jpg" alt class="img-fluid" />
+            <img src="images/web-application-developement.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -212,7 +212,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/devOps.jpg" alt class="img-fluid" />
+            <img src="images/devOps.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -262,7 +262,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/software-testing.jpg" alt class="img-fluid" />
+            <img src="images/software-testing.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -311,7 +311,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/ui-ux.jpg" alt class="img-fluid" />
+            <img src="images/ui-ux.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -361,7 +361,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/Orchestration-Services.jpg" alt class="img-fluid" />
+            <img src="images/Orchestration-Services.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -411,7 +411,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/cloud-monitoring.jpg" alt class="img-fluid" />
+            <img src="images/cloud-monitoring.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -461,7 +461,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/cybersecurity.jpg" alt class="img-fluid" />
+            <img src="images/cybersecurity.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -511,7 +511,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/network-security.jpg" alt class="img-fluid" />
+            <img src="images/network-security.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -561,7 +561,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/government-public-sector-solutions.jpg" alt class="img-fluid" />
+            <img src="images/government-public-sector-solutions.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -611,7 +611,7 @@
           </ul>
 
           <div class="mt-5 Grafana_img">
-            <img src="images/grafana-implementation.jpg" alt class="img-fluid  " />
+            <img src="images/grafana-implementation.jpg" alt="prathtech" class="img-fluid  " />
           </div>
         </div>
       </div>
@@ -653,7 +653,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/enterprise-application.jpg" alt class="img-fluid" />
+            <img src="images/enterprise-application.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -700,7 +700,7 @@
           </ul>
 
           <div class="mt-5">
-            <img src="images/software-developement.jpg" alt class="img-fluid" />
+            <img src="images/software-developement.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -746,7 +746,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/web-application-developement.jpg" alt class="img-fluid" />
+            <img src="images/web-application-developement.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -790,7 +790,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/devOps.jpg" alt class="img-fluid" />
+            <img src="images/devOps.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -837,7 +837,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/software-testing.jpg" alt class="img-fluid" />
+            <img src="images/software-testing.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -883,7 +883,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/ui-ux.jpg" alt class="img-fluid" />
+            <img src="images/ui-ux.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -930,7 +930,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/Orchestration-Services.jpg" alt class="img-fluid" />
+            <img src="images/Orchestration-Services.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -977,7 +977,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/cloud-monitoring.jpg" alt class="img-fluid" />
+            <img src="images/cloud-monitoring.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -1024,7 +1024,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/cybersecurity.jpg" alt class="img-fluid" />
+            <img src="images/cybersecurity.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -1071,7 +1071,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/network-security.jpg" alt class="img-fluid" />
+            <img src="images/network-security.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -1118,7 +1118,7 @@
             </li>
           </ul>
           <div class="mt-5">
-            <img src="images/government-public-sector-solutions.jpg" alt class="img-fluid" />
+            <img src="images/government-public-sector-solutions.jpg" alt="prathtech" class="img-fluid" />
           </div>
         </div>
       </div>
@@ -1163,9 +1163,9 @@
               Equip teams with interactive tools that foster a culture of
               data-driven innovation
             </li>
-          </ul> 
+          </ul>
           <div class="mt-5">
-            <img src="images/grafana-implementation.jpg" alt class="img-fluid " />
+            <img src="images/grafana-implementation.jpg" alt="prathtech" class="img-fluid " />
           </div>
         </div>
       </div>
@@ -1181,7 +1181,7 @@
 
 
 <!-- our services page start  -->
-<script>
+<!-- <script>
   $(function() {
 
     $(".servicetext-carousel").owlCarousel({
@@ -1229,5 +1229,31 @@
       });
     });
   });
-</script>
+</script> -->
 <!-- our services page end  -->
+
+
+<!-- TRY -->
+<!-- our services page start -->
+<script>
+  $(function() {
+
+    gsap.utils.toArray(".fade-section").forEach((card) => {
+
+      gsap.fromTo(card, {
+        y: 120
+      }, {
+        y: 0,
+        ease: "none",
+        scrollTrigger: {
+          trigger: card,
+          start: "top bottom",
+          end: "top top",
+          scrub: true
+        }
+      });
+
+    });
+  });
+</script>
+<!-- our services page end -->

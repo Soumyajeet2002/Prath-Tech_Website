@@ -1,7 +1,9 @@
 <?php
-$api_url = $_ENV['PRATHTECH_API_URL'] ?? 'http://localhost:5000';
+// $api_url = $_ENV['PRATHTECH_API_URL'] ?? 'http://localhost:5000';
+// $api_url = $_ENV['PRATHTECH_API_URL'] ?? 'http://192.168.0.24:5000';
+$api_url = $_ENV['PRATHTECH_API_URL'] ?? "/api";
 
-$bot_avatar = 'https://api.dicebear.com/7.x/bottts/svg?seed=WybbleAI&baseColor=159abb';
+// $bot_avatar = 'https://api.dicebear.com/7.x/bottts/svg?seed=WybbleAI&baseColor=159abb';
 
 
 /** PrathTech - Home Page **/
@@ -13,13 +15,12 @@ if (file_exists(__DIR__ . '/.env')) {
         $_ENV[trim($key)] = trim($value);
     }
 }
-$api_url = $_ENV['PRATHTECH_API_URL'] ?? 'http://localhost:5000';
 
 $page_title = 'PrathTech';
 $page_description = 'Revolutionize your business with cutting-edge technology, advanced analytics, and transformative products';
 
 
-$bot_avatar = 'https://api.dicebear.com/7.x/bottts/svg?seed=WybbleAI&baseColor=159abb';
+// $bot_avatar = 'https://api.dicebear.com/7.x/bottts/svg?seed=WybbleAI&baseColor=159abb';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,7 +67,7 @@ $bot_avatar = 'https://api.dicebear.com/7.x/bottts/svg?seed=WybbleAI&baseColor=1
         <div class="widget-header">
             <div class="bot-info">
                 <div class="avatar">
-                    <img src="<?= htmlspecialchars($bot_avatar) ?>" alt="PrathTech AI Assistant">
+                    <img src="./images/white-logo-PTPL.svg" class="avatar-prathtech-herder">
                 </div>
                 <div>
                     <div class="bot-name">PrathTech</div>
@@ -74,6 +75,15 @@ $bot_avatar = 'https://api.dicebear.com/7.x/bottts/svg?seed=WybbleAI&baseColor=1
                 </div>
             </div>
             <div class="header-actions">
+                <button id="download-brooser-btn" title="Download chat" aria-label="Download chat history">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                </button>
                 <!-- Download -->
                 <button id="download-chat-btn" title="Download chat" aria-label="Download chat history">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
@@ -156,7 +166,7 @@ $bot_avatar = 'https://api.dicebear.com/7.x/bottts/svg?seed=WybbleAI&baseColor=1
             var s1 = document.createElement("script"),
                 s0 = document.getElementsByTagName("script")[0];
             s1.async = true;
-            s1.src = 'https://embed.tawk.to/69a3defbaa21361c33484496/1jik1u1vg';
+            s1.src = 'https://embed.tawk.to/69e2066834365c1c31441f94/1jmdei2tp';
             s1.charset = 'UTF-8';
             s1.setAttribute('crossorigin', '*');
             s0.parentNode.insertBefore(s1, s0);

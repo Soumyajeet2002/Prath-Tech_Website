@@ -1,22 +1,76 @@
 <?php include 'header.php'; ?>
-<!-- <?php include './config/db.php'; ?> -->
 
+<?php
+$api_url = "https://hrms.prathtech.com/api/method/get_jobs";
+$auth_token = "a9f3c1d7e4b28f6a91c0d5e8f7b3a2c6";
+
+/* ========================= CACHE ========================= */
+$cache_file = "jobs_cache.json";
+$cache_time = 300;
+
+$response = null;
+
+if (file_exists($cache_file) && (time() - filemtime($cache_file)) < $cache_time) {
+  $response = file_get_contents($cache_file);
+} else {
+
+  $ch = curl_init($api_url);
+
+  curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+  curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+
+  curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "Authorization: $auth_token",
+    "Accept: application/json"
+  ]);
+
+  $response = curl_exec($ch);
+
+  curl_close($ch);
+
+  if ($response && strpos($response, 'RateLimitExceededError') === false) {
+    file_put_contents($cache_file, $response);
+  }
+}
+
+/* ========================= DECODE ========================= */
+$data = json_decode($response, true);
+if (!is_array($data))
+  $data = [];
+
+/* ========================= JOB EXTRACTION ========================= */
+$jobs = [];
+
+if (!empty($data['message']['data'])) {
+  $jobs = $data['message']['data'];
+} elseif (!empty($data['message']['jobs'])) {
+  $jobs = $data['message']['jobs'];
+} elseif (!empty($data['message']) && is_array($data['message'])) {
+  $jobs = $data['message'];
+} elseif (!empty($data['data'])) {
+  $jobs = $data['data'];
+} elseif (!empty($data['jobs'])) {
+  $jobs = $data['jobs'];
+}
+?>
+
+<!-- ========================= BANNER ========================= -->
 <section class="innerBanner">
-
   <div class="container-fluid width80">
     <div class="row">
-      <h6 style="letter-spacing: -1.5px;">Your next career move starts here</h6>
+      <h6>Your next career move starts here</h6>
       <h1>Innovate <br>Succeed Grow</h1>
-      <div class="bannerbtmtext">Build your future with us. <img src="images/career-user.webp" alt=""></div>
-      <div><a href="#currentopening" class="custombutton mt-4" style="letter-spacing: -0.1px;">View Current Openings
-          <img src="images/arrow.png" alt=""></a></div>
+      <div class="bannerbtmtext">Build your future with us. <img src="images/career-user.webp" alt="prathtech"></div>
+      <div>
+        <a href="#currentopening" class="custombutton mt-4">
+          View Current Openings <img src="images/arrow.png" alt="prathtech">
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-
-
-
+<!-- ========================= BENEFITS ========================= -->
 <section class="benefits-wrapper mt-8 mb-2">
   <hr style="width: 80%; margin: auto ; opacity: 1; margin-bottom: 60px;">
   <div class="container">
@@ -25,40 +79,37 @@
     </div>
     <div class="row career_cards">
 
-      <div class="benefit-box ">
-        <img src="images/icon2.png" alt="">
+      <div class="benefit-box">
+        <img src="images/icon2.png" alt="prathtech">
         <h4>Career Growth <br>Opportunities</h4>
       </div>
-      <div class="benefit-box ">
-        <img src="images/icon3.png" alt="">
+
+      <div class="benefit-box">
+        <img src="images/icon3.png" alt="prathtech">
         <h4>Modern Workspace & <br>Vibrant Team Spirit</h4>
       </div>
+
       <div class="benefit-box">
-        <img src="images/icon5.png" alt="">
+        <img src="images/icon5.png" alt="prathtech">
         <h4>Continuous Learning & Development</h4>
       </div>
 
       <div class="benefit-box">
-        <img src="images/icon8.png" alt="">
+        <img src="images/icon8.png" alt="prathtech">
         <h4>Supportive Work & Team Culture</h4>
       </div>
+
     </div>
-
-
-
-
   </div>
 </section>
-
-
 <section class="careerslider">
   <div class="container-fluid">
     <div class="row  d-flex align-items-center">
-      <div class="col item"><img src="images/career-slide-1.webp" alt="" class="img-fluid"></div>
-      <div class="col item"><img src="images/career-slide-2.webp" alt="" class="img-fluid"></div>
-      <div class="col item"><img src="images/career-slide-3.webp" alt="" class="img-fluid"> </div>
-      <div class="col item"> <img src="images/career-slide-4.webp" alt="" class="img-fluid"> </div>
-      <div class="col item"> <img src="images/career-slide-5.webp" alt="" class="img-fluid"></div>
+      <div class="col item"><img src="images/career-slide-1.webp" alt="prathtech" class="img-fluid"></div>
+      <div class="col item"><img src="images/career-slide-2.webp" alt="prathtech" class="img-fluid"></div>
+      <div class="col item"><img src="images/career-slide-3.webp" alt="prathtech" class="img-fluid"> </div>
+      <div class="col item"> <img src="images/career-slide-4.webp" alt="prathtech" class="img-fluid"> </div>
+      <div class="col item"> <img src="images/career-slide-5.webp" alt="prathtech" class="img-fluid"></div>
 
     </div>
   </div>
@@ -74,1719 +125,130 @@
   </div>
 </div>
 
-
-
-
-
+<!-- ========================= JOB LIST ========================= -->
 <section class="currentopeningsection" id="currentopening">
   <div class="container">
+
     <div class="row">
       <h1 class="mb-5 ftw400">Current Openings</h1>
     </div>
 
-    <div class="row careerheader">
-      <div class="col-md-4">
+    <div class="row careerheader ">
+      <!-- <div class="col-md-4"><h5>Position</h5></div>
+      <div class="col-md-2"><h5>Openings</h5></div>
+      <div class="col-md-2"><h5>Publish Date</h5></div>
+      <div class="col-md-4"><h5>Experience</h5></div> -->
+      <div class="col-lg-4 col-md-4">
         <h5>Position</h5>
       </div>
-      <div class="col-md-2">
-        <!-- <h5>Roles</h5> -->
+      <div class="col-lg-2 col-md-2">
         <h5>Openings</h5>
       </div>
-      <div class="col-md-2">
-        <!-- <h5>Roles</h5> -->
+      <div class="col-lg-2 col-md-2">
         <h5>Publish Date</h5>
       </div>
-      <div class="col-md-4">
+      <div class="col-lg-2 col-md-2">
         <h5>Experience</h5>
       </div>
-    </div>
-
-
-    <!-- <div class="row careerbox">
-            <div class="col-lg-4">
-                <div class="career-opening-title">
-                    <h4>UI/UX Designer</h4>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="career-opening-role">
-                    <span>(02 Open Roles)</span>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="d-flex justify-content-between align-items-center">
-                 <span class="jobtype">Full-Time</span>
-                    <div class="career-opening-btn">
-                    <a href="" class="apply-btn">Apply Now</a>
-                    </div>
-            </div>
-           </div>
-        </div> -->
-
-    <!-- <div class="row careerbox">
-            <div class="col-lg-4">
-                <div class="career-opening-title">
-                    <h4>Sr. Java Developer</h4>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="career-opening-role">
-                    <span>(02 Open Roles)</span>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="d-flex justify-content-between align-items-center">
-                 <span class="jobtype">Freelancer</span>
-                    <div class="career-opening-btn">
-                    <a href="" class="apply-btn">Apply Now</a>
-                    </div>
-            </div>
-           </div>
-        </div> -->
-    <!-- <hr>
-        <div class="row careerbox">
-            <div class="col-lg-4">
-                <div class="career-opening-title">
-                    <h4>Product Manager</h4>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="career-opening-role">
-                    <span>(02 Open Roles)</span>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="d-flex justify-content-between align-items-center">
-                 <span class="jobtype">Full-Time</span>
-                    <div class="career-opening-btn">
-                    <a href="" class="apply-btn">Apply Now</a>
-                    </div>
-            </div>
-           </div>
-        </div> -->
-    <!-- <hr>
-          <div class="row careerbox">
-            <div class="col-lg-4">
-                <div class="career-opening-title">
-                    <h4>Joomla Developer</h4>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="career-opening-role">
-                    <span>(02 Open Roles)</span>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="d-flex justify-content-between align-items-center">
-                 <span class="jobtype">Remote</span>
-                    <div class="career-opening-btn">
-                    <a href="" class="apply-btn">Apply Now</a>
-                    </div>
-            </div>
-           </div>
-        </div> -->
-    <!-- <hr> -->
-    <!-- HR  -->
-    <!-- <div class="row careerbox">
-      <div class="col-lg-4">
-        <div class="career-opening-title">
-          <h4>HR Manager</h4>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="career-opening-role">
-          <span>1 </span>
-        </div>
-      </div>
-      <div class="col-lg-4">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype">5 Years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div> -->
-
-
-    <!-- NEW POSTING HERE -->
-
-
-    <!-- Presentation & Graphic Designer 15-04-2026 -->
-    <hr>
-    <div class="row careerbox">
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-title">
-          <h4>Presentation & Graphic Designer</h4>
-          <span class="new-badge">NEW</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <div class="career-opening-role">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-6">
-        <div class="career-opening-date">
-          <span>15-04-2026</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype"> 2–3 years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#Presentation-Graphic-Designer">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- NEW Presentation & Graphic Designer Modal -->
-    <div class="modal fade" id="Presentation-Graphic-Designer" tabindex="-1" aria-labelledby="Presentation-Graphic-Designer" aria-hidden="true">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title" id="Presentation-Graphic-Designer"> Presentation & Graphic Designer</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body applydetails">
-            <div class="container-fluid">
-              <div class="row mt-3">
-                <div class="col-md-7" style="background: #fff; padding: 25px;">
-                  <table class="table table-bordered">
-                    <tr>
-                      <th>Job Summary</th>
-                      <td>Creative Presentation & Graphic Designer with 2–3 years of experience in designing impactful presentations, marketing materials, and multimedia content. Skilled in transforming complex information into engaging visuals aligned with brand guidelines. Proficient in tools like PowerPoint, Google Slides, and Adobe/Figma, with strong design fundamentals. Able to manage tight deadlines while ensuring high-quality and consistent output.
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>No. of Vacancy</th>
-                      <td>02</td>
-                    </tr>
-                    <tr>
-                      <th>Experience Type</th>
-                      <td>Experienced</td>
-                    </tr>
-                    <tr>
-                      <th>Minimum Experience</th>
-                      <td> 2-3 years</td>
-                    </tr>
-                    <tr>
-                      <th>Location</th>
-                      <td>Bhubaneswar, Odisha</td>
-                    </tr>
-                    <tr>
-                      <th>Preferred & Required Skills</th>
-                      <td>
-                        <ul>
-                          <li>Proficiency in PowerPoint and Google Slides for creating impactful presentations.</li>
-                          <li>Experience with design tools such as Adobe Illustrator, Photoshop, or Figma.</li>
-                          <li>Strong ability to create infographics, visual assets, and branded templates.</li>
-                          <li>Experience in designing marketing materials like brochures, banners, and social media creatives.</li>
-                          <li>Understanding of multimedia content creation including basic video graphics and layouts.</li>
-                          <li>Ability to translate complex information into clear, engaging visual stories.</li>
-                          <li>Ability to work in a fast-paced environment with tight deadlines.</li>
-                          <li>Good understanding of layout, typography, and visual storytelling.</li>
-                        </ul>
-                        </li>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Qualifications</th>
-                      <td>
-                        <ul>
-                          <li>2–3 years of experience in presentation/graphic design.</li>
-                          <li>Strong proficiency in Google Workspace and MS Office.</li>
-                          <li>Working knowledge of Adobe Creative Suite (Illustrator/Photoshop) or Figma.</li>
-                        </ul>
-                        </li>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Roles and Responsibilities</th>
-                      <td>
-                        <ul>
-                          <li><strong>Role & Responsibilities</strong>
-                            <ul>
-                              <!-- <li><strong>Automation Testing JD.</strong></li> -->
-                              <li>Design and enhance PowerPoint/Google Slides presentations for proposals, client meetings, and executive reviews.</li>
-                              <li>Create templates, slide libraries, and visual assets aligned with brand guidelines.</li>
-                              <li>Convert complex content into infographics, charts, and visual stories.</li>
-                              <li>Format and design documents (Word, Google Docs, reports, brochures, banners, posters).</li>
-                              <li>Develop graphics for multiple channels, including social media posts, website banners,brochures, infographics, presentations, email campaigns, and trade show materials </li>
-                              <li>Transform complex product and technical information into clear, visually engaging graphics.</li>
-                              <li>Create layouts, illustrations, and motion graphics to enhance video content or digital campaigns.</li>
-                              <li>Develop engaging social media creatives in collaboration with the content team.</li>
-                              <li>Craft platform-specific content tailored for professional (LinkedIn), real-time (X), and community-driven (Reddit) audiences.</li>
-                              <li>Work on multimedia content including video creatives, reels covers, and visual assets.</li>
-                              <li>Stay updated with the latest trends, tools, and technologies in video editing and multimedia design.</li>
-                              <li>Ensure consistency, quality, and timely delivery across all design outputs.</li>
-                            </ul>
-                          </li>
-                        </ul>
-
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <th>Additional Requirement</th>
-                      <td>
-                        <ul>
-                          <li>Ability to support and coordinate basic event design and setup requirements when needed.</li>
-                        </ul>
-                        </li>
-                      </td>
-                    </tr>
-
-                  </table>
-                </div>
-
-
-                <div class="col-md-5">
-
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-          <div class="modal-footer">
-            <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
-            <a href="https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./presentation-&-graphic-designer" target="_blank"
-              class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- HR Intern 15-04-2026 -->
-    <hr>
-    <div class="row careerbox">
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-title">
-          <h4>HR Intern</h4>
-          <span class="new-badge">NEW</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <div class="career-opening-role">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-6">
-        <div class="career-opening-date">
-          <span>15-04-2026</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype"> Intern </span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#HR-Intern">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- NEW HR Intern Modal-->
-    <div class="modal fade" id="HR-Intern" tabindex="-1" aria-labelledby="HR-Intern" aria-hidden="true">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title" id="HR-Intern">HR Intern</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body applydetails">
-            <div class="container-fluid">
-              <div class="row mt-3">
-                <div class="col-md-7" style="background: #fff; padding: 25px;">
-                  <table class="table table-bordered">
-                    <tr>
-                      <th>Job Summary</th>
-                      <td>
-                        We are looking for an enthusiastic HR Trainee to join our Human Resources team. The candidate will assist in various HR functions, including recruitment, onboarding, employee engagement, documentation, and day-to-day HR operations. This is an excellent opportunity to gain practical exposure to end-to-end HR processes in a dynamic and fast-paced environment.
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>No. of Vacancy</th>
-                      <td>02</td>
-                    </tr>
-                    <tr>
-                      <th>Experience Type</th>
-                      <td>Experienced</td>
-                    </tr>
-                    <tr>
-                      <th>Minimum Experience</th>
-                      <td> Intern </td>
-                    </tr>
-                    <tr>
-                      <th>Location</th>
-                      <td>Bhubaneswar, Odisha</td>
-                    </tr>
-                    <tr>
-                      <th>Responsibilities</th>
-                      <td>
-                        <ul>
-                          <li>Support the HR team in day-to-day operations and administrative tasks.</li>
-                          <li>Assist in sourcing, screening, and scheduling interviews for potential candidates.</li>
-                          <li>Coordinate onboarding and induction processes for new hires.</li>
-                          <li>Maintain and update employee records, HR databases, and documentation.</li>
-                          <li>Support in drafting HR letters and reports.</li>
-                          <li>Help organize employee engagement initiatives and internal events.</li>
-                          <li>Assist with attendance tracking as required.</li>
-                          <li>Maintain confidentiality of employee information and HR data.</li>
-                          <li>Provide support in policy implementation and compliance-related activities.</li>
-                        </ul>
-                      </td>
-                    </tr>
-
-                    <tr>
-                      <th>Required Skills & Qualifications</th>
-                      <td>
-                        <ul>
-                          <li>Bachelor’s degree in Human Resources, Business Administration, or a related field (MBA/PGDM in HR preferred).</li>
-                          <li>Strong communication and interpersonal skills.</li>
-                          <li>Proficiency in MS Office (Word, Excel, PowerPoint).</li>
-                          <li>Excellent organizational and multitasking abilities.</li>
-                          <li>Eagerness to learn and take initiative in assigned projects.</li>
-                        </ul>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
-
-
-                <div class="col-md-5">
-
-                </div>
-              </div>
-
-
-            </div>
-          </div>
-          <div class="modal-footer">
-            <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
-            <a href="https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./hr-intern" target="_blank"
-              class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
-          </div>
-        </div>
+      <div class="col-lg-2 col-md-2">
+        <h5></h5>
       </div>
     </div>
 
 
 
+    <?php if (!empty($jobs)): ?>
 
+      <?php foreach ($jobs as $job):
 
-    <!-- Accounts Executive/Accounts Trainee 15-04-2026 -->
-    <hr>
-    <div class="row careerbox">
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-title">
-          <h4>Accounts Executive/Accounts Trainee</h4>
-          <span class="new-badge">NEW</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <div class="career-opening-role">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-6">
-        <div class="career-opening-date">
-          <span>15-04-2026</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype"> 2–3 years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#Accounts-Executive">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
+        $title = $job['job_title'] ?? $job['title'] ?? $job['designation'] ?? 'N/A';
+        $openings = $job['no_of_vacancies'] ?? $job['vacancies'] ?? '-';
+        $date_raw = $job['posted_on'] ?? $job['creation'] ?? '';
+        $experience = $job['years_of_experience'] ?? 'Not specified';
+        $slug = $job['slug'] ?? '';
 
-    <!-- NEW Accounts-Executive Modal-->
-    <div class="modal fade" id="Accounts-Executive" tabindex="-1" aria-labelledby="Accounts-Executive" aria-hidden="true">
-      <div class="modal-dialog modal-fullscreen">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title" id="Accounts-Executive">Accounts Executive/Accounts Trainee</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body applydetails">
-            <div class="container-fluid">
-              <div class="row mt-3">
-                <div class="col-md-7" style="background: #fff; padding: 25px;">
-                  <table class="table table-bordered">
-                    <tr>
-                      <th>Job Summary</th>
-                      <td>
-                        Detail-oriented accounting professional with 2–3 years of experience in managing financial records, reconciliations, and reporting. Responsible for supporting day-to-day accounting operations, including journal entries, payroll, and closing activities. Proficient in Tally and MS Excel, with a strong understanding of accounting principles and standards. Able to work collaboratively while maintaining accuracy and confidentiality in a multi-client environment.
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>No. of Vacancy</th>
-                      <td>02</td>
-                    </tr>
-                    <tr>
-                      <th>Experience Type</th>
-                      <td>Experienced</td>
-                    </tr>
-                    <tr>
-                      <th>Minimum Experience</th>
-                      <td> 2-3 years</td>
-                    </tr>
-                    <tr>
-                      <th>Location</th>
-                      <td>Bhubaneswar, Odisha</td>
-                    </tr>
-                    <tr>
-                      <th>Preferred & Required Skills</th>
-                      <td>
-                        <ul>
-                          <li>Basic knowledge of Tally and general accounting principles.</li>
-                          <li>Understanding of accounting standards and practices.</li>
-                          <li>Proficiency in MS Excel and overall computer literacy.</li>
-                          <li>Ability to analyze financial data and perform reconciliations.</li>
-                          <li>Attention to detail and accuracy in financial record-keeping.</li>
-                          <li>Good command of the English language (written & verbal).</li>
-                          <li>Ability to maintain confidentiality of sensitive financial information.</li>
-                          <li>Ability to work collaboratively in a team environment.</li>
-                        </ul>
-                      </td>
-                    </tr>
+        $date = $date_raw ? date("d-m-Y", strtotime($date_raw)) : '-';
 
-                    <tr>
-                      <th>Qualifications</th>
-                      <td>
-                        <ul>
-                          <li>2–3 years of experience in accounting or finance roles.</li>
-                          <li>B.Com / M.Com background (mandatory).</li>
-                          <li>Familiarity with accounting software such as Tally.</li>
-                        </ul>
-                      </td>
-                    </tr>
-                    <tr>
-                      <th>Roles and Responsibilities</th>
-                      <td>
-                        <ul>
-                          <li><strong>Role & Responsibilities</strong>
-                            <ul>
-                              <li>Handle day-to-day accounting activities including journal entries and ledger management</li>
-                              <li>Analyze daily banking transactions and perform reconciliations</li>
-                              <li>Assist in monthly and yearly closing processes and finalization of accounts</li>
-                              <li>Prepare depreciation and amortization schedules</li>
-                              <li>Perform payroll reconciliation and related accounting entries</li>
-                              <li>Prepare monthly MIS reports and analysis in Excel</li>
-                              <li>Maintain accurate financial records while ensuring confidentiality of sensitive information</li>
-                              <li>Support senior accountants in various accounting projects</li>
-                              <li>Work as part of a team to deliver accounting services for multiple clients</li>
-                              <li>Use and adapt to multiple accounting software tools</li>
-                            </ul>
-                          </li>
-                        </ul>
-                      </td>
-                    </tr>
-                  </table>
-                </div>
+        $isNew = (!empty($date_raw) && strtotime($date_raw) >= strtotime('-30 days'));
 
+      ?>
 
-                <div class="col-md-5">
+        <hr>
 
-                </div>
-              </div>
+        <div class="row careerbox align-items-center ">
 
+          <div class="col-lg-4 col-md-4 text-start">
+            <div class="career-opening-title">
+              <h4><?php echo htmlspecialchars($title); ?></h4>
 
+              <?php if ($isNew): ?>
+                <span class="new-badge">NEW</span>
+              <?php endif; ?>
             </div>
           </div>
-          <div class="modal-footer">
-            <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
-            <a href="https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./accounts-executive/accounts-trainee" target="_blank"
-              class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
+
+          <div class="col-lg-2 col-md-2">
+            <div class="career-opening-role">
+              <span><?php echo htmlspecialchars($openings); ?></span>
+            </div>
+
           </div>
-        </div>
-      </div>
-    </div>
 
-
-
-
-    <!--NEW DevSecOps Engineer -->
-    <hr>
-    <div class="row careerbox">
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-title">
-          <h4>DevSecOps & Cybersecurity Engineer</h4>
-          <span class="new-badge">NEW</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <div class="career-opening-role">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <div class="career-opening-date">
-          <span>02-04-2026</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype"> 3-7 years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#DevSecOps-Engineer">View Details</a>
+          <div class="col-lg-2 col-md-2">
+            <span><?php echo $date; ?></span>
           </div>
-        </div>
-      </div>
-    </div>
-    <!--NEW QA Engineer -->
-    <!-- NEW CHANGES TO QA -->
-    <hr>
-    <div class="row careerbox">
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-title">
-          <h4>QA Engineer</h4>
-          <span class="new-badge">NEW</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-3">
-        <div class="career-opening-role">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col-lg-2 col-md-6">
-        <div class="career-opening-date">
-          <span>31-03-2026</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype"> 2–5 years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#QA-Engineer">View Details</a>
+
+          <div class="col-lg-4 col-md-6 d-flex justify-content-between align-items-center">
+            <span class="jobtype"><?php echo htmlspecialchars($experience); ?></span>
+
+            <!-- VIEW DETAILS BUTTON -->
+            <a href="#" class="apply-btn view-job" data-slug="<?php echo htmlspecialchars($slug); ?>">
+              View Details
+            </a>
+
           </div>
-        </div>
-      </div>
-    </div>
 
+        </div>
 
+      <?php endforeach; ?>
 
-
-
-    <!-- OPENINGS TO CHANGE POSITION  -->
-    <hr>
-    <!-- DevOps Engineer -->
-    <div class="row careerbox">
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-title">
-          <h4>DevOps Engineer</h4>
-        </div>
+    <?php else: ?>
+      <div class="text-center mt-5">
+        <h5>No job openings available right now.</h5>
       </div>
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-role">
-          <span>2 </span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype">4–6 years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#DevOpsEngineer">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Java Technical Lead -->
-    <hr>
-    <div class="row careerbox">
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-title">
-          <h4>Java Technical Lead</h4>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-role">
-          <span>1</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype">5–8 years </span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#Java-Technical-Lead">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-    <!-- QA - Automation Testing 05-03-2026-->
-    <hr>
-    <div class="row careerbox">
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-title">
-          <h4>QA - Automation Testing</h4>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-3">
-        <div class="career-opening-role">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype"> 4-5 years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#QA-Automation-Testing">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <hr>
-    <!-- Zendesk Administrator -->
-    <div class="row careerbox">
-      <div class="col-lg-4 col-md-4">
-        <div class="career-opening-title">
-          <h4>Zendesk Administrator / Zendesk Support Specialist</h4>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-2">
-        <div class="career-opening-role">
-          <span>2</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-6">
-        <div class="d-flex justify-content-between align-items-center">
-          <span class="jobtype">1–3 years</span>
-          <div class="career-opening-btn">
-            <a href="" class="apply-btn" data-bs-toggle="modal" data-bs-target="#Zendesk-Administrator">View Details</a>
-          </div>
-        </div>
-      </div>
-    </div>
+    <?php endif; ?>
 
   </div>
 </section>
 
-
-
-
-
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="exampleModalLabel">HR Manager</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body applydetails">
-        <div class="container-fluid">
-          <div class="row mt-3">
-            <div class="col-md-7" style="background: #fff; padding: 25px;">
-              <table class="table table-bordered">
-                <tr>
-                  <th>No. of Vacancy</th>
-                  <td>1 Nos</td>
-                </tr>
-                <tr>
-                  <th>Job Type</th>
-                  <td>Full-Time, Work From Office</td>
-                </tr>
-                <tr>
-                  <th>Experience Type</th>
-                  <td>Experienced</td>
-                </tr>
-                <tr>
-                  <th>Minimum Experience</th>
-                  <td>5 Years</td>
-                </tr>
-                <tr>
-                  <th>Location</th>
-                  <td>Bhubaneswar</td>
-                </tr>
-                <tr>
-                  <th>Qualification</th>
-                  <td>Bachelor’s degree in Human Resources or Business Administration.</td>
-                </tr>
-                <tr>
-                  <th>Roles and Responsibilities</th>
-                  <td>
-                    <ul>
-                      <li><strong>HR Operations & Administration</strong>
-                        <ul>
-                          <li>Manage day-to-day HR administrative tasks including employee records, documentation, and
-                            HRMS updates.</li>
-                          <li>Maintain employee attendance, leave management, and ensure accurate monthly reports.
-                          </li>
-                          <li>Handle onboarding and offboarding processes, ensuring smooth documentation and a
-                            positive employee experience.</li>
-                          <li>Draft HR letters such as offer letters, appointment letters, and experience letters.
-                          </li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Recruitment & Talent Acquisition Support</strong>
-                        <ul>
-                          <li>Coordinate end-to-end recruitment activities including job postings, resume screening,
-                            interview scheduling, and candidate follow-ups.</li>
-                          <li>Support hiring managers with candidate shortlisting and interview tracking.</li>
-                          <li>Ensure timely communication and maintain a professional candidate experience.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Employee Engagement & Culture Building</strong>
-                        <ul>
-                          <li>Assist in planning and organizing employee engagement activities and events.</li>
-                          <li>Help foster a positive, collaborative, and high-performance work culture.</li>
-                          <li>Support internal communication initiatives.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Compliance & Policy Management</strong>
-                        <ul>
-                          <li>Ensure adherence to HR policies, procedures, and labor law requirements.</li>
-                          <li>Maintain confidential HR records and audit-ready documentation.</li>
-                          <li>Support statutory compliance activities such as PF/ESI updates, where applicable.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Office Administration Support</strong>
-                        <ul>
-                          <li>Oversee office administration tasks including vendor coordination, asset tracking, and
-                            stationery management.</li>
-                          <li>Support daily workplace operational needs for smooth functioning.</li>
-                          <li>Handle basic expense tracking and assist with procurement activities.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Support to Management</strong>
-                        <ul>
-                          <li>Provide weekly HR operational reports to management.</li>
-                          <li>Assist leadership with HR strategy implementation, process improvements, and new
-                            initiatives.</li>
-                          <li>Maintain professionalism and confidentiality at all times.</li>
-                        </ul>
-                      </li>
-                    </ul>
-
-                  </td>
-                </tr>
-
-              </table>
-            </div>
-
-
-            <div class="col-md-5">
-
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        <a href="https://hrms.prathtech.com/job_application/new?job_title=HR-OPN-2026-0010" target="_blank"
-          class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
-      </div>
-    </div>
-  </div>
-</div> -->
-<div class="modal fade" id="DevOpsEngineer" tabindex="-1" aria-labelledby="DevOpsEngineer" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="DevOpsEngineer">DevOps Engineer</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body applydetails">
-        <div class="container-fluid">
-          <div class="row mt-3">
-            <div class="col-md-7" style="background: #fff; padding: 25px;">
-              <table class="table table-bordered">
-                <tr>
-                  <th>No. of Vacancy</th>
-                  <td>2 Nos</td>
-                </tr>
-                <tr>
-                  <th>Experience Type</th>
-                  <td>Experienced</td>
-                </tr>
-                <tr>
-                  <th>Job Type</th>
-                  <td>Full-Time, Work From Office</td>
-                </tr>
-                <tr>
-                  <th>Minimum Experience</th>
-                  <td>4–6 years</td>
-                </tr>
-                <tr>
-                  <th>Location</th>
-                  <td>Bhubaneswar, Odisha</td>
-                </tr>
-                <tr>
-                  <th>Qualification</th>
-                  <td>Bachelor’s degree in Computer Science, Information Technology, and a recognized DevOps
-                    certification or course.</td>
-                </tr>
-                <tr>
-                  <th>Roles and Responsibilities</th>
-                  <td>
-                    <ul>
-                      <li><strong>Key Responsibilities</strong>
-                        <ul>
-                          <li>Build and maintain CI/CD pipelines.</li>
-                          <li>Manage AWS infrastructure for QA and Production.</li>
-                          <li>Automate application deployments.</li>
-                          <li>Monitor system health, logs, and performance.</li>
-                          <li>Administer Linux servers.</li>
-                          <li>Ensure security and compliance best practices.</li>
-                          <li>Support releases, rollbacks, and incident resolution.</li>
-                          <li>Work closely with development and QA teams.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Technical Skills</strong>
-                        <ul>
-                          <li>Strong experience with AWS (EC2, S3, IAM, VPC)</li>
-                          <li>Linux administration</li>
-                          <li>CI/CD tools (Jenkins, GitHub Actions, GitLab CI)</li>
-                          <li>Docker (Kubernetes is a plus)</li>
-                          <li>Infrastructure as Code (Terraform / CloudFormation preferred)</li>
-                          <li>Monitoring tools (Grafana, CloudWatch)</li>
-                          <li>Scripting (Shell / Python basics)</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Good to Have</strong>
-                        <ul>
-                          <li>Experience with enterprise-scale systems.</li>
-                          <li>Database deployment knowledge.</li>
-                          <li>Security and compliance exposure.</li>
-                          <li>High-availability system support experience.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Soft Skills</strong>
-                        <ul>
-                          <li>Strong problem-solving mindset.</li>
-                          <li>Ownership of deployments and uptime.</li>
-                          <li>Good documentation habits.</li>
-                          <li>Ability to work under pressure.</li>
-                        </ul>
-                      </li>
-
-                      <!-- <li><strong>Office Administration Support</strong>
-    <ul>
-      <li>Oversee office administration tasks including vendor coordination, asset tracking, and stationery management.</li>
-      <li>Support daily workplace operational needs for smooth functioning.</li>
-      <li>Handle basic expense tracking and assist with procurement activities.</li>
-    </ul>
-  </li>
-
-  <li><strong>Support to Management</strong>
-    <ul>
-      <li>Provide weekly HR operational reports to management.</li>
-      <li>Assist leadership with HR strategy implementation, process improvements, and new initiatives.</li>
-      <li>Maintain professionalism and confidentiality at all times.</li>
-    </ul>
-  </li> -->
-                    </ul>
-
-                  </td>
-                </tr>
-
-              </table>
-            </div>
-
-
-            <div class="col-md-5">
-
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
-        <a href="https://hrms.prathtech.com/job_application/new?job_title=HR-OPN-2026-0008" target="_blank"
-          class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="modal fade" id="Java-Technical-Lead" tabindex="-1" aria-labelledby="Java-Technical-Lead"
-  aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="Java-Technical-Lead">Java Technical Lead</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body applydetails">
-        <div class="container-fluid">
-          <div class="row mt-3">
-            <div class="col-md-7" style="background: #fff; padding: 25px;">
-              <table class="table table-bordered">
-                <tr>
-                  <th>No. of Vacancy</th>
-                  <td>02</td>
-                </tr>
-                <tr>
-                  <th>Job Type</th>
-                  <td>Full-Time, Work From Office</td>
-                </tr>
-                <tr>
-                  <th>Experience Type</th>
-                  <td>Experienced</td>
-                </tr>
-                <tr>
-                  <th>Minimum Experience</th>
-                  <td>5–8 years (with at least 2 years in a lead or ownership role)</td>
-                </tr>
-                <tr>
-                  <th>Location</th>
-                  <td>Bhubaneswar, Odisha</td>
-                </tr>
-                <tr>
-                  <th>Qualification</th>
-                  <td>Bachelor’s degree in Computer Science or Software Engineering with strong Java expertise.</td>
-                </tr>
-                <tr>
-                  <th>Roles and Responsibilities</th>
-                  <td>
-                    <ul>
-                      <li><strong>Key Responsibilities</strong>
-                        <ul>
-                          <li>Lead the design and development of scalable Java-based backend services.</li>
-                          <li>Own business logic workflows for order processing, inventory tracking, event handling,
-                            and exception management.</li>
-                          <li>Define API contracts for integration with WMS systems and automation controllers.</li>
-                          <li>Review code and enforce coding standards and best practices.</li>
-                          <li>Mentor and guide junior developers.</li>
-                          <li>Collaborate closely with QA, DevOps, and Product teams.</li>
-                          <li>Participate in architecture and design reviews.</li>
-                          <li>Ensure performance, reliability, and security of services.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Technical Skills</strong>
-                        <ul>
-                          <li>Strong hands-on experience with Java (8+)</li>
-                          <li>Spring Boot / Spring MVC</li>
-                          <li>RESTful API design and development</li>
-                          <li>Databases: MySQL / PostgreSQL / MariaDB</li>
-                          <li>Event-driven systems (Kafka or messaging systems preferred)</li>
-                          <li>Microservices architecture</li>
-                          <li>Multithreading and concurrency concepts</li>
-                          <li>Linux fundamentals</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Good to Have</strong>
-                        <ul>
-                          <li>Experience with warehouse automation or manufacturing systems.</li>
-                          <li>Exposure to PLC or automation integrations.</li>
-                          <li>Monitoring tools (Grafana).</li>
-                          <li>AWS cloud exposure.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Soft Skills</strong>
-                        <ul>
-                          <li>Strong ownership mindset.</li>
-                          <li>Clear communication skills.</li>
-                          <li>Ability to lead by example.</li>
-                          <li>Cross-functional collaboration.</li>
-                        </ul>
-                      </li>
-
-                      <!-- <li><strong>Office Administration Support</strong>
-    <ul>
-      <li>Oversee office administration tasks including vendor coordination, asset tracking, and stationery management.</li>
-      <li>Support daily workplace operational needs for smooth functioning.</li>
-      <li>Handle basic expense tracking and assist with procurement activities.</li>
-    </ul>
-  </li>
-
-  <li><strong>Support to Management</strong>
-    <ul>
-      <li>Provide weekly HR operational reports to management.</li>
-      <li>Assist leadership with HR strategy implementation, process improvements, and new initiatives.</li>
-      <li>Maintain professionalism and confidentiality at all times.</li>
-    </ul>
-  </li> -->
-                    </ul>
-
-                  </td>
-                </tr>
-
-              </table>
-            </div>
-
-
-            <div class="col-md-5">
-
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
-        <a href="https://hrms.prathtech.com/job_application/new?job_title=HR-OPN-2026-0006" target="_blank"
-          class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- <div class="modal fade" id="QA-Technical-Lead" tabindex="-1" aria-labelledby="QA-Technical-Lead" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="QA-Technical-Lead">QA Technical Lead</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body applydetails">
-        <div class="container-fluid">
-          <div class="row mt-3">
-            <div class="col-md-7" style="background: #fff; padding: 25px;">
-              <table class="table table-bordered">
-                <tr>
-                  <th>No. of Vacancy</th>
-                  <td>02</td>
-                </tr>
-                <tr>
-                  <th>Job Type</th>
-                  <td>Full-Time, Work From Office</td>
-                </tr>
-                <tr>
-                  <th>Experience Type</th>
-                  <td>Experienced</td>
-                </tr>
-                <tr>
-                  <th>Minimum Experience</th>
-                  <td>5–8 years (including leadership responsibility)</td>
-                </tr>
-                <tr>
-                  <th>Location</th>
-                  <td>Bhubaneswar, Odisha</td>
-                </tr>
-                <tr>
-                  <th>Qualification</th>
-                  <td>Bachelor’s degree in Computer Science, Information Technology, or Software Engineering.
-                    Professional certification in Software Testing or Quality Assurance (e.g., ISTQB).</td>
-
-                </tr>
-                <tr>
-                  <th>Roles and Responsibilities</th>
-                  <td>
-                    <ul>
-                      <li><strong>Key Responsibilities</strong>
-                        <ul>
-                          <li>Define and drive the overall QA strategy.</li>
-                          <li>Plan, execute, and track testing across releases.</li>
-                          <li>Create and manage test cases in Zephyr.</li>
-                          <li>Ensure coverage across backend APIs, UI, and system integrations.</li>
-                          <li>Coordinate daily with development, DevOps, and product teams.</li>
-                          <li>Track QA metrics and publish status reports.</li>
-                          <li>Mentor and lead QA engineers.</li>
-                          <li>Drive continuous improvement in QA processes.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Technical Skills</strong>
-                        <ul>
-                          <li>Strong experience in manual and API testing</li>
-                          <li>Hands-on with Zephyr and Jira</li>
-                          <li>API testing tools (Postman, REST clients)</li>
-                          <li>SQL for data validation</li>
-                          <li>Understanding of backend workflows</li>
-                          <li>Exposure to automation testing frameworks (preferred)</li>
-
-                        </ul>
-                      </li>
-
-                      <li><strong>Good to Have</strong>
-                        <ul>
-                          <li>Experience with logistics, warehouse, or manufacturing domains.</li>
-                          <li>Understanding of event-driven systems.</li>
-                          <li>Performance or reliability testing exposure.</li>
-                          <li>CI/CD pipeline awareness.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Soft Skills</strong>
-                        <ul>
-                          <li>Strong accountability and ownership.</li>
-                          <li>Excellent communication and reporting.</li>
-                          <li>Ability to work under tight deadlines.</li>
-                          <li>Leadership and mentoring skills.</li>
-                        </ul>
-                      </li>
-                    </ul>
-
-                  </td>
-                </tr>
-
-              </table>
-            </div>
-
-
-            <div class="col-md-5">
-
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="modal-footer">
-
-        <a href="https://hrms.prathtech.com/job_application/new?job_title=HR-OPN-2026-0004" target="_blank"
-          class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
-      </div>
-    </div>
-  </div>
-</div> -->
-<div class="modal fade" id="Zendesk-Administrator" tabindex="-1" aria-labelledby="Zendesk-Administrator" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="QA-Technical-Lead">Zendesk Administrator / Zendesk Support Specialist</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body applydetails">
-        <div class="container-fluid">
-          <div class="row mt-3">
-            <div class="col-md-7" style="background: #fff; padding: 25px;">
-              <table class="table table-bordered">
-                <tr>
-                  <th>Job Summary</th>
-                  <td>We are looking for a Zendesk professional to manage, configure, and optimize our customer
-                    support operations using Zendesk. The role involves handling support tickets, configuring
-                    workflows, improving customer experience, and collaborating with internal teams.
-                  </td>
-                </tr>
-                <tr>
-                  <th>No. of Vacancy</th>
-                  <td>02</td>
-                </tr>
-                <tr>
-                  <th>Experience Type</th>
-                  <td>Experienced</td>
-                </tr>
-                <tr>
-                  <th>Minimum Experience</th>
-                  <td>1–3 years</td>
-                </tr>
-                <tr>
-                  <th>Location</th>
-                  <td>Bhubaneswar, Odisha</td>
-                </tr>
-                <tr>
-                  <th>Required Skills & Qualification</th>
-                  <td>Experience working with Zendesk Support.<br>Strong understanding of ticketing systems and workflows. <br>Good communication and problem-solving skills
-                  </td>
-
-                </tr>
-                <tr>
-                  <th>Roles and Responsibilities</th>
-                  <td>
-                    <ul>
-                      <li><strong>Key Responsibilities</strong>
-                        <ul>
-                          <li><strong>Zendesk Administration & Support</strong></li>
-                          <li>Configure and maintain Zendesk Support (tickets, views, triggers, automations).</li>
-                          <li>Knowledge over Knowledge portal/guide admin and it’s integrations.</li>
-                          <li> Manage SLAs, escalation rules, and business hours.</li>
-                          <li>Create and maintain custom fields, forms, and workflows.</li>
-                          <li>Monitor ticket queues to ensure timely responses and resolutions.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Customer Support Operations</strong>
-                        <ul>
-                          <li> Handle customer queries via email, chat, and other Zendesk channels</li>
-                          <li>Ensure adherence to SLA and quality standards</li>
-                          <li>Maintain and update knowledge base articles</li>
-
-
-                        </ul>
-                      </li>
-
-                      <li><strong>Good to Have</strong>
-                        <ul>
-                          <li>Zendesk certifications.</li>
-                          <li>Experience with Zendesk Explore and integrations.</li>
-                        </ul>
-                      </li>
-
-                      <li><strong>Soft Skills</strong>
-                        <ul>
-                          <li>Strong accountability and ownership.</li>
-                          <li>Excellent communication and reporting.</li>
-                          <li>Ability to work under tight deadlines.</li>
-                          <li>Leadership and mentoring skills.</li>
-                        </ul>
-                      </li>
-
-                      <!-- <li><strong>Office Administration Support</strong>
-    <ul>
-      <li>Oversee office administration tasks including vendor coordination, asset tracking, and stationery management.</li>
-      <li>Support daily workplace operational needs for smooth functioning.</li>
-      <li>Handle basic expense tracking and assist with procurement activities.</li>
-    </ul>
-  </li>
-
-  <li><strong>Support to Management</strong>
-    <ul>
-      <li>Provide weekly HR operational reports to management.</li>
-      <li>Assist leadership with HR strategy implementation, process improvements, and new initiatives.</li>
-      <li>Maintain professionalism and confidentiality at all times.</li>
-    </ul>
-  </li> -->
-                    </ul>
-
-                  </td>
-                </tr>
-
-              </table>
-            </div>
-
-
-            <div class="col-md-5">
-
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
-        <a href="https://hrms.prathtech.com/job_application/new?job_title=HR-OPN-2026-0014" target="_blank"
-          class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- QA-Automation-Testing -->
-<div class="modal fade" id="QA-Automation-Testing" tabindex="-1" aria-labelledby="QA-Automation-Testing" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="QA-Automation-Testing">QA Automation Testing</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body applydetails">
-        <div class="container-fluid">
-          <div class="row mt-3">
-            <div class="col-md-7" style="background: #fff; padding: 25px;">
-              <table class="table table-bordered">
-                <tr>
-                  <th>Job Summary</th>
-                  <td>We are looking for an experienced QA Engineer to manage and improve our software quality processes. The role involves planning and executing test strategies, managing test cases in Zephyr, validating APIs and system integrations, and collaborating closely with development, DevOps, and product teams to ensure reliable product releases.
-                  </td>
-                </tr>
-                <tr>
-                  <th>No. of Vacancy</th>
-                  <td>02</td>
-                </tr>
-                <tr>
-                  <th>Experience Type</th>
-                  <td>Experienced</td>
-                </tr>
-                <tr>
-                  <th>Minimum Experience</th>
-                  <td> 4-5 years</td>
-                </tr>
-                <tr>
-                  <th>Location</th>
-                  <td>Bhubaneswar, Odisha</td>
-                </tr>
-
-                <tr>
-                  <th>Required Skills & Qualification</th>
-                  <td>Hands-on experience with Jira and Zephyr.<br>Experience with API testing tools such as Postman or REST clients. <br>Good communication and problem-solving skills.<br>Basic knowledge of SQL for data validation.
-                  </td>
-
-                </tr>
-                <tr>
-                  <th>Technical Skills</th>
-                  <td>
-                    <ul>
-                      <li>Strong experience in manual and API testing.</li>
-                      <li>Hands-on with Zephyr and Jira.</li>
-                      <li>API testing tools (Postman, REST clients).</li>
-                      <li>SQL for data validation.</li>
-                      <li>Understanding of backend workflows.</li>
-                      <li>Exposure to automation testing frameworks (preferred).</li>
-                    </ul>
-                    </li>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Roles and Responsibilities</th>
-                  <td>
-                    <ul>
-                      <li><strong>Key Responsibilities</strong>
-                        <ul>
-                          <li><strong>Automation Testing JD.</strong></li>
-                          <li>Define and drive the overall QA strategy.</li>
-                          <li>Plan, execute, and track testing across releases.</li>
-                          <li>Create and manage test cases in Zephyr.</li>
-                          <li>Ensure coverage across backend APIs, UI, and system integrations.</li>
-                          <li>Coordinate daily with development, DevOps, and product teams.</li>
-                          <li>Track QA metrics and publish status reports.</li>
-                          <li>Mentor and lead QA engineers.</li>
-                          <li>Drive continuous improvement in QA processes.</li>
-                        </ul>
-                      </li>
-                      <li><strong>Good to Have</strong>
-                        <ul>
-                          <li>Experience with logistics, warehouse, or manufacturing domains.</li>
-                          <li>Understanding of event-driven systems.</li>
-                          <li>Performance or reliability testing exposure.</li>
-                          <li>CI/CD pipeline awareness.</li>
-                        </ul>
-                      </li>
-                      <li><strong>Soft Skills</strong>
-                        <ul>
-                          <li>Strong accountability and ownership.</li>
-                          <li>Excellent communication and reporting.</li>
-                          <li>Ability to work under tight deadlines.</li>
-                          <li>Leadership and mentoring skills.</li>
-                        </ul>
-                      </li>
-                    </ul>
-
-                  </td>
-                </tr>
-
-              </table>
-            </div>
-
-
-            <div class="col-md-5">
-
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
-        <a href="https://hrms.prathtech.com/job_application/new?job_title=HR-OPN-2026-0012" target="_blank"
-          class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- QA Engineer JOB POSTING -->
-<div class="modal fade" id="QA-Engineer" tabindex="-1" aria-labelledby="QA-Engineer" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="QA-Engineer">QA Engineer</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body applydetails">
-        <div class="container-fluid">
-          <div class="row mt-3">
-            <div class="col-md-7" style="background: #fff; padding: 25px;">
-              <table class="table table-bordered">
-                <tr>
-                  <th>Job Summary</th>
-                  <td>We are looking for a detail-oriented and proactive QA Engineer to ensure the quality and reliability of our client applications. The candidate will be responsible for designing and executing test cases, identifying defects, and collaborating with cross-functional teams to deliver high-quality software.</td>
-                </tr>
-                <tr>
-                  <th>No. of Vacancy</th>
-                  <td>02</td>
-                </tr>
-                <tr>
-                  <th>Experience Type</th>
-                  <td>Experienced</td>
-                </tr>
-                <tr>
-                  <th>Minimum Experience</th>
-                  <td> 2–5 years</td>
-                </tr>
-                <tr>
-                  <th>Location</th>
-                  <td>Bhubaneswar, Odisha</td>
-                </tr>
-
-                <tr>
-                  <th>Required Skills</th>
-                  <td>
-                    <ul>
-                      <li>Strong understanding of Software Testing Life Cycle (STLC).</li>
-                      <li>Experience in manual testing and test case design.</li>
-                      <li>Hands-on experience in API testing.</li>
-                      <li>Basic knowledge of automation tools (Playwright / Selenium / Cypress).</li>
-                      <li>Familiarity with bug tracking tools (Jira, Azure DevOps, etc.).</li>
-                      <li>Understanding of Agile/Scrum methodology.</li>
-                      <li>Good analytical and problem-solving skills.</li>
-                    </ul>
-                  </td>
-
-                </tr>
-                <tr>
-                  <th>Preferred Skills</th>
-                  <td>
-                    <ul>
-                      <li>Experience in performance testing (JMeter / Gatling).</li>
-                      <li>Knowledge of CI/CD pipelines (Jenkins, GitHub Actions).</li>
-                      <li>Basic knowledge of programming/scripting (JavaScript, Java, Python).</li>
-                      <li>Experience with monitoring tools (Grafana, Prometheus).</li>
-                    </ul>
-                    </li>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Roles and Responsibilities</th>
-                  <td>
-                    <ul>
-                      <li><strong>Key Responsibilities</strong>
-                        <ul>
-                          <!-- <li><strong>Automation Testing JD.</strong></li> -->
-                          <li>Analyze requirements and create test plans, test cases, and test scenarios.</li>
-                          <li>Perform manual (functional, regression, integration).</li>
-                          <li>Execute API testing using tools like Postman / REST Assured.</li>
-                          <li>Identify, log, and track defects using tools like Jira.</li>
-                          <li>Perform regression testing for new releases.</li>
-                          <li>Collaborate with developers, product managers, and DevOps teams.</li>
-                          <li>Ensure adherence to quality standards and best practices.</li>
-                          <li>Prepare test reports and documentation.</li>
-                        </ul>
-                      </li>
-                      <hr>
-                      <li><strong>Nice to Have</strong>
-                        <ul>
-                          <li>Experience in test automation framework design.</li>
-                          <li>Exposure to cloud platforms (AWS).</li>
-                          <li>Understanding of microservices architecture.</li>
-                        </ul>
-                      </li>
-                      <hr>
-                      <li><strong>Soft Skills</strong>
-                        <ul>
-                          <li>Strong communication skills.</li>
-                          <li>Attention to detail.</li>
-                          <li>Team collaboration.</li>
-                          <li>Ability to work in a fast-paced environment.</li>
-                        </ul>
-                      </li>
-                    </ul>
-
-                  </td>
-                </tr>
-
-              </table>
-            </div>
-
-
-            <div class="col-md-5">
-
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
-        <a href="https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./qa-engineer" target="_blank"
-          class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
-      </div>
-    </div>
-  </div>
-</div>
-<!--DevSecOps Engineer -->
-<div class="modal fade" id="DevSecOps-Engineer" tabindex="-1" aria-labelledby="DevSecOps-Engineer" aria-hidden="true">
-  <div class="modal-dialog modal-fullscreen">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title" id="DevSecOps-Engineer"> DevSecOps & Cybersecurity Engineer</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body applydetails">
-        <div class="container-fluid">
-          <div class="row mt-3">
-            <div class="col-md-7" style="background: #fff; padding: 25px;">
-              <table class="table table-bordered">
-                <tr>
-                  <th>Job Summary</th>
-                  <td>We are looking for a security-focused DevSecOps & Cybersecurity Engineer to embed security across the software development lifecycle and ensure robust protection of applications, infrastructure, and cloud environments. The candidate will be responsible for implementing security best practices, automating security checks, and proactively identifying and mitigating vulnerabilities.
-
-                  </td>
-                </tr>
-                <tr>
-                  <th>No. of Vacancy</th>
-                  <td>02</td>
-                </tr>
-                <tr>
-                  <th>Experience Type</th>
-                  <td>Experienced</td>
-                </tr>
-                <tr>
-                  <th>Minimum Experience</th>
-                  <td> 3-7 years</td>
-                </tr>
-                <tr>
-                  <th>Location</th>
-                  <td>Bhubaneswar, Odisha</td>
-                </tr>
-
-                <tr>
-                  <th>Required Skills</th>
-                  <td>
-                    <ul>
-                      <li>Strong understanding of Secure SDLC and DevSecOps practices.</li>
-                      <li>Experience with application security tools (SAST, DAST, SCA).</li>
-                      <li>Hands-on experience with CI/CD security integration.</li>
-                      <li>Knowledge of container and Kubernetes security.</li>
-                      <li>Experience in cloud security (AWS/Azure/GCP).</li>
-                      <li>Familiarity with IAM, RBAC, and secrets management.</li>
-                      <li>Understanding of network security concepts (WAF, IDS/IPS, VPN).</li>
-                      <li>Experience in vulnerability management and remediation.</li>
-                      <li>Knowledge of security monitoring and logging tools.</li>
-                      <li>Strong analytical and problem-solving skills.</li>
-                    </ul>
-                  </td>
-
-                </tr>
-                <tr>
-                  <th>Preferred Skills</th>
-                  <td>
-                    <ul>
-                      <li>Experience with tools like SonarQube, OWASP ZAP, Snyk.</li>
-                      <li>Familiarity with container security tools (Trivy, Clair, Falco).</li>
-                      <li>Experience with Infrastructure as Code security (Terraform, Checkov, tfsec).</li>
-                      <li>Knowledge of CSPM tools (AWS Security Hub, Prisma Cloud).</li>
-                      <li>Experience with monitoring tools (Prometheus, Grafana, ELK Stack).</li>
-                      <li>Understanding of API security (OAuth2, JWT, API gateways).</li>
-                    </ul>
-                    </li>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Qualifications</th>
-                  <td>
-                    <ul>
-                      <li>Bachelor’s degree in Computer Science, IT, or related field.</li>
-                      <li>3–7 years of experience in DevSecOps / Cybersecurity.</li>
-                    </ul>
-                    </li>
-                  </td>
-                </tr>
-                <tr>
-                  <th>Roles and Responsibilities</th>
-                  <td>
-                    <ul>
-                      <li><strong>Key Responsibilities</strong>
-                        <ul>
-                          <!-- <li><strong>Automation Testing JD.</strong></li> -->
-                          <li>Implement security across the SDLC (DevSecOps practices).</li>
-                          <li>Perform threat modeling and enforce secure coding standards.</li>
-                          <li>Integrate security tools into CI/CD pipelines.</li>
-                          <li>Conduct application security testing (SAST, DAST, SCA).</li>
-                          <li>Identify, track, and remediate vulnerabilities.</li>
-                          <li>Secure cloud, containers, and Kubernetes environments.</li>
-                          <li>Manage IAM, secrets, and access controls.</li>
-                          <li>Monitor systems and respond to security incidents.</li>
-                          <li>Perform vulnerability assessments and penetration testing.</li>
-                          <li>Ensure compliance with security standards and policies.</li>
-                        </ul>
-                      </li>
-                      <hr>
-                      <li><strong>Nice to Have</strong>
-                        <ul>
-                          <li>Experience with Zero Trust architecture implementation.</li>
-                          <li>Exposure to compliance frameworks (ISO 27001, SOC 2, PCI-DSS).</li>
-                          <li>Knowledge of penetration testing methodologies.</li>
-                          <li>Experience with EDR/XDR tools (CrowdStrike, Defender).</li>
-                          <li>Understanding of microservices and distributed systems.</li>
-                        </ul>
-                      </li>
-                      <hr>
-                      <li><strong>Soft Skills</strong>
-                        <ul>
-                          <li>Strong communication and stakeholder management skills.</li>
-                          <li>Attention to detail and security mindset.</li>
-                          <li>Team collaboration and cross-functional coordination.</li>
-                          <li>Ability to work in a fast-paced, high-impact environment .</li>
-                        </ul>
-                      </li>
-                    </ul>
-
-                  </td>
-                </tr>
-
-              </table>
-            </div>
-
-
-            <div class="col-md-5">
-
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        <!-- <a href="https://docs.google.com/forms/d/e/1FAIpQLSelLFBDyGaP2ZQa5RQt9n7AphZ-FwajI2iuxqRDuTCDlYXaYw/viewform?usp=sharing&ouid=112274047517184181534" target="_blank" class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a> -->
-        <a href="https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./devsecops-+-cybersecurity" target="_blank"
-          class="btn btn-primary">Apply Now <img src="images/arrow.png" alt=""></a>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-
 <?php include 'footer.php'; ?>
 
+<!-- ========================= JS ========================= -->
 <script>
-  $(document).ready(function() {
-    $('.career-carousel').slick({
-      slidesToShow: 4,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 500,
-      infinite: true,
-      arrows: true,
-      dots: false,
-      responsive: [{
-          breakpoint: 992,
-          settings: {
-            slidesToShow: 3
-          }
-        },
-        {
-          breakpoint: 768,
-          settings: {
-            slidesToShow: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1
-          }
+  document.addEventListener("DOMContentLoaded", function() {
+
+    const baseUrl = "https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./";
+
+    document.querySelectorAll(".view-job").forEach(btn => {
+
+      btn.addEventListener("click", function(e) {
+
+        e.preventDefault();
+
+        let slug = this.getAttribute("data-slug");
+
+        if (!slug) {
+          alert("Job link not available");
+          return;
         }
-      ]
+
+        let finalUrl = baseUrl + slug;
+
+        window.open(finalUrl, "_blank");
+
+      });
+
     });
+
   });
 </script>

@@ -1,14 +1,97 @@
+<?php
+$currentPage = basename($_SERVER['PHP_SELF'], ".php");
+$apiPage = ($currentPage === 'index') ? 'home' : $currentPage;
+
+$seoApiUrl = "https://hrms.prathtech.com/api/method/get_seo_meta?page=" . urlencode($apiPage);
+
+$seoData = [];
+
+$ch = curl_init();
+curl_setopt_array($ch, [
+   CURLOPT_URL => $seoApiUrl,
+   CURLOPT_RETURNTRANSFER => true,
+   CURLOPT_FOLLOWLOCATION => true,
+   CURLOPT_TIMEOUT => 15,
+   CURLOPT_SSL_VERIFYPEER => false
+]);
+
+$seoResponse = curl_exec($ch);
+curl_close($ch);
+
+if ($seoResponse) {
+   $seoJson = json_decode($seoResponse, true);
+
+   if (isset($seoJson['message'])) {
+      $seoData = is_array($seoJson['message'][0] ?? null)
+         ? $seoJson['message'][0]
+         : $seoJson['message'];
+   }
+}
+
+/*
+|--------------------------------------------------------------------------
+| MAP API KEYS FLEXIBLY
+|--------------------------------------------------------------------------
+*/
+$metaTitle = $seoData['meta_title']
+   ?? $seoData['title']
+   ?? $seoData['page_title']
+   ?? 'Prath Technologies Pvt. Ltd.';
+
+$metaDescription = $seoData['meta_description']
+   ?? $seoData['description']
+   ?? $seoData['seo_description']
+   ?? 'Prath Technologies Pvt. Ltd.';
+
+$metaKeywords = $seoData['meta_keywords']
+   ?? $seoData['keywords']
+   ?? $seoData['seo_keywords']
+   ?? '';
+
+$metaImage = $seoData['meta_image']
+   ?? $seoData['image']
+   ?? $seoData['seo_image']
+   ?? 'https://prathtech.com/images/favicon.ico';
+
+$canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $currentPage);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-   <title>Prath Technologies Pvt. Ltd.</title>
+   <title><?= htmlspecialchars($metaTitle) ?></title>
+
    <meta charset="utf-8" />
    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
    <meta name="viewport" content="width=device-width, initial-scale=1" />
-   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+   <!-- Dynamic SEO Meta -->
+   <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
+   <meta name="keywords" content="<?= htmlspecialchars($metaKeywords) ?>">
+   <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl) ?>">
+
+   <!-- Open Graph -->
+   <meta property="og:title" content="<?= htmlspecialchars($metaTitle) ?>">
+   <meta property="og:description" content="<?= htmlspecialchars($metaDescription) ?>">
+   <meta property="og:image" content="<?= htmlspecialchars($metaImage) ?>">
+   <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl) ?>">
+   <meta property="og:type" content="website">
+
+   <!-- Twitter -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="<?= htmlspecialchars($metaTitle) ?>">
+   <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
+   <meta name="twitter:image" content="<?= htmlspecialchars($metaImage) ?>">
+
+
+
+   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet">
 
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
@@ -28,25 +111,98 @@
       }
    </style>
    <link href="css/header-new.css" rel="stylesheet">
+
+
+
+
+   <!-- Loader -->
+   <style>
+      html.loading,
+      html.loading body {
+         overflow: hidden;
+      }
+
+      /* html.loading body>*:not(.shape-overlays) {
+         visibility: hidden;
+      } */
+
+
+
+      .shape-overlays {
+         position: fixed;
+         inset: 0;
+         width: 100%;
+         height: 100%;
+         z-index: 999999;
+         display: block;
+      }
+
+      html.loading body>*:not(.shape-overlays):not(.loader-logo) {
+         opacity: 0;
+      }
+
+      body>*:not(.shape-overlays) {
+         transition: opacity 0.4s ease;
+      }
+   </style>
+   <script>
+      document.documentElement.classList.add('loading');
+   </script>
 </head>
 
 <body>
+
+
+
+   <!-- LOADER START -->
+   <div class="loader-logo">
+      <div class="loader-scan"></div>
+      <div class="loader-particles"></div>
+      <img src="images/logo.svg" alt="Logo">
+   </div>
+
+   <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+         <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#edf7fa" />
+            <stop offset="100%" stop-color="#b8d6e3" />
+         </linearGradient>
+
+         <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#b8d6e3" />
+            <stop offset="100%" stop-color="#edf7fa" />
+         </linearGradient>
+      </defs>
+
+      <!-- <path class="shape-overlays__path" fill="url(#gradient2)"></path> -->
+      <!-- <path class="shape-overlays__path" fill="url(#gradient1)"></path> -->
+   </svg>
+   <!-- LOADER END -->
+
+
+
    <header class="home-header">
       <div class="container-fluid width80">
          <div class="row">
             <nav class="navbar navbar-expand-xl mainmenu">
-               <a class="navbar-brand logodesktop" href="index"><img src="images/logo.svg" alt=""
+               <a class="navbar-brand logodesktop tooltip-follow" href=" index" data-tooltip="Home"><img src="images/logo.svg" alt="PrathTech company logo"
                      height="100" /></a>
+               <!-- <div id="cursorTooltip">Home</div> -->
                <!-- Hamburger Button (Mobile only) -->
-               <button class="navbar-toggler d-xl-none" type="button" id="hamburger">
+               <!-- <button class="navbar-toggler d-xl-none" type="button" id="hamburger"> -->
+               <button class="navbar-toggler d-xl-none" type="button" id="hamburger" aria-label="Open navigation menu"
+                  aria-controls="menu" aria-expanded="false">
                   <span class="navbar-toggler-icon"></span>
                </button>
                <!-- Desktop Menu -->
                <div class="collapse navbar-collapse d-none d-xl-block">
                   <ul class="navbar-nav ms-auto">
-                     <li class="nav-item"><a class="nav-link active" href="index"> <i class="bi bi-house-door me-2 nav-icon"></i> Home</a></li>
-                     <li class="nav-item"><a class="nav-link" href="about"><i class="bi bi-people me-2 nav-icon"></i> About Us</a></li>
-                     <li class="nav-item"><a class="nav-link" href="ourservices"> <i class="bi bi-gear me-2 nav-icon"></i> Our Services</a></li>
+                     <li class="nav-item"><a class="nav-link active" href="index"> <i
+                              class="bi bi-house-door me-2 nav-icon"></i> Home</a></li>
+                     <li class="nav-item"><a class="nav-link" href="about"><i class="bi bi-people me-2 nav-icon"></i>
+                           About Us</a></li>
+                     <li class="nav-item"><a class="nav-link" href="ourservices"> <i
+                              class="bi bi-gear me-2 nav-icon"></i> Our Services</a></li>
                      <!-- <ul class="menu">
                         <li class="menu-item has-submenu">
                            <a href="#">
@@ -57,7 +213,7 @@
 
                            <ul class="submenu">
 
-                            
+
                               <li class="menu-item has-submenu">
                                  <a href="#" class="new-li">
                                     <i class="bi bi-box-seam me-2"></i>
@@ -81,7 +237,7 @@
                                  </ul>
                               </li>
 
-                            
+
                               <li class="menu-item has-submenu">
                                  <a href="#" class="new-li">
                                     <i class="bi bi-diagram-3 me-2"></i>
@@ -105,7 +261,7 @@
                                  </ul>
                               </li>
 
-                             
+
                               <li class="menu-item has-submenu">
                                  <a href="#" class="new-li">
                                     <i class="bi bi-gear me-2"></i>
@@ -130,12 +286,33 @@
 
                         </li>
                      </ul> -->
-                     <li class="nav-item"><a class="nav-link" href="career"><i class="bi bi-briefcase me-2 nav-icon"></i>Career</a></li>
-                     <li class="nav-item"><a class="nav-link" href="contact"><i class="bi bi-envelope me-2 nav-icon"></i>Contact Us</a></li>
+                     <li class="nav-item"><a class="nav-link" href="career"><i
+                              class="bi bi-briefcase me-2 nav-icon"></i>Career</a></li>
+                     <li class="nav-item"><a class="nav-link" href="contact"><i
+                              class="bi bi-envelope me-2 nav-icon"></i>Contact Us</a></li>
                   </ul>
                   <div class="get_started_header" style="margin-left: 10px;">
-                     <a class="btn" href="contact">Get Started <img src="images/blackarrow.png" alt=""></a>
+                     <!-- <a class="btn" href="contact">Get Started<img src="images/blackarrow.png" alt="Arrow icon"></a> -->
+                     <a class="btn" href="contact" aria-label="Get started with PrathTech services">
+                        Get Started
+                        <img src="images/blackarrow.png" alt="prathtech" aria-hidden="true">
+                     </a>
                   </div>
+
+                  <!-- Toggle theme button  -->
+                  <!-- <li class="nav-item theme-toggle-item">
+                     <button class="theme-toggle" id="themeToggleDesktop" aria-label="Toggle dark mode">
+                        <span class="toggle-circle">
+                           <svg class="icon-sun" viewBox="0 0 24 24">
+                              <circle cx="12" cy="12" r="5" />
+                              <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4" />
+                           </svg>
+                           <svg class="icon-moon" viewBox="0 0 24 24">
+                              <path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8z" />
+                           </svg>
+                        </span>
+                     </button>
+                  </li> -->
                </div>
             </nav>
 
@@ -143,122 +320,71 @@
 
             <!-- Sticky nav-bar test -->
 
-
+            <!-- this nav added by trupti -->
             <nav id="globalStickyNav" class="navbar navbar-expand-xl mainmenu sticky">
                <div class="container">
 
-                  <a class="navbar-brand logodesktop" href="index">
-                     <img src="images/logo.svg" alt="" height="100">
+                  <a class="navbar-brand logodesktop tooltip-follow" href="index" data-tooltip="Refresh Home">
+                     <img src="images/logo.svg" alt="PrathTech company logo" height="100">
                   </a>
+                  <div id="cursorTooltip">Home</div>
 
-                  <button class="navbar-toggler d-xl-none" type="button">
+                  <!-- Mobile Toggle Button -->
+                  <button class="navbar-toggler d-xl-none" type="button" data-bs-toggle="collapse"
+                     data-bs-target="#stickyNavbar" aria-controls="stickyNavbar" aria-expanded="false"
+                     aria-label="Toggle navigation">
+
                      <span class="navbar-toggler-icon"></span>
                   </button>
 
-                  <div class="collapse navbar-collapse d-none d-xl-block">
+                  <!-- Navbar Menu -->
+                  <div class="collapse navbar-collapse" id="stickyNavbar">
+
                      <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="index"> <i class="bi bi-house-door me-2 nav-icon"></i>Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="about"><i class="bi bi-people me-2 nav-icon"></i>About Us</a></li>
-                        <li class="nav-item"><a class="nav-link" href="ourservices"><i class="bi bi-gear me-2 nav-icon"></i>Our Services</a></li>
 
-                        <!-- <ul class="menu">
-                           <li class="menu-item has-submenu">
-                              <a href="#">
-                                 Our Innovations
-                                 <i class="bi bi-chevron-down ms-2"></i>
-                              </a>
+                        <li class="nav-item">
+                           <a class="nav-link active" href="index">
+                              <i class="bi bi-house-door me-2 nav-icon"></i>Home
+                           </a>
+                        </li>
 
-                              <ul class="submenu">
+                        <li class="nav-item">
+                           <a class="nav-link" href="about">
+                              <i class="bi bi-people me-2 nav-icon"></i>About Us
+                           </a>
+                        </li>
 
-                                
-                                 <li class="menu-item has-submenu">
-                                    <a href="#">
-                                       <i class="bi bi-box-seam me-2"></i>
-                                       Products
-                                       <span class="arrow">
-                                          <i class="bi bi-chevron-right ms-2"></i>
-                                       </span>
+                        <li class="nav-item">
+                           <a class="nav-link" href="ourservices">
+                              <i class="bi bi-gear me-2 nav-icon"></i>Our Services
+                           </a>
+                        </li>
 
-                                    </a>
-                                    <ul class="submenu">
-                                       <li>
-                                          <a href="hrms">
-                                             <i class="bi bi-arrow-right-short me-2"></i> HRMS
-                                          </a>
-                                       </li>
-                                       <li>
-                                          <a href="#">
-                                             <i class="bi bi-arrow-right-short me-2"></i> SMS
-                                          </a>
-                                       </li>
-                                    </ul>
-                                 </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="career">
+                              <i class="bi bi-briefcase me-2 nav-icon"></i>Career
+                           </a>
+                        </li>
 
-                                 
-                                 <li class="menu-item has-submenu">
-                                    <a href="#">
-                                       <i class="bi bi-diagram-3 me-2"></i>
-                                       ERP
-                                       <span class="arrow">
-                                          <i class="bi bi-chevron-right ms-2"></i>
-                                       </span>
+                        <li class="nav-item">
+                           <a class="nav-link" href="contact">
+                              <i class="bi bi-envelope me-2 nav-icon"></i>Contact Us
+                           </a>
+                        </li>
 
-                                    </a>
-                                    <ul class="submenu">
-                                       <li>
-                                          <a href="#">
-                                             <i class="bi bi-arrow-right-short me-2"></i> PSIL Electrical
-                                          </a>
-                                       </li>
-                                       <li>
-                                          <a href="#">
-                                             <i class="bi bi-arrow-right-short me-2"></i> SGI
-                                          </a>
-                                       </li>
-                                    </ul>
-                                 </li>
-
-                                 
-                                 <li class="menu-item has-submenu">
-                                    <a href="#">
-                                       <i class="bi bi-gear me-2"></i>
-                                       Solutions
-                                       <span class="arrow">
-                                          <i class="bi bi-chevron-right ms-2"></i>
-                                       </span>
-
-                                    </a>
-                                    <ul class="submenu">
-                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
-                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> PMA</a></li>
-                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> SMA</a></li>
-                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> E-OFFICE</a></li>
-                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> GRIEVANCE</a></li>
-                                       <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> E-BOOKING</a></li>
-                                    </ul>
-                                 </li>
-
-                              </ul>
-
-
-                           </li>
-                        </ul> -->
-
-
-                        <li class="nav-item"><a class="nav-link" href="career"><i class="bi bi-briefcase me-2 nav-icon"></i>Career</a></li>
-                        <li class="nav-item"><a class="nav-link" href="contact"><i class="bi bi-envelope me-2 nav-icon"></i>Contact Us</a></li>
                      </ul>
 
                      <div class="get_started_header ms-3">
                         <a class="btn" href="contact">
-                           Get Started <img src="images/blackarrow.png" alt="">
+                           Get Started
+                           <img src="images/blackarrow.png" alt="prathtech" aria-hidden="true">
                         </a>
                      </div>
+
                   </div>
 
                </div>
             </nav>
-
 
 
             <!-- New Test Nav-Bar manu -->
@@ -272,10 +398,10 @@
                <div class="container-fluid mobilemenuheader">
                   <div class="row">
                      <div class="mobilelogo">
-                        <a href="#"><img src="images/logo.svg" alt="" height="80" /></a>
+                        <a href="#"><img src="images/logo.svg" alt="PrathTech company logo" height="80" /></a>
                      </div>
                      <div>
-                        <span class="menu-close"><img src="images/mobile-menu-close.png" alt="" /></span>
+                        <span class="menu-close"><img src="images/mobile-menu-close.png" alt="Close menu" /></span>
                      </div>
                   </div>
                </div>
@@ -354,7 +480,7 @@
                   <li><a class="nav-link" href="contact">Contact Us</a></li>
                </ul>
                <div class="get_started_header" style="margin-left: 10px;">
-                  <a class="btn" href="contact">Get Started <img src="images/arrow.png" alt=""></a>
+                  <a class="btn" href="contact">Get Started <img src="images/arrow.png" alt="contact"></a>
                </div>
             </div>
 
@@ -392,7 +518,8 @@
                </div>
             </div>
          </div>
-         <div class="bannerbottomImg"><img src="images/bannerBottom.png" alt="" style="width:100%"></div>
+         <div class="bannerbottomImg"><img src="images/bannerBottom.png" alt="Decorative banner background design"
+               style="width:100%"></div>
       </section>
       <section class="homeAbout_sction">
          <div class="parlgrm animate-slide-left"></div>
@@ -405,15 +532,15 @@
                </div>
                <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12">
                   <div class="abouttexttop">
-                     <h1 class="ftw400 split">We empower businesses to innovate, scale, and lead the digital future
-                        through cutting-edge IT solutions, deep expertise, and end-to-end technology excellence.</h1>
+                     <h2 class="ftw400 split">We empower businesses to innovate, scale, and lead the digital future
+                        through cutting-edge IT solutions, deep expertise, and end-to-end technology excellence.</h2>
                      <!-- <p class="abouttext-home split">With a robust in-house team of more than 120 engineers, architects, and developers, having more than 1,500 person-years of experience in providing end-to-end technology consulting, product engineering, and enterprise-grade software solutions.</p> -->
                   </div>
                </div>
             </div>
             <div class="row aboutbottomContainer">
                <div class="col-xl-7 col-lg-5" data-aos="zoom-in-up" data-aos-delay="100">
-                  <img src="images/about.jpg" alt="" class="homeaboutImage">
+                  <img src="images/about.jpg" alt="PrathTech team working on digital solutions" class="homeaboutImage">
                </div>
                <div class="col-xl-5 col-lg-7 col-md-12 aboutstatsContent">
                   <p class="split">At PrathTech, we deliver cutting-edge IT solutions that empower businesses to
@@ -425,11 +552,11 @@
                   <hr style="border-color: #e3e3e3; opacity: 1;">
                   <div class="d-flex gap-5 aboutstats">
                      <div data-aos="fade-up" data-aos-delay="100">
-                        <h1>120</h1>
+                        <h2>120</h2>
                         <span>Engineers, Architects, and Developers</span>
                      </div>
                      <div data-aos="fade-up" data-aos-delay="200">
-                        <h1>1500+</h1>
+                        <h2>1500+</h2>
                         <span>Person-years of experience in consulting</span>
                      </div>
                   </div>
@@ -438,19 +565,20 @@
          </div>
       </section>
       <section class="ourapproachSection">
-         <div class="approachbg"><img src="images/approachbg.png" alt="" class="img-fluid"></div>
+         <div class="approachbg"><img src="images/approachbg.png"
+               alt="Background illustration representing company approach" class="img-fluid"></div>
          <div class="container">
             <div class="row">
                <div class="subheading mb-5">Our Approach</div>
-               <h1 class="split">We embrace a transparent, agile approach that drives efficiency, ensures on-time
-                  delivery, and delivers measurable business results.</h1>
+               <h2 class="split">We embrace a transparent, agile approach that drives efficiency, ensures on-time
+                  delivery, and delivers measurable business results.</h2>
             </div>
          </div>
 
          <!-- here container-fluid replaced by container-->
          <div class="container approachContainer">
             <div class="gap-5 processcontentBox">
-            <!-- <div class="d-flex gap-5 "> -->
+               <!-- <div class="d-flex gap-5 "> -->
                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
                   <div class="position-relative d-inline-block">
                      <div class="step-number">01</div>
@@ -513,7 +641,7 @@
       </section>
       <section style="margin-top: -150px; position: relative; z-index: 0;">
          <!-- <section style="margin-top: -150px; position: relative; z-index: 19;"> -->
-         <div><img src="images/processbg.png" alt="" class="processbackground"></div>
+         <div><img src="images/processbg.png" alt="background" class="processbackground"></div>
          <div class="services">
             <div class="container mt-5 mb-8">
                <div class="row">
@@ -522,9 +650,9 @@
                   </div>
                   <div class="col-xl-9 col-md-12">
                      <div class="abouttexttop">
-                        <h1 class="ftw400 split">From application development to advanced DevOps, analytics,
+                        <h2 class="ftw400 split">From application development to advanced DevOps, analytics,
                            integration, and robust security, we deliver comprehensive technology solutions that drive
-                           digital transformation and operational excellence</h1>
+                           digital transformation and operational excellence</h2>
                      </div>
                   </div>
                </div>
@@ -546,7 +674,8 @@
                         efficient data flow, improved collaboration, and real-time decision-making across departments.
                      </p>
                   </div>
-                  <img src="images/enterprise-application.jpg" alt="" class="img-fluid">
+                  <img src="images/enterprise-application.jpg" alt="Enterprise application integration services"
+                     class="img-fluid">
                </div>
                <div class="card">
                   <div class="servicenumber">02.</div>
@@ -557,7 +686,8 @@
                         intelligent systems that boost productivity, enable seamless scalability, and enhance customer
                         satisfaction.</p>
                   </div>
-                  <img src="images/software-developement.jpg" alt="" class="img-fluid">
+                  <img src="images/software-developement.jpg" alt="Custom software development solutions"
+                     class="img-fluid">
                </div>
                <div class="card">
                   <div class="servicenumber">03.</div>
@@ -566,7 +696,8 @@
                      <p>We create powerful, user-centric mobile applications that boost customer engagement, streamline
                         operations, and drive sustained business growth across all platforms.</p>
                   </div>
-                  <img src="images/web-application-developement.jpg" alt="" class="img-fluid">
+                  <img src="images/web-application-developement.jpg" alt="Web application development services"
+                     class="img-fluid">
                </div>
                <div class="card">
                   <div class="servicenumber">04.</div>
@@ -576,11 +707,11 @@
                         streamline development, boost cross-team collaboration, and improve product quality.
                      </p>
                   </div>
-                  <img src="images/devOps.jpg" alt="devOps">
+                  <img src="images/devOps.jpg" alt="DevOps and CI/CD implementation services">
                </div>
             </div>
             <!--  <div class="text-center exploreservicebtnholder mt-5">
-               <a href="#" class="exploreservicebtn">Explore all Our Services <img src="images/arrow.png" alt=""></a>
+               <a href="#" class="exploreservicebtn">Explore all Our Services <img src="images/arrow.png" alt="prathtech"></a>
                </div> -->
          </div>
       </section>
@@ -636,25 +767,25 @@
          <div class="container position-relative" style="z-index: 1;">
             <!-- <div class="container position-relative" style="z-index: 99;"> -->
             <div class="row">
-               <h1>We offer many more services to help you grow.</h1>
+               <h2>We offer many more services to help you grow.</h2>
             </div>
             <div class="text-center">
                <a href="ourservices" class="custombutton">Explore All Our Services <img src="images/arrow.png"
-                     alt=""></a>
+                     alt="prathtech"></a>
             </div>
          </div>
          <div class="tickerContainer">
             <div class="container-fluid servicetext-carousel">
                <div class="row">
 
-                  <h3 class="textticker"><span>Web Application Development</span> <span>Mobile App Development</span>
-                     <span>Government & Public Sector Solutions</span>
-                     <span>DevOps & CI/CD Implementation </span><span> Grafana Implementation & Dashboard
+                  <h3 class="textticker"><span class="text-ticker-css">Web Application Development</span> <span class="text-ticker-css">Mobile App Development</span>
+                     <span class="text-ticker-css">Government & Public Sector Solutions</span>
+                     <span class="text-ticker-css">DevOps & CI/CD Implementation </span><span class="text-ticker-css"> Grafana Implementation & Dashboard
                         Analytics</span>
-                     <span>Containerization & Orchestration Services</span> <span>Cloud Monitoring & Logging
+                     <span class="text-ticker-css">Containerization & Orchestration Services</span> <span class="text-ticker-css">Cloud Monitoring & Logging
                         Solutions</span>
-                     <span>Cybersecurity & Compliance</span><span>Network Security & Firewall Configuration </span>
-                     <span>Enterprise Application Integration </span> <span>Software Testing & QA Services</span> <span>
+                     <span class="text-ticker-css">Cybersecurity & Compliance</span><span class="text-ticker-css">Network Security & Firewall Configuration </span>
+                     <span class="text-ticker-css">Enterprise Application Integration </span> <span class="text-ticker-css">Software Testing & QA Services</span> <span class="text-ticker-css">
                         UI/UX Design & Prototyping</span>
 
                   </h3>
@@ -667,9 +798,9 @@
             <div class="row">
                <div class="col-xl-7 col-md-12">
                   <div class="subheading mt-12">Why Choose Us</div>
-                  <h1 class="choose-title mt-5">Great Solutions for your<br> Business</h1>
+                  <h2 class="choose-title mt-5">Great Solutions for your<br> Business</h2>
                   <div class="choose-item" data-aos="fade-bottom" data-aos-delay="100">
-                     <div class="choose-icon"><img src="images/checkicon.png" alt=""></div>
+                     <div class="choose-icon"><img src="images/checkicon.png" alt="Checkmark icon"></div>
                      <div class="choose-content">
                         <h5>Client–Centric Approach</h5>
                         <p>We deeply understand your goals and craft tailored solutions that align perfectly with your
@@ -677,7 +808,7 @@
                      </div>
                   </div>
                   <div class="choose-item" data-aos="fade-bottom" data-aos-delay="200">
-                     <div class="choose-icon"><img src="images/checkicon.png" alt=""></div>
+                     <div class="choose-icon"><img src="images/checkicon.png" alt="Checkmark icon"></div>
                      <div class="choose-content">
                         <h5>Proven Expertise</h5>
                         <p>Our team of seasoned professionals brings extensive experience across a wide range of
@@ -685,7 +816,7 @@
                      </div>
                   </div>
                   <div class="choose-item" data-aos="fade-bottom" data-aos-delay="300">
-                     <div class="choose-icon"><img src="images/checkicon.png" alt=""></div>
+                     <div class="choose-icon"><img src="images/checkicon.png" alt="Checkmark icon"></div>
                      <div class="choose-content">
                         <h5>Quality & Reliability</h5>
                         <p>We uphold the highest standards of quality, performance, and security in every project we
@@ -693,7 +824,7 @@
                      </div>
                   </div>
                   <div class="choose-item" data-aos="fade-bottom" data-aos-delay="400">
-                     <div class="choose-icon"><img src="images/checkicon.png" alt=""></div>
+                     <div class="choose-icon"><img src="images/checkicon.png" alt="Checkmark icon"></div>
                      <div class="choose-content">
                         <h5>End–to–End Solutions</h5>
                         <p>From strategic consulting to seamless deployment and ongoing support, we manage every phase
@@ -701,7 +832,7 @@
                      </div>
                   </div>
                   <div class="choose-item" data-aos="fade-bottom" data-aos-delay="500">
-                     <div class="choose-icon"><img src="images/checkicon.png" alt=""></div>
+                     <div class="choose-icon"><img src="images/checkicon.png" alt="Checkmark icon"></div>
                      <div class="choose-content">
                         <h5>Continuous Innovation</h5>
                         <p>We stay ahead of emerging trends to integrate the latest, most effective technologies into
@@ -712,8 +843,10 @@
                <div class="col-xl-5 col-md-12 why_choose_us">
                   <!-- The Code  parlgrmbtm this commented by trupti for tablet-->
                   <!-- <div class="parlgrmbtm"></div> -->
-                  <img src="images/whyus.jpg" alt="" class="mt-10 whyusimg">
-                  <img src="images/tabwhyus.jpg" alt="" class="mt-10 tabwhyusimg">
+                  <img src="images/whyus.jpg" alt="PrathTech business solutions and team collaboration"
+                     class="mt-10 whyusimg">
+                  <img src="images/tabwhyus.jpg" alt="PrathTech services overview on tablet view"
+                     class="mt-10 tabwhyusimg">
                </div>
             </div>
          </div>
@@ -724,5 +857,37 @@
    <?php include 'footer.php'; ?>
 
 
-   <!-- <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+
+   <!-- TOGGLE THEME SCRIPT  -->
+   <!-- <script>
+      (function() {
+         const root = document.documentElement;
+         const stored = localStorage.getItem('theme');
+         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+         const initial = stored || (prefersDark ? 'dark' : 'light');
+
+         if (initial === 'dark') root.setAttribute('data-theme', 'dark');
+
+         function toggleTheme() {
+            const isDark = root.getAttribute('data-theme') === 'dark';
+            if (isDark) {
+               root.removeAttribute('data-theme');
+               localStorage.setItem('theme', 'light');
+            } else {
+               root.setAttribute('data-theme', 'dark');
+               localStorage.setItem('theme', 'dark');
+            }
+         }
+
+         // Sync all three toggles (desktop, sticky, mobile) — clicking any one flips them all
+         document.querySelectorAll('.theme-toggle').forEach(btn => {
+            btn.addEventListener('click', toggleTheme);
+         });
+      })();
+   </script> -->
+
+</body>
+
+</html>
+<!-- <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
    <script src="https://files.bpcontent.cloud/2026/02/18/07/20260218071820-CTHM6Q0D.js" defer></script> -->

@@ -1,16 +1,90 @@
 <?php
 $currentPage = basename($_SERVER['PHP_SELF'], ".php");
-?>
+$apiPage = ($currentPage === 'index') ? 'home' : $currentPage;
 
+$seoApiUrl = "https://hrms.prathtech.com/api/method/get_seo_meta?page=" . urlencode($apiPage);
+
+$seoData = [];
+
+$ch = curl_init();
+curl_setopt_array($ch, [
+   CURLOPT_URL => $seoApiUrl,
+   CURLOPT_RETURNTRANSFER => true,
+   CURLOPT_FOLLOWLOCATION => true,
+   CURLOPT_TIMEOUT => 15,
+   CURLOPT_SSL_VERIFYPEER => false
+]);
+
+$seoResponse = curl_exec($ch);
+curl_close($ch);
+
+if ($seoResponse) {
+   $seoJson = json_decode($seoResponse, true);
+
+   if (isset($seoJson['message'])) {
+      $seoData = is_array($seoJson['message'][0] ?? null)
+         ? $seoJson['message'][0]
+         : $seoJson['message'];
+   }
+}
+
+/*
+|--------------------------------------------------------------------------
+| MAP API KEYS FLEXIBLY
+|--------------------------------------------------------------------------
+*/
+$metaTitle = $seoData['meta_title']
+   ?? $seoData['title']
+   ?? $seoData['page_title']
+   ?? 'Prath Technologies Pvt. Ltd.';
+
+$metaDescription = $seoData['meta_description']
+   ?? $seoData['description']
+   ?? $seoData['seo_description']
+   ?? 'Prath Technologies Pvt. Ltd.';
+
+$metaKeywords = $seoData['meta_keywords']
+   ?? $seoData['keywords']
+   ?? $seoData['seo_keywords']
+   ?? '';
+
+$metaImage = $seoData['meta_image']
+   ?? $seoData['image']
+   ?? $seoData['seo_image']
+   ?? 'https://prathtech.com/images/favicon.ico';
+
+$canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $currentPage);
+?>
 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-   <title>About US : Prath Technologies Pvt. Ltd.</title>
+   <title><?= htmlspecialchars($metaTitle) ?></title>
+
    <meta charset="utf-8" />
    <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+   <!-- Dynamic SEO Meta -->
+   <meta name="description" content="<?= htmlspecialchars($metaDescription) ?>">
+   <meta name="keywords" content="<?= htmlspecialchars($metaKeywords) ?>">
+   <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl) ?>">
+
+   <!-- Open Graph -->
+   <meta property="og:title" content="<?= htmlspecialchars($metaTitle) ?>">
+   <meta property="og:description" content="<?= htmlspecialchars($metaDescription) ?>">
+   <meta property="og:image" content="<?= htmlspecialchars($metaImage) ?>">
+   <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl) ?>">
+   <meta property="og:type" content="website">
+
+   <!-- Twitter -->
+   <meta name="twitter:card" content="summary_large_image">
+   <meta name="twitter:title" content="<?= htmlspecialchars($metaTitle) ?>">
+   <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription) ?>">
+   <meta name="twitter:image" content="<?= htmlspecialchars($metaImage) ?>">
+
+
    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
@@ -22,7 +96,11 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
    <link rel="stylesheet" href="css/owl.carousel.css" />
    <link href="css/style.css" rel="stylesheet" />
    <!-- Header Css new  -->
+
    <link href="css/body-header-new.css" rel="stylesheet" />
+
+   <!-- chat-bot style -->
+   <link href="css/chatbot-style.css" rel="stylesheet" />
 
    <!-- our innovation style start  -->
 
@@ -42,15 +120,72 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
 
+   <!-- loader -->
+   <style>
+      html.loading,
+      html.loading body {
+         overflow: hidden;
+      }
+
+      /* html.loading body>*:not(.shape-overlays) {
+         visibility: hidden;
+      } */
+      .shape-overlays {
+         position: fixed;
+         inset: 0;
+         width: 100%;
+         height: 100%;
+         z-index: 999999;
+         display: block;
+      }
+
+      html.loading body>*:not(.shape-overlays):not(.loader-logo) {
+         opacity: 0;
+      }
+
+      body>*:not(.shape-overlays) {
+         transition: opacity .4s ease;
+      }
+   </style>
+   <script>
+      document.documentElement.classList.add('loading');
+   </script>
+
 </head>
 
 <body>
+
+   <!-- LOADER START -->
+
+   <div class="loader-logo">
+      <div class="loader-scan"></div>
+      <div class="loader-particles"></div>
+      <img src="images/logo.svg" alt="Logo">
+   </div>
+   <!-- LOADER START -->
+   <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <defs>
+         <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#edf7fa" />
+            <stop offset="100%" stop-color="#b8d6e3" />
+         </linearGradient>
+
+         <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#b8d6e3" />
+            <stop offset="100%" stop-color="#edf7fa" />
+         </linearGradient>
+      </defs>
+
+      <path class="shape-overlays__path" fill="url(#gradient2)"></path>
+      <path class="shape-overlays__path" fill="url(#gradient1)"></path>
+   </svg>
+   <!-- LOADER END -->
    <header>
       <div class="container-fluid width80">
          <div class="row">
             <!-- OG NAV-BAR -->
             <!-- <nav  class="navbar navbar-expand-xl mainmenu">
-                  <a class="navbar-brand logodesktop" href="index"><img src="images/logo.svg" alt="" height="100"/></a>
+                  <a class="navbar-brand logodesktop" href="index"><img src="images/logo.svg" alt="prathtech" height="100"/></a>
               
                   <button class="navbar-toggler d-xl-none" type="button" id="hamburger">
                   <span class="navbar-toggler-icon"></span>
@@ -66,7 +201,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                         <li class="nav-item"><a class="nav-link" href="contact">Contact Us</a></li>
                      </ul>
                      <div class="get_started_header" style="margin-left: 10px;">
-                        <a class="btn" href="contact">Get Started <img src="images/blackarrow.png" alt=""></a>
+                        <a class="btn" href="contact">Get Started <img src="images/blackarrow.png" alt="prathtech"></a>
                      </div>
                   </div>
                </nav> -->
@@ -77,7 +212,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                <div class="container">
 
                   <a class="navbar-brand logodesktop" href="index">
-                     <img src="images/logo.svg" alt="" height="100">
+                     <img src="images/logo.svg" alt="prathtech" height="100">
                   </a>
 
                   <button class="navbar-toggler d-xl-none" type="button" id="hamburger">
@@ -108,7 +243,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
 
                      <div class="get_started_header ms-3">
                         <a class="btn" href="contact">
-                           Get Started <img src="images/blackarrow.png" alt="">
+                           Get Started <img src="images/blackarrow.png" alt="prathtech">
                         </a>
                      </div>
                   </div>
@@ -122,9 +257,10 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
             <nav id="mainNav" class="navbar navbar-expand-xl mainmenu">
                <div class="container">
 
-                  <a class="navbar-brand logodesktop" href="index">
-                     <img src="images/logo.svg" alt="" height="100">
+                  <a class="navbar-brand logodesktop tooltip-follow" href="index " data-tooltip="Go to Home">
+                     <img src=" images/logo.svg" alt="prathtech" height="100">
                   </a>
+                  <div id="cursorTooltip">Go to Home</div>
 
                   <button class="navbar-toggler d-xl-none" type="button" id="hamburger">
                      <span class="navbar-toggler-icon"></span>
@@ -178,7 +314,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
 
                               <ul class="submenu">
 
-                                
+
                                  <li class="menu-item has-submenu">
                                     <a href="#">
                                        <i class="bi bi-box-seam me-2"></i>
@@ -205,7 +341,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                                     </ul>
                                  </li>
 
-                                 
+
                                  <li class="menu-item has-submenu">
                                     <a href="#">
                                        <i class="bi bi-diagram-3 me-2"></i>
@@ -232,7 +368,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                                     </ul>
                                  </li>
 
-                                 
+
                                  <li class="menu-item has-submenu">
                                     <a href="#">
                                        <i class="bi bi-gear me-2"></i>
@@ -279,7 +415,7 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
 
                      <div class="get_started_header ms-3">
                         <a class="btn" href="contact">
-                           Get Started <img src="images/blackarrow.png" alt="">
+                           Get Started <img src="images/blackarrow.png" alt="prathtech">
                         </a>
                      </div>
                   </div>
@@ -293,10 +429,10 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                <div class="container-fluid mobilemenuheader">
                   <div class="row">
                      <div class="mobilelogo">
-                        <a href="#"><img src="images/logo.svg" alt="" height="80" /></a>
+                        <a href="#"><img src="images/logo.svg" alt="prathtech" height="80" /></a>
                      </div>
                      <div>
-                        <span class="menu-close"><img src="images/mobile-menu-close.png" alt="" /></span>
+                        <span class="menu-close"><img src="images/mobile-menu-close.png" alt="prathtech" /></span>
                      </div>
                   </div>
                </div>
@@ -309,9 +445,13 @@ $currentPage = basename($_SERVER['PHP_SELF'], ".php");
                   <li><a class="nav-link" href="contact">Contact Us</a></li>
                </ul>
                <div class="get_started_header" style="margin-left: 10px;">
-                  <a class="btn" href="contact">Get Started <img src="images/arrow.png" alt=""></a>
+                  <a class="btn" href="contact">Get Started <img src="images/arrow.png" alt="prathtech"></a>
                </div>
             </div>
          </div>
       </div>
    </header>
+
+</body>
+
+</html>

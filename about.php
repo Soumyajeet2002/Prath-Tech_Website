@@ -5,11 +5,11 @@
    <section class="innerBanner">
       <div class="container-fluid width80">
          <div class="row">
-            <h6 style="letter-spacing: -1.5px;">Shaping ideas into impactful digital solutions.</h6>
+            <h6>Shaping ideas into impactful digital solutions.</h6>
             <h1 class="split">Empowering <br> Transformation</h1>
-            <div class="bannerbtmtext">Excellence Through Innovation.<img src="images/career-user.webp" alt=""></div>
+            <div class="bannerbtmtext">Excellence Through Innovation.<img src="images/career-user.webp" alt="prathtech"></div>
             <div><a href="ourservices" class="custombutton mt-4">View Our Services <img src="images/arrow.png"
-                     alt=""></a></div>
+                     alt="prathtech"></a></div>
          </div>
       </div>
    </section>
@@ -23,7 +23,7 @@
             </div>
             <div class="col-lg-7 col-md-12">
                <div class="aboutcompany">
-                  <h3>We are a team of strategists, creatives, and
+                  <h3 class="com-h3">We are a team of strategists, creatives, and
                      technologists passionate about helping brands thrive in the digital world. </h3>
                   <p>Prath Technologies Private Limited (PrathTech) is an <strong>STPI registered</strong> IT
                      solutions and digital transformation company incorporated in July 2024 and headquartered in
@@ -51,7 +51,7 @@
 
 
                   <div class="get_started_header">
-                     <a class="btn" href="contact">Get Started <img src="images/arrow.png" alt=""></a>
+                     <a class="btn" href="contact">Get Started <img src="images/arrow.png" alt="prathtech"></a>
                   </div>
 
                </div>
@@ -84,7 +84,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6 isocontainer">
-               <img src="images/iso14001.jpg" alt="" class="img-fluid">
+               <img src="images/iso14001.jpg" alt="prathtech" class="img-fluid">
                <div class="mt-5 isoContent">
                   <h5>ISO 14001:2015</h5>
                   <h6>Environmental Management System</h6>
@@ -92,7 +92,7 @@
             </div>
 
             <div class="col-lg-3 col-md-6 isocontainer">
-               <img src="images/iso27001.jpg" alt="" class="img-fluid">
+               <img src="images/iso27001.jpg" alt="prathtech" class="img-fluid">
                <div class="mt-5 isoContent">
                   <h5>ISO/IEC 27001:2022</h5>
                   <h6>Information Security Management System</h6>
@@ -100,14 +100,12 @@
             </div>
 
             <div class="col-lg-3 col-md-6 isocontainer">
-               <img src="images/iso20000.jpg" alt="" class="img-fluid">
+               <img src="images/iso20000.jpg" alt="prathtech" class="img-fluid">
                <div class="mt-5 isoContent">
                   <h5>ISO/IEC 20000-1:2018</h5>
                   <h6>Information Technology — Service Management</h6>
                </div>
             </div>
-
-
          </div>
       </div>
    </section>
@@ -131,11 +129,11 @@
             </div>
 
             <div class="col">
-               <img src="images/python_logo.svg" alt="pythonlogo">
+               <img src="images/python_logo.png" alt="pythonlogo">
             </div>
 
             <div class="col">
-               <img src="images/dotnet_logo.svg" alt="dotnetlogo">
+               <img src="images/dotnet_logo.png" alt="dotnetlogo">
             </div>
 
             <div class="col">

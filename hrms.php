@@ -5,10 +5,10 @@
   <section class="innerBanner">
     <div class="container-fluid width80">
       <div class="row">
-        <h6 style="letter-spacing: -1.5px;">Streamlining Workforce Management for Modern Organizations.</h6>
+        <h6>Streamlining Workforce Management for Modern Organizations.</h6>
         <h1 class="split">Next-Gen HR <br>Solutions</h1>
-        <div class="bannerbtmtext">Smart HR Solutions.<img src="images/career-user.webp" alt=""></div>
-        <div><a href="ourservices.html" class="custombutton mt-4">Get a Demo <img src="images/arrow.png" alt=""></a>
+        <div class="bannerbtmtext">Smart HR Solutions.<img src="images/career-user.webp" alt="prathtech"></div>
+        <div><a href="ourservices.html" class="custombutton mt-4">Get a Demo <img src="images/arrow.png" alt="prathtech"></a>
         </div>
       </div>
     </div>
@@ -51,24 +51,24 @@
         <div class="col-lg-6">
           <div class="swiper mySwiper mt-50">
             <div class="swiper-wrapper">
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/1.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/2.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/3.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/4.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/5.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/6.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/7.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/8.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/9.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/10.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/11.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/12.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/13.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/14.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/15.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/16.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/17.png" /></div>
-              <div class="swiper-slide"><img class="back-image" alt="" src="images/demo-screen/18.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/1.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/2.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/3.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/4.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/5.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/6.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/7.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/8.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/9.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/10.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/11.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/12.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/13.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/14.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/15.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/16.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/17.png" /></div>
+              <div class="swiper-slide"><img class="back-image" alt="prathtech" src="images/demo-screen/18.png" /></div>
             </div>
           </div>
         </div>
@@ -541,7 +541,7 @@
 
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                           <div class="accordion__img">
-                            <img src="images/contact/test-img-3.png" alt="">
+                            <img src="images/contact/test-img-3.png" alt="prathtech">
                           </div>
                         </div>
                       </div>
@@ -579,7 +579,7 @@
 
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                           <div class="accordion__img">
-                            <img src="images/contact/contact__2.png" alt="">
+                            <img src="images/contact/contact__2.png" alt="prathtech">
                           </div>
                         </div>
                       </div>
@@ -617,7 +617,7 @@
 
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                           <div class="accordion__img">
-                            <img src="images/contact/contact__2.png" alt="">
+                            <img src="images/contact/contact__2.png" alt="prathtech">
                           </div>
                         </div>
                       </div>
@@ -655,7 +655,7 @@
 
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                           <div class="accordion__img">
-                            <img src="images/contact/contact__2.png" alt="">
+                            <img src="images/contact/contact__2.png" alt="prathtech">
                           </div>
                         </div>
                       </div>
@@ -692,7 +692,7 @@
 
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                           <div class="accordion__img">
-                            <img src="images/contact/contact__2.png" alt="">
+                            <img src="images/contact/contact__2.png" alt="prathtech">
                           </div>
                         </div>
                       </div>
@@ -731,7 +731,7 @@
 
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                           <div class="accordion__img">
-                            <img src="images/contact/contact__2.png" alt="">
+                            <img src="images/contact/contact__2.png" alt="prathtech">
                           </div>
                         </div>
                       </div>
@@ -769,7 +769,7 @@
 
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                           <div class="accordion__img">
-                            <img src="images/contact/contact__2.png" alt="">
+                            <img src="images/contact/contact__2.png" alt="prathtech">
                           </div>
                         </div>
                       </div>
@@ -806,7 +806,7 @@
 
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                           <div class="accordion__img">
-                            <img src="images/contact/contact__2.png" alt="">
+                            <img src="images/contact/contact__2.png" alt="prathtech">
                           </div>
                         </div>
                       </div>
@@ -861,7 +861,7 @@
                   </div>
                   <div class="testimonial__3__author">
                     <div class="testimonial__3__img">
-                      <img src="images/testimonial/testimonial__4.png" alt="">
+                      <img src="images/testimonial/testimonial__4.png" alt="prathtech">
                     </div>
                     <div class="testimonial__3__name color__black">
                       <h6><a href="#">Mattie Warner</a></h6>
@@ -878,7 +878,7 @@
                   </div>
                   <div class="testimonial__3__author">
                     <div class="testimonial__3__img">
-                      <img src="images/testimonial/testimonial__5.png" alt="">
+                      <img src="images/testimonial/testimonial__5.png" alt="prathtech">
                     </div>
                     <div class="testimonial__3__name color__black">
                       <h6><a href="#">Kristin Gilbert</a></h6>
@@ -895,7 +895,7 @@
                   </div>
                   <div class="testimonial__3__author">
                     <div class="testimonial__3__img">
-                      <img src="images/testimonial/testimonial__6.png" alt="">
+                      <img src="images/testimonial/testimonial__6.png" alt="prathtech">
                     </div>
                     <div class="testimonial__3__name color__black">
                       <h6><a href="#">Arlene Miles</a></h6>
@@ -912,7 +912,7 @@
                   </div>
                   <div class="testimonial__3__author">
                     <div class="testimonial__3__img">
-                      <img src="images/testimonial/testimonial__4.png" alt="">
+                      <img src="images/testimonial/testimonial__4.png" alt="prathtech">
                     </div>
                     <div class="testimonial__3__name color__black">
                       <h6><a href="#">Mattie Warner</a></h6>
@@ -929,7 +929,7 @@
                   </div>
                   <div class="testimonial__3__author">
                     <div class="testimonial__3__img">
-                      <img src="images/testimonial/testimonial__5.png" alt="">
+                      <img src="images/testimonial/testimonial__5.png" alt="prathtech">
                     </div>
                     <div class="testimonial__3__name color__black">
                       <h6><a href="#">Mattie Warner</a></h6>
