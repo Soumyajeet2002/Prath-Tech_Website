@@ -174,8 +174,8 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
          </linearGradient>
       </defs>
 
-      <!-- <path class="shape-overlays__path" fill="url(#gradient2)"></path> -->
-      <!-- <path class="shape-overlays__path" fill="url(#gradient1)"></path> -->
+      <path class="shape-overlays__path" fill="url(#gradient2)"></path>
+      <path class="shape-overlays__path" fill="url(#gradient1)"></path>
    </svg>
    <!-- LOADER END -->
 
@@ -520,7 +520,15 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
          </div>
          <div class="bannerbottomImg"><img src="images/bannerBottom.png" alt="Decorative banner background design"
                style="width:100%"></div>
+
+         <!-- <div class="scroll-indicator">
+            <div class="scroll-mouse">
+               <span></span>
+            </div>
+            <p>SCROLL</p>
+         </div> -->
       </section>
+
       <section class="homeAbout_sction">
          <div class="parlgrm animate-slide-left"></div>
          <div class="container aboutContainer">
@@ -886,6 +894,8 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
       })();
    </script> -->
 
+
+   <!-- Custom scrollbar -->
 </body>
 
 </html>

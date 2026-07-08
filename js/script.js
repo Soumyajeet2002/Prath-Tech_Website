@@ -171,44 +171,6 @@ $(function () {
 
 
 gsap.registerPlugin(ScrollTrigger);
-// 
-// services section cards
-// function initServiceAnimations() {
-
-//     gsap.registerPlugin(ScrollTrigger);
-
-//     let cards = gsap.utils.toArray(".stackCard");
-
-//     if (!cards.length) return;
-
-//     let lastCardST = ScrollTrigger.create({
-//         trigger: cards[cards.length - 1],
-//         start: "center center"
-//     });
-
-//     cards.forEach((card, index) => {
-
-//         let scale = 1 - ((cards.length - index) * 0.03);
-
-//         let scaleDown = gsap.to(card, {
-//             scale: scale,
-//             ease: "none"
-//         });
-
-//         ScrollTrigger.create({
-//             trigger: card,
-//             start: "center center",
-//             end: () => lastCardST.start,
-//             pin: true,
-//             pinSpacing: false,
-//             scrub: true,
-//             animation: scaleDown
-//         });
-
-//     });
-
-//     ScrollTrigger.refresh();
-// }
 
 // Loader
 $(function () {
@@ -316,8 +278,9 @@ $(function () {
     )
     .to(".loader-logo", {
       y: 0,
-      duration: 1.2,
-      repeat: -1,
+      duration: 0.2,
+      scale: 2,
+      // repeat: -1,
       yoyo: true,
       ease: "sine.inOut"
     });
@@ -330,7 +293,7 @@ $(function () {
 
         // Small anticipation
         .to(".loader-logo", {
-          scale: 2.3,
+          scale: 2,
           rotation: 0,
           duration: 0.25,
           ease: "power2.out"
@@ -346,7 +309,7 @@ $(function () {
           ease: "expo.in"
         });
 
-    }, 1700);
+    }, 1000);
 
     // Start wave AFTER logo burst
     setTimeout(function () {
@@ -354,7 +317,7 @@ $(function () {
       isOpened = false;
       toggle();
 
-    }, 2600);
+    }, 1800);
 
     setTimeout(function () {
 
@@ -384,7 +347,6 @@ $(function () {
           document.querySelector(".loader-particles").remove();
 
           setTimeout(() => {
-            // initServiceAnimations();
             ScrollTrigger.refresh(true);
           }, 100);
         }
@@ -400,53 +362,9 @@ $(function () {
 
       }, 0);
 
-    }, 3400);
+    }, 2000);
 
   });
-  // $(window).on("load", function () {
-
-  //     setTimeout(function () {
-  //         isOpened = false;
-  //         toggle();
-  //     }, 1800);
-
-  //     setTimeout(function () {
-
-  //         // Make page visible first
-  //         document.documentElement.classList.remove("loading");
-
-
-  //         // Fade page in
-  // gsap.fromTo(
-  //     "body > *:not(.shape-overlays):not(.loader-logo)",
-  //     { opacity: 0 },
-  //     {
-  //         opacity: 1,
-  //         duration: 0.8,
-  //         ease: "power2.out"
-  //     }
-  // );
-
-  //         // Fade loader out
-  // gsap.to([overlay, ".loader-logo"], {
-  //     opacity: 0,
-  //     duration: 0.8,
-  //     onComplete: function () {
-  //         overlay.style.display = "none";
-
-  //         const logo = document.querySelector(".loader-logo");
-  //         if (logo) logo.style.display = "none";
-
-  //         // initServiceAnimations();
-  //     }
-  // });
-
-
-
-  //     }, 2500);
-
-  //     });
-
 });
 
 
@@ -508,3 +426,40 @@ function initCursorTooltip() {
 $(function () {
     initCursorTooltip();
 });
+
+
+
+
+// Floating Scrollbar
+$(function () {
+
+    const $thumb = $('.floating-scroll-thumb');
+
+    function updateScrollbar() {
+
+        const docHeight = document.documentElement.scrollHeight;
+        const viewportHeight = window.innerHeight;
+        const scrollTop = window.scrollY;
+
+        const thumbHeight = Math.max(
+            (viewportHeight / docHeight) * viewportHeight,
+            60
+        );
+
+        const maxMove = viewportHeight - thumbHeight;
+
+        const scrollPercent =
+            scrollTop / (docHeight - viewportHeight);
+
+        $thumb.css({
+            height: thumbHeight + 'px',
+            transform: `translateY(${scrollPercent * maxMove}px)`
+        });
+    }
+
+    $(window).on('scroll resize', updateScrollbar);
+
+    updateScrollbar();
+
+});
+

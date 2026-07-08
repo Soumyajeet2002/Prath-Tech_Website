@@ -452,6 +452,8 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
       </div>
    </header>
 
+
+   <!-- Custom scrollbar -->
 </body>
 
 </html>
