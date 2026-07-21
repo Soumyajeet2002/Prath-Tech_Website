@@ -5,7 +5,7 @@
   <section class="innerBanner">
     <div class="container-fluid width80">
       <div class="row">
-        <h6>Streamlining Workforce Management for Modern Organizations.</h6>
+        <h6>HRMS - Smart Human Resource Management System.</h6>
         <h1 class="split">Next-Gen HR <br>Solutions</h1>
         <div class="bannerbtmtext">Smart HR Solutions.<img src="images/career-user.webp" alt="prathtech"></div>
         <div><a href="ourservices.html" class="custombutton mt-4">Get a Demo <img src="images/arrow.png" alt="prathtech"></a>

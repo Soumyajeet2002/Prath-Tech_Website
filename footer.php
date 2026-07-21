@@ -348,6 +348,22 @@
    <script src="js/chatbot.js"></script>
 
    <!-- Footer chat-bot ends -->
+
+   <!-- BACK TO TOP BUTTON -->
+   <div class="scroll-top-wrap">
+     <svg class="progress-ring" width="64" height="64">
+       <circle class="progress-ring-bg" cx="32" cy="32" r="28"></circle>
+       <circle class="progress-ring-circle" cx="32" cy="32" r="28"></circle>
+     </svg>
+     <button class="scroll-top-btn">
+       <!-- <span class="progress-text">0%</span> -->
+       <!-- <i class="bi bi-arrow-up"></i> -->
+       <i class="bi bi-chevron-up"></i>
+     </button>
+   </div>
+
+   <!-- BACK TO TOP BUTTON ENDS-->
+
  </body>
 
 
@@ -693,7 +709,16 @@
  <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js'></script> -->
  <script src="./script.js"></script>
  <script src="js/script.js"></script>
+ <script src="js/e-hrms.js"></script>
 
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+
+ <!-- Swiper js -->
+
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+ <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
  <!-- Test SCript for banner section -->
  <script>
    if ($(window).width() > 780) {

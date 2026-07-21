@@ -147,9 +147,9 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
          transition: opacity .4s ease;
       }
    </style>
-   <script>
+   <!-- <script>
       document.documentElement.classList.add('loading');
-   </script>
+   </script> -->
 
 </head>
 
@@ -157,13 +157,13 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
 
    <!-- LOADER START -->
 
-   <div class="loader-logo">
+   <!-- <div class="loader-logo">
       <div class="loader-scan"></div>
       <div class="loader-particles"></div>
       <img src="images/logo.svg" alt="Logo">
-   </div>
+   </div> -->
    <!-- LOADER START -->
-   <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+   <!-- <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
       <defs>
          <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stop-color="#edf7fa" />
@@ -178,7 +178,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
 
       <path class="shape-overlays__path" fill="url(#gradient2)"></path>
       <path class="shape-overlays__path" fill="url(#gradient1)"></path>
-   </svg>
+   </svg> -->
    <!-- LOADER END -->
    <header>
       <div class="container-fluid width80">
@@ -287,7 +287,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
                         </li>
 
 
-                        <!-- <ul class="menu">
+                        <ul class="menu">
 
                            <li class="menu-item has-submenu">
 
@@ -297,7 +297,8 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
                                              'sms',
                                              'psil-electrical',
                                              'sgi',
-                                             'e-hrms',
+                                             'E-hrms',
+                                             'ams',
                                              'pma',
                                              'sma',
                                              'e-office',
@@ -379,7 +380,8 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
                                     </a>
 
                                     <ul class="submenu">
-                                       <li><a href="e-hrms" class="<?= ($currentPage == 'e-hrms') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
+                                       <li><a href="E-hrms" class="<?= ($currentPage == 'E-hrms') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
+                                       <li><a href="ams" class="<?= ($currentPage == 'ams') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> AMS</a></li>
                                        <li><a href="pma" class="<?= ($currentPage == 'pma') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> PMA</a></li>
                                        <li><a href="sma" class="<?= ($currentPage == 'sma') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> SMA</a></li>
                                        <li><a href="e-office" class="<?= ($currentPage == 'e-office') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> E-OFFICE</a></li>
@@ -392,7 +394,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
 
                            </li>
 
-                        </ul> -->
+                        </ul>
 
 
 

@@ -145,9 +145,9 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
          transition: opacity 0.4s ease;
       }
    </style>
-   <script>
+   <!-- <script>
       document.documentElement.classList.add('loading');
-   </script>
+   </script> -->
 </head>
 
 <body>
@@ -155,13 +155,13 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
 
 
    <!-- LOADER START -->
-   <div class="loader-logo">
+   <!-- <div class="loader-logo">
       <div class="loader-scan"></div>
       <div class="loader-particles"></div>
       <img src="images/logo.svg" alt="Logo">
-   </div>
+   </div> -->
 
-   <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
+   <!-- <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none">
       <defs>
          <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stop-color="#edf7fa" />
@@ -176,7 +176,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
 
       <path class="shape-overlays__path" fill="url(#gradient2)"></path>
       <path class="shape-overlays__path" fill="url(#gradient1)"></path>
-   </svg>
+   </svg> -->
    <!-- LOADER END -->
 
 
@@ -203,7 +203,8 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
                            About Us</a></li>
                      <li class="nav-item"><a class="nav-link" href="ourservices"> <i
                               class="bi bi-gear me-2 nav-icon"></i> Our Services</a></li>
-                     <!-- <ul class="menu">
+
+                     <ul class="menu">
                         <li class="menu-item has-submenu">
                            <a href="#">
                               <i class="bi bi-lightbulb me-2 nav-icon"></i>
@@ -272,7 +273,8 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
 
                                  </a>
                                  <ul class="submenu">
-                                    <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
+                                    <li><a href="E-hrms"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
+                                    <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> Ams</a></li>
                                     <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> PMA</a></li>
                                     <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> SMA</a></li>
                                     <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> E-OFFICE</a></li>
@@ -285,7 +287,8 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
 
 
                         </li>
-                     </ul> -->
+                     </ul>
+
                      <li class="nav-item"><a class="nav-link" href="career"><i
                               class="bi bi-briefcase me-2 nav-icon"></i>Career</a></li>
                      <li class="nav-item"><a class="nav-link" href="contact"><i
