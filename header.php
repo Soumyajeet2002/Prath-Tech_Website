@@ -287,7 +287,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
                         </li>
 
 
-                        <ul class="menu">
+                        <!-- <ul class="menu">
 
                            <li class="menu-item has-submenu">
 
@@ -297,8 +297,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
                                              'sms',
                                              'psil-electrical',
                                              'sgi',
-                                             'E-hrms',
-                                             'ams',
+                                             'e-hrms',
                                              'pma',
                                              'sma',
                                              'e-office',
@@ -380,8 +379,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
                                     </a>
 
                                     <ul class="submenu">
-                                       <li><a href="E-hrms" class="<?= ($currentPage == 'E-hrms') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
-                                       <li><a href="ams" class="<?= ($currentPage == 'ams') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> AMS</a></li>
+                                       <li><a href="e-hrms" class="<?= ($currentPage == 'e-hrms') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
                                        <li><a href="pma" class="<?= ($currentPage == 'pma') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> PMA</a></li>
                                        <li><a href="sma" class="<?= ($currentPage == 'sma') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> SMA</a></li>
                                        <li><a href="e-office" class="<?= ($currentPage == 'e-office') ? 'active' : '' ?>"><i class="bi bi-arrow-right-short me-2"></i> E-OFFICE</a></li>
@@ -394,7 +392,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
 
                            </li>
 
-                        </ul>
+                        </ul> -->
 
 
 

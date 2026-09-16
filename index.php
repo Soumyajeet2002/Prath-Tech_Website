@@ -203,8 +203,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
                            About Us</a></li>
                      <li class="nav-item"><a class="nav-link" href="ourservices"> <i
                               class="bi bi-gear me-2 nav-icon"></i> Our Services</a></li>
-
-                     <ul class="menu">
+                     <!-- <ul class="menu">
                         <li class="menu-item has-submenu">
                            <a href="#">
                               <i class="bi bi-lightbulb me-2 nav-icon"></i>
@@ -273,8 +272,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
 
                                  </a>
                                  <ul class="submenu">
-                                    <li><a href="E-hrms"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
-                                    <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> Ams</a></li>
+                                    <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> E-HRMS</a></li>
                                     <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> PMA</a></li>
                                     <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> SMA</a></li>
                                     <li><a href="#"><i class="bi bi-arrow-right-short me-2"></i> E-OFFICE</a></li>
@@ -287,8 +285,7 @@ $canonicalUrl = "https://prathtech.com/" . ($currentPage === 'index' ? '' : $cur
 
 
                         </li>
-                     </ul>
-
+                     </ul> -->
                      <li class="nav-item"><a class="nav-link" href="career"><i
                               class="bi bi-briefcase me-2 nav-icon"></i>Career</a></li>
                      <li class="nav-item"><a class="nav-link" href="contact"><i

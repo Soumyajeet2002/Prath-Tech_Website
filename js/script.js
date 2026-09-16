@@ -443,8 +443,6 @@ function initScrollTopButton() {
 
     const $wrap = $('.scroll-top-wrap');
     const $button = $('.scroll-top-btn');
-    const $text = $('.progress-text');
-    const $ripple = $('.ripple');
 
     const circle = document.querySelector('.progress-ring-circle');
 
@@ -459,31 +457,40 @@ function initScrollTopButton() {
     function updateProgress() {
 
         const scrollTop = $(window).scrollTop();
+        const documentHeight = $(document).height() - $(window).height();
 
-        const documentHeight =
-            $(document).height() - $(window).height();
-
-        const progress =
-            documentHeight > 0 ? scrollTop / documentHeight : 0;
-
-        const dashOffset =
-            circumference - (progress * circumference);
+        const progress = documentHeight > 0 ? scrollTop / documentHeight : 0;
+        const dashOffset = circumference - (progress * circumference);
 
         circle.style.strokeDashoffset = dashOffset;
-
-        $text.text(Math.round(progress * 100) + "%");
 
         if (scrollTop > 200) {
             $wrap.addClass("show");
         } else {
             $wrap.removeClass("show");
         }
-
     }
 
     $(window).on("scroll resize", updateProgress);
 
     $button.on("click", function () {
+
+        // Button click animation
+        gsap.fromTo(
+            ".scroll-top-btn i",
+            {
+                y: 0,
+                scale: 1
+            },
+            {
+                y: -6,
+                scale: 1.15,
+                duration: 0.25,
+                yoyo: true,
+                repeat: 1,
+                ease: "power2.out"
+            }
+        );
 
         window.scrollTo({
             top: 0,
@@ -493,139 +500,4 @@ function initScrollTopButton() {
     });
 
     updateProgress();
-
-}
-
-
-
-// Split text E-HRMS
-$(function () {
-    initSequentialSplitAnimation();
-});
-
-function initSequentialSplitAnimation() {
-
-    gsap.registerPlugin(ScrollTrigger);
-
-    $(".split-seq").each(function () {
-        splitIntoLinesSeq(this);
-    });
-
-    $(".split-sequence").each(function () {
-
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: this,
-                start: "top 60%",
-                toggleActions: "play none none reverse"
-            }
-        });
-
-        $(this).find(".split-seq").each(function () {
-
-            const lines = $(this).find(".line").toArray();
-
-            gsap.set(lines, {
-                yPercent: 100,
-                opacity: 0
-            });
-
-            tl.to(lines, {
-                yPercent: 0,
-                opacity: 1,
-                duration: 1.5,
-                ease: "power4.out",
-                stagger: 0.15
-            });
-
-        });
-
-    });
-
-    $(window).on("resize", function () {
-
-        ScrollTrigger.getAll().forEach(st => st.kill());
-
-        $(".split-seq").each(function () {
-            splitIntoLinesSeq(this);
-        });
-
-        initSequentialSplitAnimation();
-
-    });
-
-}
-
-/* Separate splitter */
-function splitIntoLinesSeq(el) {
-
-    const text = el.textContent.trim();
-    const words = text.split(/\s+/);
-
-    el.innerHTML = "";
-
-    const frag = document.createDocumentFragment();
-
- words.forEach(word => {
-
-    if (word === "__BR__") {
-        frag.appendChild(document.createElement("br"));
-        return;
-    }
-
-    const span = document.createElement("span");
-    span.className = "word";
-    span.textContent = word + " ";
-
-    frag.appendChild(span);
-});
-
-    el.appendChild(frag);
-
-    const wordEls = Array.from(el.querySelectorAll(".word"));
-    const groups = [];
-    const tolerance = 3;
-
-    wordEls.forEach(word => {
-
-        const top = Math.round(word.getBoundingClientRect().top);
-
-        let group = groups.find(g => Math.abs(g.top - top) <= tolerance);
-
-        if (!group) {
-            group = {
-                top,
-                words: []
-            };
-            groups.push(group);
-        }
-
-        group.words.push(word);
-
-    });
-
-    groups.sort((a, b) => a.top - b.top);
-
-    el.innerHTML = "";
-
-    groups.forEach(group => {
-
-        const line = document.createElement("span");
-        line.className = "line";
-
-        group.words.forEach(word => line.appendChild(word));
-
-        el.appendChild(line);
-
-    });
-  gsap.set(".word", {
-    onComplete() {
-        document.querySelectorAll(".word").forEach(word => {
-            if (word.textContent.trim() === "E-HRMS") {
-                word.classList.add("E-hrms");
-            }
-        });
-    }
-});
-
 }

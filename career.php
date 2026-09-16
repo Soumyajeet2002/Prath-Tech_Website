@@ -202,7 +202,18 @@ if (!empty($data['message']['data'])) {
             <span class="jobtype"><?php echo htmlspecialchars($experience); ?></span>
 
             <!-- VIEW DETAILS BUTTON -->
-            <a href="#" class="apply-btn view-job" data-slug="<?php echo htmlspecialchars($slug); ?>">
+            <!-- <a href="#" class="apply-btn view-job" data-slug="<?php echo htmlspecialchars($slug); ?>">
+              View Details
+            </a> -->
+            <!-- <a
+              href="career-description.php?slug=<?php echo urlencode($slug); ?>"
+              class="apply-btn view-job">
+              View Details
+            </a> -->
+
+            <a
+              href="career-desc.php?name=<?php echo urlencode($job['name'] ?? ''); ?>"
+              class="apply-btn view-job">
               View Details
             </a>
 
@@ -218,13 +229,24 @@ if (!empty($data['message']['data'])) {
       </div>
     <?php endif; ?>
 
+
   </div>
 </section>
 
 <?php include 'footer.php'; ?>
 
+<!-- <script>
+  console.log("Title:", <?php echo json_encode($title); ?>);
+  console.log("Openings:", <?php echo json_encode($openings); ?>);
+  console.log("Date Raw:", <?php echo json_encode($date_raw); ?>);
+  console.log("Formatted Date:", <?php echo json_encode($date); ?>);
+  console.log("Experience:", <?php echo json_encode($experience); ?>);
+  console.log("Slug:", <?php echo json_encode($slug); ?>);
+  console.log("Is New:", <?php echo json_encode($isNew); ?>);
+</script> -->
+
 <!-- ========================= JS ========================= -->
-<script>
+<!-- <script>
   document.addEventListener("DOMContentLoaded", function() {
 
     const baseUrl = "https://hrms.prathtech.com/jobs/prath_technologies_pvt._ltd./";
@@ -251,4 +273,4 @@ if (!empty($data['message']['data'])) {
     });
 
   });
-</script>
+</script> -->
